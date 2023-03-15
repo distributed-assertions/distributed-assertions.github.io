@@ -4,23 +4,31 @@ title: Dispatch
 permalink: /software/dispatch/
 ---
 
-***FIX: this is just the default text from the Dispatch README.md***
+# `Dispatch` &rarr; Join the DAMF with ease
 
-Welcome to the instructions page for Dispatch!
+`Dispatch` is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
-## Requirements
+## Obtaining and Building
 
-- `ipfs-go` (also known as 'Kubo') - tested version: `0.11.0`
-- `nodejs` - tested version: `v16.16.0`
-- `npm` - tested version: `8.19.1`
+### Source
 
-## In this repo
+- [Zip][dispatch-zip]
+- [Github][dispatch-repo]
 
-- Sources for the `dispatch` tool with building instructions below.
+[dispatch-zip]: assets/software/dispatch-main.zip
+[dispatch-repo]: https://github.com/distributed-assertions/dispatch
 
-## Building `dispatch`
+### Requirements
 
-In the root directory (the directory with this README file), run:
+- [`Kubo`][kubo] - previously known as `ipfs-go`
+- [`nodejs`][nodejs]
+
+[kubo]: https://github.com/ipfs/kubo
+[nodejs]: https://nodejs.org/en/
+
+### Building
+
+In the root directory of `Dispatch`, run:
 
 >     npm install
 
@@ -28,11 +36,13 @@ Then run:
 
 >     npm run build
 
+Generated executables for `linux`, `macOS`, and `Microsoft Windows` shall be found at the `executables/` directory.
+
 ----------------
 
-## Using `dispatch`
+## Using
 
-Once you have a built `dispatch` executables, it is recommended to test the tool starting from the root directory. The executables are found in `/executables` directory, so by calling `./executables/dispatch-linux` (or use the Windows or the macOS executable as needed), you should get the list of available commands. You can use `-h` option to get more information about each command and its arguments.
+Once you have a built `Dispatch` executables, it is recommended to test the tool starting from the root directory. The executables are found in `/executables` directory, so by calling `./executables/dispatch-linux` (or use the Windows or the macOS executable as needed), you should get the list of available commands. You can use `-h` option to get more information about each command and its arguments.
 
 In the rest of this document, we will use `dispatch` to stand for whichever executable you chose earlier.
 
