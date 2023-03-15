@@ -13,7 +13,7 @@ permalink: /software/dispatch/
 - [Zip][dispatch-zip]
 - [Github][dispatch-repo]
 
-[dispatch-zip]: assets/software/dispatch-main.zip
+[dispatch-zip]: https://github.com/distributed-assertions/dispatch/archive/refs/heads/main.zip
 [dispatch-repo]: https://github.com/distributed-assertions/dispatch
 
 ### Requirements
