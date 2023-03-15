@@ -32,8 +32,8 @@ recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2), do the following:
 ### Using
 
 1. Prerequisite: you must setup [Dispatch](/software/dispatch/). In particular:
-   * You will need to know the path to the Dispatch executable.
-   * You will need to create, at minimum, an agent profile using `dispatch create-agent`.
+     * You will need to know the path to the Dispatch executable.
+     * You will need to create, at minimum, an agent profile using `dispatch create-agent`.
 2. Place the following in `$XDG_CONFIG_HOME/abella/config.json` (creating the
    containing directory if it doesn't exist). If `$XDG_CONFIG_HOME` is not
    defined in your environment, use `$HOME/.config/abella/config.json` instead.
