@@ -7,12 +7,13 @@ authors:
 ---
 # Distributed Assertion Management Framework
 
-![image info](./assets/logo/damf.png){ width="60" }
+![DAMF Logo](/assets/logo/damf.png){ width="60" }
 The _Distributed Assertion Management Framework_ (DAMF) is a proposed collection
 of formats and techniques to enable heterogeneous formal reasoning systems and
 users to communicate _assertions_ in a decentralized, reliable, and egalitarian
-manner. An _assertion_ is a unit of mathematical knowledge: think lemmas,
-theorems, corollaries, etc.
+manner. An _assertion_ is a unit of mathematical knowledge---think lemmas,
+theorems, corollaries, etc.---that also contains a cryptographic signature of
+its originator.
 
 The philosophy of DAMF is explained in this technical report:
 
@@ -40,6 +41,6 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
     * **[Abella DAMF](/abella/)**, a version of the
       [Abella](https://abella-prover.org) with DAMF support
     * [λProlog](/lprolog/) integrated with DAMF
-* Read an **[example walkthrough](/example/)** of using a heterogeneous
+* Read an **[example walkthrough](/example-walkthrough/)** of using a heterogeneous
   combination of systems to prove an assertion
 * Read a [brief history of DAMF](/history/)

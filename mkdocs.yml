@@ -39,4 +39,5 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.superfences
+  - smarty
 copyright: Copyright &copy; 2023 . Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller
