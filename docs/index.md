@@ -12,8 +12,8 @@ The _Distributed Assertion Management Framework_ (DAMF) is a proposed collection
 of formats and techniques to enable heterogeneous formal reasoning systems and
 users to communicate _assertions_ in a decentralized, reliable, and egalitarian
 manner. An _assertion_ is a unit of mathematical knowledge---think lemmas,
-theorems, corollaries, etc.---that also contains a cryptographic signature of
-its originator.
+theorems, corollaries, etc.---that is cryptographically signed by its
+originator.
 
 The philosophy of DAMF is explained in this technical report:
 
