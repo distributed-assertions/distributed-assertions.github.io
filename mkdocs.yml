@@ -35,6 +35,10 @@ extra_css:
   - stylesheets/extra.css
 extra:
   generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/distributed-assertions
+      name: DAMF on github
 markdown_extensions:
   - attr_list
   - md_in_html
