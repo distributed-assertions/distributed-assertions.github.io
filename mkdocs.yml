@@ -1,13 +1,16 @@
 site_name: Distributed Assertion Management Framework
 nav:
-    - 'index.md'
-    - 'history.md'
-    - 'dispatch.md'
-    - 'edge.md'
-    - 'example-walkthrough.md'
+    - Home: 'index.md'
+    - Dispatch: 'dispatch.md'
+    - 'Edge Systems':
+        - 'Abella DAMF': 'abella.md'
+        - 'λProlog': 'lprolog.md'
+    - 'Example': 'example-walkthrough.md'
+    - 'About':
+        - History: 'history.md'
 theme:
   name: material
-  palette: 
+  palette:
     - scheme: default
       toggle:
         icon: material/lightning-bolt-outline
@@ -30,12 +33,10 @@ theme:
     - navigation.expand
 extra_css:
   - stylesheets/extra.css
-repo_url: https://github.com/distributed-assertions/distributed-assertions.github.io
-repo_name: DAMF website
-edit_uri: ""
 extra:
   generator: true
 markdown_extensions:
   - attr_list
   - md_in_html
+  - pymdownx.superfences
 copyright: Copyright &copy; 2023 . Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller

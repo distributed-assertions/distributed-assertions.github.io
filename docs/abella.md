@@ -1,6 +1,6 @@
 # Abella DAMF
 
-_Abella DAMF_ is a branch of the [Abella theorem
+**Abella DAMF** is a branch of the [Abella theorem
 prover](https://abella-prover.org) that is designed to use and publish [DAMF](/)
 assertions.
 
@@ -37,23 +37,21 @@ recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2), do the following:
 2. Place the following in `$XDG_CONFIG_HOME/abella/config.json` (creating the
    containing directory if it doesn't exist). If `$XDG_CONFIG_HOME` is not
    defined in your environment, use `$HOME/.config/abella/config.json` instead.
-
    ~~~~js
    {
      "damf.dispatch": "/path/to/dispatch-executable",
      "damf.agent": "agent-profile-name"
    }
    ~~~~
-
    Replace the values with the path to the Dispatch executable and the name of
    your agent profile you created in step 1.
 3. Abella DAMF currently only runs in batch mode, meaning that you can only
    process entire `.thm` files at a time. DAMF mode is enabled with the
    following switches:
-   * `--damf-imports`: this will enable `Import "damf:..."` statements.
-   * `--damf-publish DEST`: to enable publishing DAMF assertions signed with
-     your agent profile. `DEST` is one of the following:
-     - `local` (for your local IPFS store, managed by whichever IPFS daemon you
-       use, e.g., Kupo)
-     - `cloud` (for publishing through `web3.storage`; see the
-       [Dispatch](/software/dispatch/) documentation for details)
+     * `--damf-imports`: this will enable `Import "damf:..."` statements.
+     * `--damf-publish DEST`: to enable publishing DAMF assertions signed with
+       your agent profile. `DEST` is one of the following:
+         - `local` (for your local IPFS store, managed by whichever IPFS daemon you
+           use, e.g., Kupo)
+         - `cloud` (for publishing through `web3.storage`; see the
+           [Dispatch](/software/dispatch/) documentation for details)

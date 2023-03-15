@@ -1,4 +1,11 @@
-# Distributed Assertion Management Framework (DAMF)
+---
+title: DAMF
+authors:
+  - Farah Al Wardani
+  - Kaustuv Chaudhuri
+  - Dale Miller
+---
+# Distributed Assertion Management Framework
 
 ![image info](./assets/logo/damf.png){ width="60" }
 The _Distributed Assertion Management Framework_ (DAMF) is a proposed collection
@@ -27,3 +34,12 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 
 [ipfs]: https://ipfs.tech
 [ipld]: https://ipld.io
+
+* Install **[Dispatch](/dispatch/)**, an intermediary tool that helps in integrating systems
+* Experiment with some edge systems. In particular:
+    * **[Abella DAMF](/abella/)**, a version of the
+      [Abella](https://abella-prover.org) with DAMF support
+    * [λProlog](/lprolog/) integrated with DAMF
+* Read an **[example walkthrough](/example/)** of using a heterogeneous
+  combination of systems to prove an assertion
+* Read a [brief history of DAMF](/history/)
