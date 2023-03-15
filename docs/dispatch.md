@@ -1,6 +1,6 @@
 # Dispatch: Join the DAMF with ease
 
-`Dispatch` is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
+**Dispatch** is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
 ## Obtaining and Building
 
