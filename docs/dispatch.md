@@ -1,10 +1,8 @@
 ---
 layout: page
-title: Dispatch
+title: Dispatch → Join the DAMF with ease
 permalink: /software/dispatch/
 ---
-
-# `Dispatch` &rarr; Join the DAMF with ease
 
 `Dispatch` is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
