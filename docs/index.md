@@ -1,6 +1,6 @@
----
-layout: home
----
+# Distributed Assertion Management Framework (DAMF)
+
+![image info](./assets/logo/damf.png){ width="60" }
 The _Distributed Assertion Management Framework_ (DAMF) is a proposed collection
 of formats and techniques to enable heterogeneous formal reasoning systems and
 users to communicate _assertions_ in a decentralized, reliable, and egalitarian
@@ -27,21 +27,3 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 
 [ipfs]: https://ipfs.tech
 [ipld]: https://ipld.io
-
-## Software
-
-TODO: Insert some explanatory text here.
-
-### Intermediary
-
-* [Dispatch](/software/dispatch/)
-
-### Edge systems
-
-* [&lambda;Prolog](/software/lprolog/)
-* [Abella DAMF](/software/abella/)
-* [Coq DAMF](/edge/coq/) -- to come; stay tuned!
-
-## Example Walkthrough
-
-TODO: full walkthrough here

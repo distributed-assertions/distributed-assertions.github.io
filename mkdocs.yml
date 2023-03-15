@@ -1,0 +1,41 @@
+site_name: Distributed Assertion Management Framework
+nav:
+    - 'index.md'
+    - 'history.md'
+    - 'dispatch.md'
+    - 'edge.md'
+    - 'example-walkthrough.md'
+theme:
+  name: material
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/lightning-bolt-outline
+        name: :Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/lightning-bolt
+        name: Switch to light mode
+  font:
+    text:  M PLUS Rounded 1c
+    code: Roboto Mono
+  logo: assets/logo/logo.png
+  favicon: assets/logo/favicon.ico
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - toc.follow
+    - navigation.top
+    - navigation.expand
+extra_css:
+  - stylesheets/extra.css
+repo_url: https://github.com/distributed-assertions/distributed-assertions.github.io
+repo_name: DAMF website
+edit_uri: ""
+extra:
+  generator: true
+markdown_extensions:
+  - attr_list
+  - md_in_html
+copyright: Copyright &copy; 2023 . Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller
