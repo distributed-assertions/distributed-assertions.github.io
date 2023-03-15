@@ -15,5 +15,31 @@ There are two main implementations of &lambda;Prolog.
  - [Teyjus](https://github.com/teyjus/teyjus) compiler of λProlog. [Version 2.1.1](https://github.com/teyjus/teyjus/releases) was released on 7 February 2023.
 
 
-TODO: Provide a description of the &lambda;Prolog code for generating JSON objects for input to the DAMF Dispatch program.
+The &lambda;Prolog code for producing JSON objects suitable for the Dispatch program are in [assets/lProlog](assets/lProlog/)folder.
 
+The following description assumes that one is using the Teyjus compiler for &lambda;Prolog and that all the .mod files are compiled and linked.
+
+The process for generating JSON involves the following additional files, all based on a common name, here written as `FILE`.  There are three input files (the first three described here) and one output file.
+
+ - `FILE.sig` - the kind/type declarations needed
+ - `FILE.mod` - find here the lambda Prolog clauses
+ - `FILE.goals` - these are the named goals that will be printed as theorems.
+ - `FILE.json`  - the output file for dispatch
+
+Currently, the specific instructions to use this code are the following: 
+
+ - Add "accumlate FILE." to `harness.mod`
+ - Add "accum_sig FILE." to `harness.sig`
+ - Run both `tjcc` and `tjsim` on `FILE`, eg: `> tjcc arith ; tjlink arith`
+ - Make sure that FILE.goals has no blank lines.
+ - Compiler and run: 
+ ```tjcc harness ; tjlink harness ; tjsim harness```
+ - Issue the goal: `json FILE`.
+ - The result is `FILE.json`.
+
+Toplevel command in `tjsim`, once harness and associated modules have been compiled and loaded:  
+
+```
+> tjsim harness
+?- json "File".
+```
