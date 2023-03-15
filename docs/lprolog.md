@@ -1,8 +1,4 @@
----
-layout: page
-title: λProlog Bridge to DAMF
-permalink: /software/lprolog/
----
+# λProlog Bridge to DAMF
 
 &lambda;Prolog is logic programming language that extends Prolog in a number of ways. In particular, it has a built-in and declarative treatment of term-level bindings.  For more about &lambda;Prolog, see:
 
