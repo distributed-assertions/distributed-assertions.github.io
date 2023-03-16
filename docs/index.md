@@ -36,7 +36,8 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 [ipfs]: https://ipfs.tech
 [ipld]: https://ipld.io
 
-* Explore the proposed **[Formats](/damf-formats/)** in DAMF.
+* Explore the proposed **[DAMF Formats](/damf-formats/)**.
+* Read about **[Processes](/damf-processes/)** in DAMF.
 * Install **[Dispatch](/dispatch/)**, an intermediary tool that helps in integrating systems
 * Experiment with some edge systems. In particular:
     * **[Abella DAMF](/abella/)**, a version of the
