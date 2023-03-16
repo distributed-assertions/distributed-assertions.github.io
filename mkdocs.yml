@@ -1,6 +1,7 @@
 site_name: Distributed Assertion Management Framework
 nav:
     - Home: 'index.md'
+    - DAMF Formats: 'damf-formats.md'
     - Dispatch: 'dispatch.md'
     - 'Edge Systems':
         - 'Abella DAMF': 'abella.md'
