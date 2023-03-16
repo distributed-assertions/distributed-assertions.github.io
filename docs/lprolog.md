@@ -15,9 +15,7 @@ There are two main implementations of &lambda;Prolog.
   [Version 2.1.1](https://github.com/teyjus/teyjus/releases) was released on 7 February 2023.
 
 The &lambda;Prolog code for producing JSON objects suitable for Dispatch are in
-[this folder][lProlog-code].
-
-[lProlog-code]: https://github.com/distributed-assertions/distributed-assertions.github.io/tree/main/docs/assets/lProlog
+[this folder](/assets/lProlog/listing/).
 
 The following description assumes that one is using the Teyjus compiler for
 &lambda;Prolog and that all the .mod files are compiled and linked.
