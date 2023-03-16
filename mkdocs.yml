@@ -34,6 +34,7 @@ theme:
     - toc.follow
     - navigation.top
     - navigation.expand
+    - navigation.footer
 extra_css:
   - stylesheets/extra.css
 extra:
