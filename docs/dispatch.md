@@ -150,7 +150,7 @@ Examples of these formats can be found at the [dispatch github repository](https
 
 *Description*
 
-    publish one of the DAMF formats starting from a dispatch standard input format.
+    publish a DAMF object starting from a dispatch standard input format.
 
 *Usage*
 
