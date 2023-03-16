@@ -25,7 +25,7 @@ The philosophy of DAMF is explained in this technical report:
 The technical construction of DAMF is explained in this draft paper:
 
 > Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller (2023). _[Formal
-> Reasoning using Distributed Assertions][cade23draft]_. Submitted: 2023-02-28.
+> Reasoning using Distributed Assertions][cade23draft]_. Submitted: 2023-03-08.
 
 [cade23draft]: /assets/papers/draft23damf.pdf
 
