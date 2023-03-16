@@ -2,6 +2,8 @@
 
 **Dispatch** is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
+It is based on the [DAMF Formats](/damf-formats/) specification and implements the main [DAMF processes](/damf-processes/).
+
 ## Obtaining and Building
 
 ### Source
@@ -36,7 +38,7 @@ Generated executables for `linux`, `macOS`, and `Microsoft Windows` shall be fou
 
 ## Commands
 
-Calling `dispatch` will list the available commands. Using `dispatch <command> -h` lists more information about each command and its arguments.
+**Dispatch** consists of a collection of CLI commands. Running the `dispatch` executable will list the available commands. Using `dispatch <command> -h` lists more information about each command and its arguments.
 
 ### Configuration
 
@@ -48,7 +50,9 @@ Calling `dispatch` will list the available commands. Using `dispatch <command> -
 
 *Usage*
 
-Call `create-agent <agent-profile-name>` to create an *agent profile* in the local `.config/dispatch/agentprofiles.json` file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it's referred by its name in the [publish](#publish) command.
+Run `create-agent <agent-profile-name>` to create an *agent profile* in the local `.config/dispatch/agentprofiles.json` file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it's referred by its name in the [publish](#publish) command.
+
+:warning: **Caution** ~ Remember to keep your private key *private*.
 
 #### create-tool
 
@@ -58,7 +62,7 @@ Call `create-agent <agent-profile-name>` to create an *agent profile* in the loc
 
 *Usage*
 
-Call `create-tool <tool-profile-name> <input-type> <input>` to create a *tool profile* in the local `.config/dispatch/toolprofiles.json` file. A tool profile object contains the cid for the *tool object*, and it's referred by its name in the [publish](#publish) command.
+Run `create-tool <tool-profile-name> <input-type> <input>` to create a *tool profile* in the local `.config/dispatch/toolprofiles.json` file. A tool profile object contains the cid for the *tool object*, and it's referred by its name in the [publish](#publish) command.
 
 The `<input-type>` argument takes one of three possible values:
 
@@ -76,7 +80,7 @@ In (1) and (2), this command will [publish](#publish) the described tool as a *t
 
 *Usage*
 
-Call `create-language <language-profile-name> <input-type> <input>` to create a *language profile* in the local `.config/dispatch/languages.json` file. A language profile object contains the cid for the *language object*, and it's referred by its name in the [publish](#publish) command.
+Run `create-language <language-profile-name> <input-type> <input>` to create a *language profile* in the local `.config/dispatch/languages.json` file. A language profile object contains the cid for the *language object*, and it's referred by its name in the [publish](#publish) command.
 
 The `<input-type>` argument takes one of three possible values:
 
@@ -90,17 +94,37 @@ In (1) and (2), this command will [publish](#publish) the described language as 
 
 *Description*
 
-    set personal web3.storage api token.
+    setup a personal web3.storage API token.
 
 *Usage*
+
+**Dispatch** initially publishes objects through the local IPFS daemon, and pins them *locally* on the local IPFS node. This means that initial requests to get a `cid` will have to retrieve it from the publisher's local IPFS node, which could be a bit slow at the beginning. In order to make the retrieval process faster, **Dispatch** uses the [web3.storage](https://web3.storage) service as a *pinning service* that serves in making published objects more easily discoverable through the IPFS network.
+
+In order to use this service:
+
+1. Create a [web3.storage account](https://web3.storage/login/) and [generate an API token](https://web3.storage/docs/how-tos/generate-api-token/).
+
+    :warning: **Caution** ~ This API token shall be known only to the account's user(s).
+
+2. Run `set-web3token <token>` with the generated API token as an argument.
+
+Using this service is optional and decided by the user when invoking the [publish](#publish) command.
 
 #### set-gateway
 
 *Description*
 
-    set gateway for retrieval.
+    setup a gateway for retrieval.
 
 *Usage*
+
+Starting from a `cid`, **Dispatch** initially tries to retrieve the corresponding DAG through the local IPFS daemon. If the retrieval was unsuccessful (after some specified timeout [TODO]), **Dispatch** tries to use a *gateway* to aid in this process.
+
+Think of a *gateway* as a *well-connected* IPFS node that can discover stuff faster. More about gateways and their usage can be found at the [IPFS official docs](https://docs.ipfs.tech/concepts/ipfs-gateway).
+
+The default gateway is set to `https://dweb.link`.
+
+To set a different gateway, run `dispatch set-gateway <gateway>`. Note that the specified gateway should support the IPFS DAG API.
 
 #### list-config
 
@@ -109,6 +133,8 @@ In (1) and (2), this command will [publish](#publish) the described language as 
     list configuration parameters.
 
 *Usage*
+
+Run `list-config` to display the configuration parameters.
 
 ### Publishing
 
