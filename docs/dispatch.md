@@ -118,7 +118,7 @@ Using this service is optional and decided by the user when invoking the [publis
 
 *Usage*
 
-Starting from a `cid`, **Dispatch** initially tries to retrieve the corresponding DAG through the local IPFS daemon. If the retrieval was unsuccessful (after some specified timeout [TODO]), **Dispatch** tries to use a *gateway* to aid in this process.
+Starting from a `cid`, **Dispatch** initially tries to retrieve the corresponding DAG through the local IPFS daemon. If the retrieval was unsuccessful, **Dispatch** tries to use a *gateway* to aid in this process.
 
 Think of a *gateway* as a *well-connected* IPFS node that can discover stuff faster. More about gateways and their usage can be found at the [IPFS official docs](https://docs.ipfs.tech/concepts/ipfs-gateway).
 
@@ -180,6 +180,10 @@ Examples of these formats can be found at the [dispatch github repository](https
 
 Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting from its `cid` and construct the corresponding standard output which contains the full DAG. `<directory-path>` refers to the container directory for the resulting output file.
 
+:warning: Make sure that the gateway is set as described in the [set-gateway](#set-gateway) command section.
+
+:information_source: Note that if the `ipfs daemon` is deactivated, the retrieval process will be successful in case the full DAG is present locally (if it was previously retrieved for example). If there were missing links, the gateway will be used. If the `ipfs daemon` is activated, the gateway will be used if the local daemon fails to retrieve the full DAG within [TODO] a specified time range.
+
 ### Trust Analysis
 
 #### lookup
@@ -187,3 +191,5 @@ Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting fro
 *Description*
 
 *Usage*
+
+## Ongoing developments
