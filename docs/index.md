@@ -44,9 +44,8 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 
 :wrench: Experiment with some edge systems. In particular:
 
-  - **[Abella DAMF](/abella/)**, a version of the
-      [Abella](https://abella-prover.org) with DAMF support.
-  - [λProlog](/lprolog/) integrated with DAMF.
+- **[Abella DAMF](/abella/)**, a version of [Abella](https://abella-prover.org) with DAMF support.
+- [λProlog](/lprolog/) integrated with DAMF.
 
 :walking: Read an **[example walkthrough](/example-walkthrough/)** of using a heterogeneous
   combination of systems to prove an assertion.
