@@ -9,8 +9,6 @@ nav:
         - 'Abella DAMF': 'abella.md'
         - 'λProlog': 'lprolog.md'
     - 'Example': 'example-walkthrough.md'
-    - 'About':
-        - History: 'history.md'
 theme:
   name: material
   palette:

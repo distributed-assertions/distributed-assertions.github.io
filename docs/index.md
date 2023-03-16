@@ -50,5 +50,3 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 
 :walking: Read an **[example walkthrough](/example-walkthrough/)** of using a heterogeneous
   combination of systems to prove an assertion.
-
-:books: Read a [brief history of DAMF](/history/).
