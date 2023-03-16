@@ -2,7 +2,7 @@
 
 **Dispatch** is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
-It is based on the [DAMF Formats](/damf-formats/) specification and implements the main [DAMF processes](/damf-processes/).
+It is based on the [DAMF Formats](/damf-formats/) specification and implements the main [DAMF processes](/damf-processes/). It is intended to be usable by both human users and tools.
 
 ## Obtaining and Building
 
@@ -52,7 +52,7 @@ Generated executables for `linux`, `macOS`, and `Microsoft Windows` shall be fou
 
 Run `create-agent <agent-profile-name>` to create an *agent profile* in the local `.config/dispatch/agentprofiles.json` file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it's referred by its name in the [publish](#publish) command.
 
-:warning: **Caution** ~ Remember to keep your private key *private*.
+:warning: **Caution**. Remember to keep your private key *private*.
 
 #### create-tool
 
@@ -104,7 +104,7 @@ In order to use this service:
 
 1. Create a [web3.storage account](https://web3.storage/login/) and [generate an API token](https://web3.storage/docs/how-tos/generate-api-token/).
 
-    :warning: **Caution** ~ This API token shall be known only to the account's user(s).
+    :warning: **Caution**. This API token shall be known only to the account's user(s).
 
 2. Run `set-web3token <token>` with the generated API token as an argument.
 
@@ -138,11 +138,29 @@ Run `list-config` to display the configuration parameters.
 
 ### Publishing
 
+#### Input formats
+
+As illustrated in [DAMF Formats](/damf-formats/), the *global shared objects* shall follow the specified DAMF formats: *assertion*, *production*, *sequent*, *formula*, etc.
+
+**Dispatch** provides an *interface* for users (human users or tools) to the DAMF store through a collection of standard input formats. These input formats are produced by users, then processed and published by *Dispatch* as DAMF objects. In this way, a user does not have to interact with IPFS in any form.
+
+Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/main/data/input-to-publish), and the JSON schemas for the specified input formats are descibed below: [TODO]
+
 #### publish
 
 *Description*
 
+    publish one of the DAMF formats starting from a dispatch standard input format.
+
 *Usage*
+
+Run `publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input format (a `json` file with path `<input-path`>). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
+
+:warning: When `cloud` is used, make sure to have set your API token first, as described in the [set-web3token](#set-web3token) command section.
+
+:warning: For publishing *assertion* objects, make sure to have the *agent* specified in the input `json` initially created, as described in the [create-agent](#create-agent) command section. Same applies in case a *profile name* is used for the *language* (using [create-language](#create-language)) and *tool* (using [create-tool](#create-tool)) fields instead of a direct `damf:cid`.
+
+[w3s]: https://web3.storage
 
 ### Retrieval
 
@@ -151,6 +169,8 @@ Run `list-config` to display the configuration parameters.
 *Description*
 
 *Usage*
+
+#### Output formats
 
 ### Trust Analysis
 
