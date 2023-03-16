@@ -50,7 +50,7 @@ Generated executables for `linux`, `macOS`, and `Microsoft Windows` shall be fou
 
 *Usage*
 
-Run `create-agent <agent-profile-name>` to create an *agent profile* in the local `.config/dispatch/agentprofiles.json` file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it's referred by its name in the [publish](#publish) command.
+Run `dispatch create-agent <agent-profile-name>` to create an *agent profile* in the local `.config/dispatch/agentprofiles.json` file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it's referred by its name in the [publish](#publish) command.
 
 :warning: **Caution**. Remember to keep your private key *private*.
 
@@ -62,7 +62,7 @@ Run `create-agent <agent-profile-name>` to create an *agent profile* in the loca
 
 *Usage*
 
-Run `create-tool <tool-profile-name> <input-type> <input>` to create a *tool profile* in the local `.config/dispatch/toolprofiles.json` file. A tool profile object contains the cid for the *tool object*, and it's referred by its name in the [publish](#publish) command.
+Run `dispatch create-tool <tool-profile-name> <input-type> <input>` to create a *tool profile* in the local `.config/dispatch/toolprofiles.json` file. A tool profile object contains the cid for the *tool object*, and it's referred by its name in the [publish](#publish) command.
 
 The `<input-type>` argument takes one of three possible values:
 
@@ -80,7 +80,7 @@ In (1) and (2), this command will [publish](#publish) the described tool as a *t
 
 *Usage*
 
-Run `create-language <language-profile-name> <input-type> <input>` to create a *language profile* in the local `.config/dispatch/languages.json` file. A language profile object contains the cid for the *language object*, and it's referred by its name in the [publish](#publish) command.
+Run `dispatch create-language <language-profile-name> <input-type> <input>` to create a *language profile* in the local `.config/dispatch/languages.json` file. A language profile object contains the cid for the *language object*, and it's referred by its name in the [publish](#publish) command.
 
 The `<input-type>` argument takes one of three possible values:
 
@@ -106,7 +106,7 @@ In order to use this service:
 
     :warning: **Caution**. This API token shall be known only to the account's user(s).
 
-2. Run `set-web3token <token>` with the generated API token as an argument.
+2. Run `dispatch set-web3token <token>` with the generated API token as an argument.
 
 Using this service is optional and decided by the user when invoking the [publish](#publish) command.
 
@@ -134,7 +134,7 @@ To set a different gateway, run `dispatch set-gateway <gateway>`. Note that the 
 
 *Usage*
 
-Run `list-config` to display the configuration parameters.
+Run `dispatch list-config` to display the configuration parameters.
 
 ### Publishing
 
@@ -142,7 +142,7 @@ Run `list-config` to display the configuration parameters.
 
 As illustrated in [DAMF Formats](/damf-formats/), the *global shared objects* shall follow the specified DAMF formats: *assertion*, *production*, *sequent*, *formula*, etc.
 
-**Dispatch** provides an *interface* for users (human users or tools) to the DAMF store through a collection of standard input formats. These input formats are produced by users, then processed and published by *Dispatch* as DAMF objects. In this way, a user does not have to interact with IPFS in any form.
+**Dispatch** provides an *interface* for users (human users or tools) to the DAMF store through a collection of standard input formats. These standard inputs are produced by users, then processed and published by *Dispatch* as DAMF objects. In this way, a user does not have to interact with IPFS in any form.
 
 Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/main/data/input-to-publish), and the JSON schemas for the specified input formats are descibed below: [TODO]
 
@@ -150,11 +150,11 @@ Examples of these formats can be found at the [dispatch github repository](https
 
 *Description*
 
-    publish a DAMF object starting from a dispatch standard input format.
+    publish a DAMF object starting from a dispatch standard input.
 
 *Usage*
 
-Run `publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input format (a `json` file with path `<input-path`>). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
+Run `dispatch publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input (a `json` file with path `<input-path`>). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
 
 :warning: When `cloud` is used, make sure to have set your API token first, as described in the [set-web3token](#set-web3token) command section.
 
@@ -164,13 +164,21 @@ Run `publish <input-path> <target>` to publish a DAMF object starting from a dis
 
 ### Retrieval
 
+#### Output formats
+
+For the same reasons **Dispatch** reads standard inputs from producers, it constructs standard outputs for consumers. The output formats have the same structure as the input formats, where *local names* used in input formats as references to other objects in the file are replaced by the *global names* of these objects.
+
+Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/main/data/output-from-get), and the JSON schemas are ...
+
 #### get
 
 *Description*
 
+    retrieve a DAMF object by its cid.
+
 *Usage*
 
-#### Output formats
+Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting from its `cid` and construct the corresponding standard output which contains the full DAG. `<directory-path>` refers to the container directory for the resulting output file.
 
 ### Trust Analysis
 
