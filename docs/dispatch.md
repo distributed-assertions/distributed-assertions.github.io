@@ -212,24 +212,21 @@ For example:
 
 A trust path is of the form:
 
-    ```json
-    {
-        "dependencies": [cid-formula],
-        "via": [{agent, mode}]
-    }
-    ```
+   ~~~~js
+   {
+     "dependencies": [cid-formula],
+     "via": [{agent, mode}]
+   }
+   ~~~~
 
 An example would be:
 
-    ```json
-    {
-        "dependencies": [cidA, cidB],
-        "via": [
-            {K1, T1},
-            {K4, T6}
-        ]
-    }
-    ```
+   ~~~~js
+   {
+     "dependencies": [cidA, cidB],
+     "via": [{K1, T1}, {K4, T6}]
+   }
+   ~~~~
 
 The above example trust path would be interpreted as: *The target formula can be reached **via trusting** `[{K1, T1}, {K4, T6}]` with the formulas `[cidA, cidB]` as remaining dependencies*.
 
