@@ -214,7 +214,7 @@ A trust path is of the form:
 
     ```json
     {
-        "dependencies": [<cid-formula>],
+        "dependencies": [cid-formula],
         "via": [{agent, mode}]
     }
     ```
