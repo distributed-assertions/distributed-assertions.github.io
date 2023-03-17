@@ -34,7 +34,8 @@ theme:
     - navigation.expand
     - navigation.footer
 extra_css:
-  - stylesheets/extra.css
+  - assets/css/extra.css
+  - assets/css/collapsible.css
 extra:
   generator: true
   social:
