@@ -194,7 +194,7 @@ Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting fro
 
 *Usage*
 
-This command is the starting point for DAMF trust analysis in **Dispatch**. Run `dispatch lookup <formula-cid> <assertion-list> <directory-path>` to get the trust results which are all the possible trust paths that yield this formula, with possibly remaining dependencies.
+This command is the starting point for DAMF trust analysis in **Dispatch**. Run `dispatch lookup <formula-cid> <assertion-list> <directory-path>` to get all the possible trust paths that lead to this formula.
 
 `<formula-cid>` is the `cid` of the target *formula object*.
 
@@ -228,6 +228,6 @@ An example would be:
    }
    ~~~~
 
-The above example trust path would be interpreted as: *The target formula can be reached **via trusting** `[{K1, T1}, {K4, T6}]` with the formulas `[cidA, cidB]` as remaining dependencies*.
+The above example trust path would be interpreted as: *The target formula can be reached **via trusting** `[{K1, T1}, {K4, T6}]`, with the formulas `[cidA, cidB]` as remaining dependencies*.
 
 ## Ongoing developments
