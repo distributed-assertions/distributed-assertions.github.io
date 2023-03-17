@@ -194,11 +194,11 @@ Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting fro
 
 *Usage*
 
-This command is the starting point for DAMF trust analysis in **Dispatch**. Run `dispatch lookup <formula-cid> <assertion-list> <directory-path>` to get the trust results.
+This command is the starting point for DAMF trust analysis in **Dispatch**. Run `dispatch lookup <formula-cid> <assertion-list> <directory-path>` to get the trust results which are all the possible trust paths that yield this formula, with possibly remaining dependencies.
 
-1. `<formula-cid>` is the `cid` of the target *formula object*.
+`<formula-cid>` is the `cid` of the target *formula object*.
 
-2. `<assertion-list>` is the path of the file containing the list of *assertion object* `cids` to search through.
+`<assertion-list>` is the path of the file containing the list of *assertion object* `cids` to search through.
 For example:
 
     ```json
@@ -208,7 +208,7 @@ For example:
     ]
     ```
 
-3. `<directory-path>` refers to the container directory for the resulting output file. This output consists of all the possible trust paths that yield this formula, with possibly remaining dependencies.
+`<directory-path>` refers to the container directory for the resulting output file.
 
 A trust path is of the form:
 
