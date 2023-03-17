@@ -154,7 +154,7 @@ Examples of these formats can be found at the [dispatch github repository](https
 
 *Usage*
 
-Run `dispatch publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input (a `json` file with path `<input-path`>). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
+Run `dispatch publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input (a `json` file with path `<input-path>`). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
 
 :warning: When `cloud` is used, make sure to have set your API token first, as described in the [set-web3token](#set-web3token) command section.
 
@@ -190,6 +190,46 @@ Run `dispatch get <cid> <directory-path>` to retrieve a DAMF object starting fro
 
 *Description*
 
+    construct all trust paths for a formula cid in a list of assertions 
+
 *Usage*
+
+This command is the starting point for DAMF trust analysis in **Dispatch**. Run `dispatch lookup <formula-cid> <assertion-list> <directory-path>` to get the trust results.
+
+1. `<formula-cid>` is the `cid` of the target *formula object*.
+
+2. `<assertion-list>` is the path of the file containing the list of *assertion object* `cids` to search through.
+For example:
+
+    ```json
+    [
+        "bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4",
+        "bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi"
+    ]
+    ```
+
+3. `<directory-path>` refers to the container directory for the resulting output file. This output consists of all the possible trust paths that yield this formula, with possibly remaining dependencies.
+
+A trust path is of the form:
+
+    ```json 
+    {
+        "dependencies": [<cid-formula>],
+        "via": [{agent, mode}]
+    }
+    ```
+An example would be:
+
+    ```json 
+    {
+        "dependencies": [cidA, cidB],
+        "via": [
+            {K1, T1},
+            {K4, T6}
+        ]
+    }
+    ```
+
+The above example trust path would be interpreted as: *The target formula can be reached **via trusting** `[{K1, T1}, {K4, T6}]` with the formulas `[cidA, cidB]` as remaining dependencies*.
 
 ## Ongoing developments
