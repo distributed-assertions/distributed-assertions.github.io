@@ -201,12 +201,12 @@ This command is the starting point for DAMF trust analysis in **Dispatch**. Run 
 `<assertion-list>` is the path of the file containing the list of *assertion object* `cids` to search through.
 For example:
 
-    ```json
-    [
-      "bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4",
-      "bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi"
-    ]
-    ```
+   ~~~~js
+   [
+     "bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4",
+     "bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi"
+   ]
+   ~~~~
 
 `<directory-path>` refers to the container directory for the resulting output file.
 
