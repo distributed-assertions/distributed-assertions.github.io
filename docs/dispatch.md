@@ -203,8 +203,8 @@ For example:
 
     ```json
     [
-        "bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4",
-        "bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi"
+      "bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4",
+      "bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi"
     ]
     ```
 
