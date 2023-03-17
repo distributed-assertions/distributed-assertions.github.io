@@ -212,15 +212,16 @@ For example:
 
 A trust path is of the form:
 
-    ```json 
+    ```json
     {
         "dependencies": [<cid-formula>],
         "via": [{agent, mode}]
     }
     ```
+
 An example would be:
 
-    ```json 
+    ```json
     {
         "dependencies": [cidA, cidB],
         "via": [
