@@ -12,11 +12,14 @@ function humanizeSize(count) {
 }
 
 async function saveZip(fileList, zipName) {
+  if (zipName.endsWith(".zip"))
+    zipName = zipName.slice(0, zipName.length - 4);
   const zipDir = {};
+  zipDir[zipName] = {};
   for (const file of fileList) {
     const data = await fetch(file.download_url)
       .then((resp) => resp.arrayBuffer());
-    zipDir[file.name] = new Uint8Array(data);
+    zipDir[zipName][file.name] = new Uint8Array(data);
   }
   const zip = fflate.zipSync(zipDir); // fflate recommends zipSync
   const zipBlob = new Blob([zip.buffer], {type: "application/zip"});
@@ -95,7 +98,7 @@ export async function populateListing(params) {
   if (params.zip) {
     const a = document.createElement("button");
     a.classList.add("md-button");
-    a.innerHTML = `Download ${ params.zip }`;
+    a.innerHTML = `Download <tt>${ params.zip }</tt>`;
     a.addEventListener("click", () => {
       saveZip(fileList, params.zip);
       return false;
