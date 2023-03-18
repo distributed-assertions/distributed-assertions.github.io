@@ -29,6 +29,7 @@ follows:
     path: "/lprolog/files",
     ref: "gh-pages",
     reject: /\.(json|md)$/,
+    zip: "lprolog-harness.zip",
     collapsible: true,
   });
 </script>

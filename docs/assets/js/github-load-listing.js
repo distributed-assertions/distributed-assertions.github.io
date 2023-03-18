@@ -1,4 +1,6 @@
 import { Octokit } from "https://cdn.skypack.dev/octokit";
+import * as fflate from "https://cdn.skypack.dev/fflate";
+import fileSaver from "https://cdn.skypack.dev/file-saver";
 
 const octokit = new Octokit();
 
@@ -7,6 +9,18 @@ function humanizeSize(count) {
   const step = 1024;
   let i = count === 0 ? 0 : Math.floor(Math.log(count) / Math.log(step));
   return (count / Math.pow(step, i)).toFixed(2) * 1 + ' ' + humanSuffixes[i];
+}
+
+async function saveZip(fileList, zipName) {
+  const zipDir = {};
+  for (const file of fileList) {
+    const data = await fetch(file.download_url)
+      .then((resp) => resp.arrayBuffer());
+    zipDir[file.name] = new Uint8Array(data);
+  }
+  const zip = fflate.zipSync(zipDir); // fflate recommends zipSync
+  const zipBlob = new Blob([zip.buffer], {type: "application/zip"});
+  fileSaver.saveAs(zipBlob, zipName);
 }
 
 export async function populateListing(params) {
@@ -49,24 +63,20 @@ export async function populateListing(params) {
   const count = fileList.length;
   const expandMsg = `<strong>${ count } files</strong> (click to expand)`;
   const collapseMsg = `<strong>${ count } files</strong> (click to collapse)`;
-  let fileListRendered = "<ul>";
-  for (const file of fileList)
-    fileListRendered += `<li><a href="${ file.download_url }">${ file.name }</a> <span class="faded">(${ humanizeSize(file.size) })</span></li>`;
-  fileListRendered += "</ul>";
+  let contents = listing;
   if (params.collapsible) {
     const header = document.createElement("div");
     header.classList.add("collapsible-header");
-    const contents = document.createElement("div");
+    contents = document.createElement("div");
     contents.classList.add("collapsible-content");
     header.innerHTML = expandMsg;
-    contents.innerHTML = fileListRendered;
     header.addEventListener("click", (ev) => {
       if (contents.style.maxHeight) {
         header.innerHTML = expandMsg;
         contents.style.maxHeight = null;
       } else {
         header.innerHTML = collapseMsg;
-        contents.style.maxHeight = `${contents.scrollHeight}px`;
+        contents.style.maxHeight = `${ contents.scrollHeight }px`;
       }
       ev.stopPropagation();
       return false;
@@ -76,6 +86,20 @@ export async function populateListing(params) {
     // contents.style.maxHeight = `${contents.scrollHeight}px`;
   } else {
     listing.classList.add("collapsible");
-    listing.innerHTML = fileListRendered;
+  }
+  let fileListRendered = "<ul>";
+  for (const file of fileList)
+    fileListRendered += `<li><a href="${ file.download_url }">${ file.name }</a> <span class="faded">(${ humanizeSize(file.size) })</span></li>`;
+  fileListRendered += "</ul>";
+  contents.innerHTML = fileListRendered;
+  if (params.zip) {
+    const a = document.createElement("button");
+    a.classList.add("md-button");
+    a.innerHTML = `Download ${ params.zip }`;
+    a.addEventListener("click", () => {
+      saveZip(fileList, params.zip);
+      return false;
+    });
+    contents.appendChild(a);
   }
 }
