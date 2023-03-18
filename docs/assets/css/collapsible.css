@@ -25,11 +25,15 @@
     overflow: hidden;
     background-color: inherit;
     max-height: 0;
-    transition: max-height 50ms ease-out;
+    transition: max-height 100ms ease;
 }
 
-.collapsible-content ul {
+.collapsible ul {
     margin-left: 0;
     padding-left: 0;
     font-family: monospace;
+}
+
+.faded {
+    color: var(--md-code-hl-comment-color);
 }

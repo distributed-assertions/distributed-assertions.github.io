@@ -26,8 +26,10 @@ follows:
     id: "listing",
     user: "distributed-assertions",
     repo: "distributed-assertions.github.io",
-    path: "/assets/lProlog",
+    path: "/lprolog/files",
     ref: "gh-pages",
+    reject: /\.(json|md)$/,
+    collapsible: true,
   });
 </script>
 
