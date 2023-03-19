@@ -8,7 +8,7 @@ nav:
     - 'Edge Systems':
         - 'Abella DAMF': 'abella.md'
         - 'λProlog': 'lprolog.md'
-    - 'Example': 'example-walkthrough.md'
+    - example-walkthrough.md
 theme:
   name: material
   palette:
@@ -36,6 +36,10 @@ theme:
 extra_css:
   - assets/css/extra.css
   - assets/css/collapsible.css
+extra_javascript:
+  - assets/js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra:
   generator: true
   social:
@@ -44,9 +48,12 @@ extra:
       name: DAMF on github
 markdown_extensions:
   - attr_list
+  - admonition
   - md_in_html
   - pymdownx.superfences
   - smarty
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg

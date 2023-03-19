@@ -1,3 +1,4 @@
+"use strict";
 import { Octokit } from "https://cdn.skypack.dev/octokit";
 import * as fflate from "https://cdn.skypack.dev/fflate";
 import fileSaver from "https://cdn.skypack.dev/file-saver";
