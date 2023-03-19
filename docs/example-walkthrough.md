@@ -89,12 +89,118 @@ relevant to your system. Next, run `dispatch create-agent`.
 $ dispatch create-agent exampleAgent
 Agent profile exampleAgent created successfully!
 
-$ dispatch list-config | grep exampleAgent       # just to verify
+$ dispatch list-config | grep exampleAgent # (1)!
   exampleAgent: {
     name: 'exampleAgent',
 ```
 
+1. Just to verify that it worked.
+
 ## Lemma in Coq
+
+In order to follow along with this walkthrough, you should [install Coq
+version 8.16.1](https://coq.inria.fr/download).
+
+### 3. Full proof
+
+We begin with a traditional (_autarkic_) mode of usage of Coq, unmodified,
+without any connection to DAMF assertions.
+
+As usual, we begin with importing the `Arith` module to fix the interpretation
+of numerals using the `nat` type, and then capture $\kop{fib}$ as the recursive
+fixed point function `fib`.
+
+```coq title="FibLemma.v" linenums="1"
+Require Import Arith.
+--8<-- "docs/FibLemma.v:2:11"
+```
+
+We will prove our lemma of interest using the `lia` tactic of Coq, which is
+enabled by the `Lia` module. We will also pervasively use rewriting modulo
+linear arithmetic identities, so we define a Ltac named `liarw` for convenience.
+
+```coq title="FibLemma.v" linenums="12"
+Require Import Lia.
+--8<-- "docs/FibLemma.v:12:15"
+```
+
+Finally, here is our full proof of the lemma, which is named `fib_square_above`
+here. This lemma itself makes use of a different lemma called `fib_square_lemma`.
+
+```coq title="FibLemma.v" linenums="17"
+--8<-- "docs/FibLemma.v:17:"
+```
+
+[Download <tt>FibLemma.v</tt>](/FibLemma.v){ class="md-button" }
+
+### 4. Language and Tool Objects
+
+Let us now represent `fib_square_lemma` and `fib_square_above` as DAMF
+assertions. To turn Coq propositions into DAMF formula objects, we will need to
+supply a suitable `language` field. As there isn't (yet!) a universally agreed
+upon DAMF object to represent this language, we will create one for the purposes
+of this walkthrough.
+
+We start by creating a JSON object to represent the `content` of what a "Coq
+version 8.16.1" language object might contain. Here we could in principle link
+to the reference manual that is distributed as part of the Coq 8.16.1
+release. We could alternatively, or in addition, place the source or exceutable
+code of a Coq parser. In this walkthrough, to simplify matters, we will
+represent this language as a simple JSON object.
+
+```js title="Coq.language.content.json" linenums="1"
+--8<-- "docs/Coq.language.content.json"
+```
+
+We can then use `dispatch create-language` to make the DAMF language object and
+simultaneously give it a local human-readanble name, `coq-8.16.1`.
+
+```console
+$ dispatch create-language coq-8.16.1 json Coq.language.content.json
+Language record coq-8.16.1 created successfully!
+```
+
+If we want to see the DAMF object that was created by Dispatch, we can read its
+`languages.json` configuration file to get its CID, and then use `ipfs dag get`
+to explore the contents of the linked objects in IPLD starting from that CID.
+
+```console
+$ cat $HOME/.config/dispatch/languages.json
+{"coq-8.16.1":{"name":"coq-8.16.1","language":"bafy…rxxy"}}
+
+$ ipfs dag get bafy…rxxy # (1)!
+{"content":{"/":"bafy…mj5u"},"format":"language"}
+
+$ ipfs dag get bafy…rxxy/content # (2)!
+{"name":"Coq","url":"https://coq.inria.fr","version":"8.16.1"}
+```
+
+1. This is the CID found in `languages.json`.
+2. This is isomorphic to our `Coq.language.content.json` object.
+
+[Download <tt>Coq.language.content.json</tt>](/Coq.language.content.json){ class="md-button" }
+
+We can indicate the fact that we used Coq v.8.16.1 to verify our proofs of the
+assertions by means of indicating a DAMF tool object in the `mode` field of the
+corresponding production. Like with the language object above, there isn't
+currently a standard DAMF tool object to represent this version of the Coq
+implementation. Therefore, like with languages above, we will create the content
+of such a tool object ourselves for the purposes of this walkthrough.
+
+```js title="coq-8.16.1.tool.content.json" linenums="1"
+--8<-- "docs/coq-8.16.1.tool.content.json"
+```
+
+To create the DAMF tool object, we use `dispatch create-tool`.
+
+```console
+$ dispatch create-tool coq-8.16.1 json coq-8.16.1.tool.content.json
+Tool profile coq-8.16.1 created successfully!
+```
+
+[Download <tt>coq-8.16.1.tool.content.json</tt>](/coq-8.16.1.tool.content.json){ class="md-button" }
+
+### 5. The DAMF assertions
 
 TODO
 
@@ -103,3 +209,5 @@ TODO
 TODO
 
 ## Theorem in Abella DAMF
+
+TODO

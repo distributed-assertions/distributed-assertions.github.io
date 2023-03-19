@@ -33,6 +33,7 @@ theme:
     - navigation.top
     - navigation.expand
     - navigation.footer
+    - content.code.annotate
 extra_css:
   - assets/css/extra.css
   - assets/css/collapsible.css
@@ -54,6 +55,8 @@ markdown_extensions:
   - smarty
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.snippets
+  - pymdownx.tabbed
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
