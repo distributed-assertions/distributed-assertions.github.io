@@ -27,7 +27,7 @@ In particular, one needs the following lemma:
 
     **Lemma.** For $n \in \mathbb{N}$, if $n \ge 13$, then $\kop{fib}(n) > n^2$.
 
-This walkthrough will perform this verification tasks using the following
+This walkthrough will perform this verification task using the following
 heterogeneous collection of systems:
 
 * [Abella DAMF](/abella/) for the overall theorem
@@ -135,25 +135,28 @@ here. This lemma itself makes use of a different lemma called `fib_square_lemma`
 
 ### 4. Language and Tool Objects
 
-Let us now represent `fib_square_lemma` and `fib_square_above` as DAMF
-assertions. To turn Coq propositions into DAMF formula objects, we will need to
-supply a suitable `language` field. As there isn't (yet!) a universally agreed
-upon DAMF object to represent this language, we will create one for the purposes
-of this walkthrough.
+Let's move on to representng `fib_square_lemma` and `fib_square_above` as DAMF
+assertions.
+
+To get there, we first have to turn Coq propositions into DAMF formula objects,
+for which we will need to supply a suitable `language` field. As there isn't
+(yet!) a universally agreed upon DAMF object to represent this language, we will
+create one for the purposes of this walkthrough.
 
 We start by creating a JSON object to represent the `content` of what a "Coq
 version 8.16.1" language object might contain. Here we could in principle link
 to the reference manual that is distributed as part of the Coq 8.16.1
 release. We could alternatively, or in addition, place the source or exceutable
 code of a Coq parser. In this walkthrough, to simplify matters, we will
-represent this language as a simple JSON object.
+represent this language as the following JSON object that just links to the Coq
+website.
 
 ```js title="Coq.language.content.json" linenums="1"
 --8<-- "docs/Coq.language.content.json"
 ```
 
 We can then use `dispatch create-language` to make the DAMF language object and
-simultaneously give it a local human-readanble name, `coq-8.16.1`.
+simultaneously give it a local human-readable name, `coq-8.16.1`.
 
 ```console
 $ dispatch create-language coq-8.16.1 json Coq.language.content.json
@@ -180,10 +183,10 @@ $ ipfs dag get bafy…rxxy/content # (2)!
 
 [Download <tt>Coq.language.content.json</tt>](/Coq.language.content.json){ class="md-button" }
 
-We can indicate the fact that we used Coq v.8.16.1 to verify our proofs of the
-assertions by means of indicating a DAMF tool object in the `mode` field of the
-corresponding production. Like with the language object above, there isn't
-currently a standard DAMF tool object to represent this version of the Coq
+We can record that we used Coq v.8.16.1 to verify our proofs of the assertions
+by referencing a DAMF tool object in the `mode` field of the corresponding
+production. Like with the language object above, there isn't currently a
+standard DAMF tool object to represent this version of the Coq
 implementation. Therefore, like with languages above, we will create the content
 of such a tool object ourselves for the purposes of this walkthrough.
 
