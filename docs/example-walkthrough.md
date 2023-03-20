@@ -297,14 +297,36 @@ We can now use Dispatch to publish the entire collection at once.
 
 ```console
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
-published collection object of cid: bafyreigsngij2hdpxpeqktvmmjo6pxckkobynldhh5mqvbey66xhdixrey
+published collection object of cid: bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
 
-This CID can be [explored in IPLD explorer][explore].
+This CID can be [explored in IPLD explorer][explore]. It can also be locally
+explored with `ipfs dag get`:
 
-[explore]: https://explore.ipld.io/#/explore/bafyreigsngij2hdpxpeqktvmmjo6pxckkobynldhh5mqvbey66xhdixrey
+```console
+$ ipfs dag get bafy…auyi | python -m json.tool # (1)!
+{
+    "elements": [
+        {
+            "/": "bafyreiamgughltnap73kzel5qff2ji7drcqxnchrqtwmimalieklaoaagu"
+        },
+        {
+            "/": "bafyreic45nr256p5qgyqfdtcosup7z6s2fjnqru57vegp3esmn7wvffzpa"
+        }
+    ],
+    "format": "collection",
+    "name": "FibLemma.v"
+}
+
+$ ipfs dag get bafy…auyi/elements/0/claim/production/sequent/conclusion/content
+"forall n, 2 * n + 27 <= fib (n + 12)"
+```
+
+1. `python -m json.tool` is being used to pretty-print the JSON
+
+[explore]: https://explore.ipld.io/#/explore/bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
 
 ## Computations with λProlog
 
