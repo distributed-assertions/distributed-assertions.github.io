@@ -1,1 +1,3 @@
 site/
+docs/*/*.lp*
+docs/example-files/fib.json
