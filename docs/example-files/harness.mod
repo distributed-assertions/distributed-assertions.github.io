@@ -1,13 +1,5 @@
 module harness.
 
-% type announce, spy    o -> o.
-% type bracket          string -> o -> string -> o.  % Auxiliary
-%
-% bracket Pre G Post :- print Pre, term_to_string G S, print S, print Post.
-% announce G :- bracket ">>" G "\n", fail.
-% spy G :- (bracket ">Entering " G "\n", G, bracket ">Success  " G "\n";
-%           bracket ">Leaving  " G "\n", fail).
-
 type if   o -> o -> o -> o.
 if P Q R :- P, !, Q.
 if P Q R :- R.
@@ -20,13 +12,13 @@ config_tool     "teyjus-2.1.1".
 % Specialize the file input and output functions.
 
 openOutput File Ext Goal :- OutFile is (File ^ Ext), open_out OutFile Out,
-  (pi Term\ pi String\ pprintterm Term :- term_to_string Term String, output Out String) => 
-  (pi String\ pprint String :- output Out String) => 
+  (pi Term\ pi String\ pprintterm Term :- term_to_string Term String, output Out String) =>
+  (pi String\ pprint String :- output Out String) =>
   (closeOut :- close_out Out) => Goal.
 
 openInput File Ext Goal :- InFile is (File ^ Ext), open_in InFile In,
-  (pi String\ rread String :- input_line In String) => 
-  (pi Term\ rreadterm Term :- readterm In Term) => 
+  (pi String\ rread String :- input_line In String) =>
+  (pi Term\ rreadterm Term :- readterm In Term) =>
   (eeof :- eof In) => (closeIn :- close_in In) => Goal.
 
 % The top-level command.  See comments in the harness.sig file.

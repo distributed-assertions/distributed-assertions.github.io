@@ -49,7 +49,7 @@ You will also need to create your local IPFS repository, usually stored under
 `$HOME/.ipfs` or a similar folder. This is done by issuing the following
 command: `ipfs init`.
 
-```console
+```{.console .conbox}
 $ ipfs init
 generating ED25519 keypair...done
 peer identity: 12D3KooWNEsJFEp4FM14o9zedmFpBohUA4jPH77WYex75YP6mNHk
@@ -85,7 +85,7 @@ instructions](/dispatch/#obtaining-and-building). In the rest of this tutorial,
 we will use the command `dispatch` to stand for whichever Dispatch executable is
 relevant to your system. Next, run `dispatch create-agent`.
 
-```console
+```{.console .conbox}
 $ dispatch create-agent exampleAgent
 Agent profile exampleAgent created successfully!
 
@@ -133,7 +133,7 @@ here. This lemma itself makes use of a different lemma called `fib_square_lemma`
 
 <!-- [Download <tt>FibLemma.v</tt>](/FibLemma.v){ class="md-button" } -->
 
-### 4. Language and Tool Objects
+### 4. Language and Tool objects
 
 Let's move on to representng `fib_square_lemma` and `fib_square_above` as DAMF
 assertions.
@@ -158,7 +158,7 @@ website.
 We can then use `dispatch create-language` to make the DAMF language object and
 simultaneously give it a local human-readable name, `coq-8.16.1`.
 
-```console
+```{.console .conbox}
 $ dispatch create-language coq-8.16.1 json Coq.language.content.json
 Language record coq-8.16.1 created successfully!
 ```
@@ -167,7 +167,7 @@ If we want to see the DAMF object that was created by Dispatch, we can read its
 `languages.json` configuration file to get its CID, and then use `ipfs dag get`
 to explore the contents of the linked objects in IPLD starting from that CID.
 
-```console
+```{.console .conbox}
 $ cat $HOME/.config/dispatch/languages.json
 {"coq-8.16.1":{"name":"coq-8.16.1","language":"bafy…rxxy"}}
 
@@ -196,7 +196,7 @@ of such a tool object ourselves for the purposes of this walkthrough.
 
 To create the DAMF tool object, we use `dispatch create-tool`.
 
-```console
+```{.console .conbox}
 $ dispatch create-tool coq-8.16.1 json coq-8.16.1.tool.content.json
 Tool profile coq-8.16.1 created successfully!
 ```
@@ -295,17 +295,17 @@ both assertions together as a DAMF collection. Here is what it looks like:
 
 We can now use Dispatch to publish the entire collection at once.
 
-```console
+```{.console .conbox}
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
 published collection object of cid: bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
 
-This CID can be [explored in IPLD explorer][explore]. It can also be locally
+This CID can be [explored in IPLD explorer][explore-coq]. It can also be locally
 explored with `ipfs dag get`:
 
-```console
+```{.console .conbox}
 $ ipfs dag get bafy…auyi | python -m json.tool # (1)!
 {
     "elements": [
@@ -326,11 +326,152 @@ $ ipfs dag get bafy…auyi/elements/0/claim/production/sequent/conclusion/conten
 
 1. `python -m json.tool` is being used to pretty-print the JSON
 
-[explore]: https://explore.ipld.io/#/explore/bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
+[explore-coq]: https://explore.ipld.io/#/explore/bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
 
 ## Computations with λProlog
 
-TODO
+Another way of building assertions is by means of a computational engine. Here
+will give the example of using λProlog to perform computations on natural
+numbers.  Coq is of course more than capable of doing these computations by
+itself, so the purpose of this section is mainly to illustrate how we can
+incorporate assertions from different sources.
+
+### 6. Logic programming
+
+Like with Coq earlier, let us quickly sketch how we are going to represent and
+compute with natural numbers in λProlog. We declare `nat` as a new type with the
+`kind` keyword in the signature, then declare two constants `z` and `s` as the
+constructors of `nat`. Note that λProlog operates under the _open world
+assumption_, so there is no way to declare that these are the only two
+constructors for `nat`. The signature also declares three _predicates_, which
+are constants with target type `o`, which is the type of λProlog formulas.
+Here are the signature (`fib.sig`) and module (`fib.mod`) files.
+
+=== "Signature"
+
+    ```{.lprolog .downloadable title="fib.sig" linenums="1"}
+    --8<-- "docs/example-files/fib.sig"
+    ```
+
+=== "Module"
+
+    ```{.lprolog .downloadable title="fib.mod" linenums="1"}
+    --8<-- "docs/example-files/fib.mod"
+    ```
+
+We will use the [Teyjus](https://github.com/teyjus/teyjus) implementation of
+λProlog compiles a module (a `.sig`/`.mod` pair) to bytecode, which can then be
+executed using a bytecode interpreter. To compile the above module `fib`, we run:
+
+```{.console .conbox}
+$ tjcc fib && tjlink fib
+```
+
+Then, we can execute queries against `fib` by using `tjsim`.
+
+```{.console .conbox}
+$ tjsim fib
+Welcome to Teyjus
+⋮
+[fib] ?- fib (s (s (s (s (s (s z)))))) X.
+
+The answer substitution:
+X = s (s (s (s (s (s (s (s z)))))))
+
+More solutions (y/n)? n
+
+yes
+
+[fib] ?-
+```
+
+It is also possible to run `tjsim` in batch (non-interactive) mode, where the
+query is specified in the command line.
+
+```{.console .conbox}
+$ tjsim -b -m 1 -s 'fib (s (s (s (s (s (s z)))))) X.' fib # (1)!
+
+The answer substitution:
+X = s (s (s (s (s (s (s (s z)))))))
+```
+
+1. **b**atch mode, **m**aximum one solution, **s**olve query
+
+### 7. Exporting to DAMF
+
+We use the following language and tool descriptions for λProlog and Teyjus (version 2.1.1):
+
+=== "Language"
+
+    ```{.json .downloadable title="lprolog.language.content.json" linenums="1"}
+    --8<-- "docs/example-files/lprolog.language.content.json"
+    ```
+
+=== "Tool"
+
+    ```{.json .downloadable title="teyjus-2.1.1.tool.content.json" linenums="1"}
+    --8<-- "docs/example-files/teyjus-2.1.1.tool.content.json"
+    ```
+
+=== "Dispatch commands"
+
+    ```{.console .conbox}
+    $ dispatch create-language lprolog json lprolog.language.content.json
+    Language record lprolog created successfully!
+
+    $ dispatch create-tool teyjus-2.1.1 json teyjus-2.1.1.tool.content.json
+    Tool profile teyjus-2.1.1 created successfully!
+    ```
+
+To build the DAMF assertions, it is useful to use the following `harness`
+module.  Note that the agent, language, and tool names that we chose with
+`dispath create-agent`, `dispatch create-language`, and `dispatch create-tool`
+respectively, are directly written in the `harness` module.
+
+[Download <tt>harness.sig</tt>](/example-files/harness.sig){ .md-button }
+[Download <tt>harness.mod</tt>](/example-files/harness.mod){ .md-button }
+
+The purpose of the `harness` module is to turn a sequence of goals written in
+the file `fib.goals` into a JSON file `fib.json` that can be given to `dispatch
+publish`. To use `harness`, we define a module `main` that accumulates and
+compiles the `fib` and `harness` modules.
+
+=== "Signature"
+
+    ```{.lprolog .downloadable title="main.sig" linenums="1"}
+    --8<-- "docs/example-files/main.sig"
+    ```
+
+=== "Module"
+
+    ```{.lprolog .downloadable title="main.mod" linenums="1"}
+    --8<-- "docs/example-files/main.mod"
+    ```
+
+The file `fib.goals` is a list of goals, with each goal wrapped in a name using
+the `name` predicate. For our purposes, we can just list goals that compute
+$\kop{fib}(n)$ and $n^2$ for $n \in 1..13$.
+
+```{.lprolog .downloadable title="fib.goals" linenums="1"}
+--8<-- "docs/example-files/fib.goals"
+```
+
+Finally, here's how we can run `harness`, and subsequently Dispatch:
+
+```{.console .conbox}
+$ tjcc fib && tjcc harness && tjcc main && tjlink fib && tjlink harness && tjlink main
+
+$ tjsim -b -s 'json "fib".' -m 1 main
+
+$ dispatch publish fib.json local # (1)!
+published collection object of cid: bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
+```
+
+1. Can take a few dozen seconds to finish.
+
+This CID can be [explored on IPLD explorer][explore-lp].
+
+[explore-lp]: https://explore.ipld.io/#/explore/bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
 
 ## Theorem in Abella DAMF
 
@@ -353,9 +494,11 @@ Abella are relational: unlike Coq, we don't define `+` as a binary function on
 natural numbers but as a ternary relation `plus` that relates its first two
 arguments to its third.
 
-```{.abella title="FibTheorem.thm" linenums="1"}
-Kind nat type.
+```{.abella .downloadable title="FibTheorem.thm" linenums="1"}
+--8<-- "docs/example-files/FibTheorem.thm::29"
 ```
+
+TODO
 
 <script>
   (async function () {
@@ -363,7 +506,7 @@ Kind nat type.
       const th = el.getElementsByTagName("th")[0];
       const span = th.getElementsByTagName("span")[0];
       const fileName = span.innerHTML;
-      span.innerHTML = `${ fileName } (<a href="/example-files/${ fileName }">download</a>)`;
+      span.innerHTML = `${ fileName } (<a target="_blank" href="/example-files/${ fileName }">download</a>)`;
     }
     for (const el of document.getElementsByClassName("continued")) {
       const th = el.getElementsByTagName("th")[0];

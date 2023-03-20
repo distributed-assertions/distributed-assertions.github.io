@@ -51,12 +51,13 @@ markdown_extensions:
   - attr_list
   - admonition
   - md_in_html
-  - pymdownx.superfences
   - smarty
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.snippets
-  - pymdownx.tabbed
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
