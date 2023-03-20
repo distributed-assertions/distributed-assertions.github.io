@@ -110,28 +110,28 @@ As usual, we begin with importing the `Arith` module to fix the interpretation
 of numerals using the `nat` type, and then capture $\kop{fib}$ as the recursive
 fixed point function `fib`.
 
-```coq title="FibLemma.v" linenums="1"
+```{.coq .downloadable title="FibLemma.v" linenums="1"}
 Require Import Arith.
---8<-- "docs/FibLemma.v:2:11"
+--8<-- "docs/example-files/FibLemma.v:2:11"
 ```
 
 We will prove our lemma of interest using the `lia` tactic of Coq, which is
 enabled by the `Lia` module. We will also pervasively use rewriting modulo
 linear arithmetic identities, so we define a Ltac named `liarw` for convenience.
 
-```coq title="FibLemma.v" linenums="12"
+```{.coq .continued title="FibLemma.v" linenums="12"}
 Require Import Lia.
---8<-- "docs/FibLemma.v:12:15"
+--8<-- "docs/example-files/FibLemma.v:12:15"
 ```
 
 Finally, here is our full proof of the lemma, which is named `fib_square_above`
 here. This lemma itself makes use of a different lemma called `fib_square_lemma`.
 
-```coq title="FibLemma.v" linenums="17"
---8<-- "docs/FibLemma.v:17:"
+```{.coq .continued title="FibLemma.v" linenums="17"}
+--8<-- "docs/example-files/FibLemma.v:17:"
 ```
 
-[Download <tt>FibLemma.v</tt>](/FibLemma.v){ class="md-button" }
+<!-- [Download <tt>FibLemma.v</tt>](/FibLemma.v){ class="md-button" } -->
 
 ### 4. Language and Tool Objects
 
@@ -151,8 +151,8 @@ code of a Coq parser. In this walkthrough, to simplify matters, we will
 represent this language as the following JSON object that just links to the Coq
 website.
 
-```js title="Coq.language.content.json" linenums="1"
---8<-- "docs/Coq.language.content.json"
+```{.json .downloadable title="Coq.language.content.json" linenums="1"}
+--8<-- "docs/example-files/Coq.language.content.json"
 ```
 
 We can then use `dispatch create-language` to make the DAMF language object and
@@ -181,7 +181,7 @@ $ ipfs dag get bafy…rxxy/content # (2)!
 1. This is the CID found in `languages.json`.
 2. This is isomorphic to our `Coq.language.content.json` object.
 
-[Download <tt>Coq.language.content.json</tt>](/Coq.language.content.json){ class="md-button" }
+<!-- [Download <tt>Coq.language.content.json</tt>](/Coq.language.content.json){ class="md-button" } -->
 
 We can record that we used Coq v.8.16.1 to verify our proofs of the assertions
 by referencing a DAMF tool object in the `mode` field of the corresponding
@@ -190,8 +190,8 @@ standard DAMF tool object to represent this version of the Coq
 implementation. Therefore, like with languages above, we will create the content
 of such a tool object ourselves for the purposes of this walkthrough.
 
-```js title="coq-8.16.1.tool.content.json" linenums="1"
---8<-- "docs/coq-8.16.1.tool.content.json"
+```{.json .downloadable title="coq-8.16.1.tool.content.json" linenums="1"}
+--8<-- "docs/example-files/coq-8.16.1.tool.content.json"
 ```
 
 To create the DAMF tool object, we use `dispatch create-tool`.
@@ -201,11 +201,110 @@ $ dispatch create-tool coq-8.16.1 json coq-8.16.1.tool.content.json
 Tool profile coq-8.16.1 created successfully!
 ```
 
-[Download <tt>coq-8.16.1.tool.content.json</tt>](/coq-8.16.1.tool.content.json){ class="md-button" }
+<!-- [Download <tt>coq-8.16.1.tool.content.json</tt>](/coq-8.16.1.tool.content.json){ class="md-button" } -->
 
 ### 5. The DAMF assertions
 
-TODO
+There is currently no software that can transform the theorems we have just
+proved in Coq into DAMF assertions. We will do this manually. To cause the least
+breakage, we will reuse the text of the Coq development as much as possible.
+
+Consider the first lemma, `fib_square_lemma`. The _formula_ content of this
+lemma is the string `"forall n, 2 * n + 27 <= fib (n + 12)"`. This string,
+however, only makes sense in a _context_ where the symbols `*`, `+`, `<=`,
+`fib`, etc. are defined. These symbols come from the Coq standard prelude with
+some additional support from the `Arith` module, except `fib` which we defined
+ourselves. Thus, the DAMF context object for this formula can be built with the
+following input for Dispatch:
+
+```json linenums="1"
+{
+  "format": "context",
+  "language": "coq-8.16.1", // (1)!
+  "content": [
+    "Require Arith",
+    "Fixpoint fib (n: nat): nat := match … end" // (2)!
+  ]
+}
+```
+
+1. This is the local name we picked using `dispatch create-language` in step 4.
+2. Lines 3--11 of `FibLemma.v`.
+
+In order to buil the assertion that corresponds to `fib_square_lemma`, Dispatch
+expects the formulas and contexts to be laid out using local names. Here, we can
+use the name `fib_square_lemma` as the local name of the formula, and
+`fib_square_lemma!context` as the local name of its context. Then, in the
+production underlying the assertion we use the local name `coq-8.16.1` for the
+_mode_ field, which is the local name of the DAMF tool object we created in step 4.
+The complete assertion is as follows, again as a Dispatch input.
+
+```json linenums="1"
+{
+  "format": "assertion",
+  "agent": "exampleAgent", // (1)!
+  "claim": {
+    "format": "annotated-production",
+    "annotation": { "name": "fib_square_lemma" }, // (2)!
+    "production": {
+      "mode": "coq-8.16.1", // (3)!
+      "sequent": {
+        "conclusion": "fib_square_lemma", // (4)!
+        "dependencies": [ ]
+      }
+    }
+  },
+  "formulas": {
+    "fib_square_lemma": {
+      "language": "coq-8.16.1",
+      "context": "fib_square_lemma!context", // (5)!
+      "content": "forall n, 2 * n + 27 <= fib (n + 12)"
+    }
+  },
+  "context": {
+    "fib_square_lemma!context": {
+      "language": "coq-8.16.1",
+      "content": [
+        "Require Arith",
+        "Fixpoint fib (n: nat): nat := match … end"
+      ]
+    }
+  }
+}
+```
+
+1. We made this with `dispatch create-agent` in step 2.
+2. This defines a possible name for the assertion, but it only serves as a hint
+   for consumers. The actual global name is the CID of the DAMF assertion object
+   that Dispatch will create. This annotation object can have other metadata
+   besides this name himt, such as the Coq proof script. Its structure is not
+   prescribed by DAMF.
+3. This is the local name we picked using `dispatch create-tool` in step 4.
+4. This points to the formula object defined in the `"formulas"` section below
+   (lines 16--20).
+5. This points to the context object defined in the `"contexts"` section below
+   (lines 23--29).
+
+We can of course ask Dispatch to publish only this assertion. However, since we
+have two assertions in this file, it is more convenient for Dispatch to publish
+both assertions together as a DAMF collection. Here is what it looks like:
+
+```{.json .max30 .downloadable title="FibLemma.v.assertions.json" linenums="1"}
+--8<-- "docs/example-files/FibLemma.v.assertions.json"
+```
+
+We can now use Dispatch to publish the entire collection at once.
+
+```console
+$ dispatch publish FibLemma.v.assertions.json local # (1)!
+published collection object of cid: bafyreigsngij2hdpxpeqktvmmjo6pxckkobynldhh5mqvbey66xhdixrey
+```
+
+1. `local` means that it is being published to the local IPFS repository we set up in step 1.
+
+This CID can be [explored in IPLD explorer][explore].
+
+[explore]: https://explore.ipld.io/#/explore/bafyreigsngij2hdpxpeqktvmmjo6pxckkobynldhh5mqvbey66xhdixrey
 
 ## Computations with λProlog
 
@@ -214,3 +313,20 @@ TODO
 ## Theorem in Abella DAMF
 
 TODO
+
+<script>
+  (async function () {
+    for (const el of document.getElementsByClassName("downloadable")) {
+      const th = el.getElementsByTagName("th")[0];
+      const span = th.getElementsByTagName("span")[0];
+      const fileName = span.innerHTML;
+      span.innerHTML = `${ fileName } (<a href="/example-files/${ fileName }">download</a>)`;
+    }
+    for (const el of document.getElementsByClassName("continued")) {
+      const th = el.getElementsByTagName("th")[0];
+      const span = th.getElementsByTagName("span")[0];
+      const fileName = span.innerHTML;
+      span.innerHTML = `${ fileName } (contd.)`;
+    }
+  })();
+</script>
