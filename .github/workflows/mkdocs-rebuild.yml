@@ -18,4 +18,5 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - run: pip install mkdocs-material
+      - run: pip install https://github.com/abella-prover/abella-pygments/archive/refs/heads/main.zip
       - run: mkdocs gh-deploy --force
