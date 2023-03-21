@@ -31,3 +31,18 @@
 .conbox code {
   background-color: rgba(50, 100, 30, 0.1);
 }
+
+.highlight .k, .highlight .kd {
+  /* text-decoration: underline; */
+  font-weight: bold;
+}
+
+.highlight .m, .highlight .mi {
+  color: var(--md-code-hl-constant-color);
+}
+
+.highlight .gr {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}

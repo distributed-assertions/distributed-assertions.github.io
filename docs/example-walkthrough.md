@@ -450,7 +450,7 @@ compiles the `fib` and `harness` modules.
 
 The file `fib.goals` is a list of goals, with each goal wrapped in a name using
 the `name` predicate. For our purposes, we can just list goals that compute
-$\kop{fib}(n)$ and $n^2$ for $n \in 1..13$.
+$\kop{fib}(n)$ and $n^2$ for $n$ between 1 and 13.
 
 ```{.lprolog .downloadable title="fib.goals" linenums="1"}
 --8<-- "docs/example-files/fib.goals"
