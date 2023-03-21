@@ -75,20 +75,10 @@ Theorem fib_squares: forall x x2, nat x -> times x x x2 ->
 intros Hnat Hsquare. split.
 %% ->
 intros Hfib.
-Hcs: assert x = s^0 z
-          \/ x = s^1 z
-          \/ x = s^2 z
-          \/ x = s^3 z
-          \/ x = s^4 z
-          \/ x = s^5 z
-          \/ x = s^6 z
-          \/ x = s^7 z
-          \/ x = s^8 z
-          \/ x = s^9 z
-          \/ x = s^10 z
-          \/ x = s^11 z
-          \/ x = s^12 z
-          \/ leq (s^13 z) x.
+Hcs: assert x = s^0 z \/ x = s^1 z \/ x = s^2 z \/ x = s^3 z
+         \/ x = s^4 z \/ x = s^5 z \/ x = s^6 z \/ x = s^7 z
+         \/ x = s^8 z \/ x = s^9 z \/ x = s^10 z \/ x = s^11 z
+         \/ x = s^12 z \/ leq (s^13 z) x.
   Hnat: case Hnat. search.
   Hnat: case Hnat. search.
   Hnat: case Hnat. search.

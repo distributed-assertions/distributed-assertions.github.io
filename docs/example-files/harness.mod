@@ -14,7 +14,8 @@ config_tool     "teyjus-2.1.1".
 openOutput File Ext Goal :- OutFile is (File ^ Ext), open_out OutFile Out,
   (pi Term\ pi String\ pprintterm Term :- term_to_string Term String, output Out String) =>
   (pi String\ pprint String :- output Out String) =>
-  (closeOut :- close_out Out) => Goal.
+  (closeOut :- close_out Out) => Goal,
+  print "Wrote ", print OutFile, print ".\n".
 
 openInput File Ext Goal :- InFile is (File ^ Ext), open_in InFile In,
   (pi String\ rread String :- input_line In String) =>

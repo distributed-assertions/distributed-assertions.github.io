@@ -20,13 +20,13 @@ config_language "ipfs:bafkreicwbhw5hc3ble7puleit773fmqassjrhy6xry4klsu6fh7kjarzw
 % Specialize the file input and output functions.
 
 openOutput File Ext Goal :- OutFile is (File ^ Ext), open_out OutFile Out,
-  (pi Term\ pi String\ pprintterm Term :- term_to_string Term String, output Out String) => 
-  (pi String\ pprint String :- output Out String) => 
+  (pi Term\ pi String\ pprintterm Term :- term_to_string Term String, output Out String) =>
+  (pi String\ pprint String :- output Out String) =>
   (closeOut :- close_out Out) => Goal.
 
 openInput File Ext Goal :- InFile is (File ^ Ext), open_in InFile In,
-  (pi String\ rread String :- input_line In String) => 
-  (pi Term\ rreadterm Term :- readterm In Term) => 
+  (pi String\ rread String :- input_line In String) =>
+  (pi Term\ rreadterm Term :- readterm In Term) =>
   (eeof :- eof In) => (closeIn :- close_in In) => Goal.
 
 % The top-level command.  See comments in the harness.sig file.
@@ -55,7 +55,7 @@ print_named File :- config_profile Profile,
   openInput File ".goals" (print_named_loop Profile File, closeIn, pprint "\n  },\n").
 
 print_named_loop _ _ :- eeof, !.
-print_named_loop Profile File :- term_to_string File FStr, 
+print_named_loop Profile File :- term_to_string File FStr,
   rreadterm (name String Content), term_to_string String Str, config_language Language,
   Content,  % <--- Theorem proving done here
   pprint "        ", pprint Str, pprint ": {\n",
@@ -66,7 +66,7 @@ print_named_loop Profile File :- term_to_string File FStr,
 print_named_loop Profile File :- pprint ",\n", print_named_loop Profile File.
 
 print_declarations File :- config_language Language,
-  pprint "  \"declarations\": {\n     \"", pprint File, 
+  pprint "  \"declarations\": {\n     \"", pprint File,
   pprint "\": {\n    \"language\": \"", pprint Language,
   pprint "\",\n      \"content\": [\n", print_sig File, pprint ",\n", print_mod File,
   pprint "\n            ]\n        }\n    }\n}\n".
@@ -77,7 +77,7 @@ print_sig File :- openInput File ".sig" (rread _, print_lines, closeIn).
 print_mod File :- openInput File ".mod" (rread _, print_lines, closeIn).
 
 print_lines :- eeof.
-print_lines :- rread Line, remove_nl Line L, 
+print_lines :- rread Line, remove_nl Line L,
                if (L = "") print_lines (term_to_string L S, pprint "        ", pprint S), eeof, !.
 print_lines :- pprint ",\n", print_lines.
 

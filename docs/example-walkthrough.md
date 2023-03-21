@@ -297,7 +297,7 @@ We can now use Dispatch to publish the entire collection at once.
 
 ```{.console .conbox}
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
-published collection object of cid: bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
+published collection object of cid: bafyreihgl373y4waiggrw63mrkkunmnq2wi7loxpt5flmm653hsp7nw6uq
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
@@ -306,27 +306,27 @@ This CID can be [explored in IPLD explorer][explore-coq]. It can also be locally
 explored with `ipfs dag get`:
 
 ```{.console .conbox}
-$ ipfs dag get bafy…auyi | python -m json.tool # (1)!
+$ ipfs dag get bafy…w6uq | python -m json.tool # (1)!
 {
     "elements": [
         {
-            "/": "bafyreiamgughltnap73kzel5qff2ji7drcqxnchrqtwmimalieklaoaagu"
+            "/": "bafyreicck5ty7v3xvbow6nnm5sne45muj5xmouznusldtjqupg44y65qou"
         },
         {
-            "/": "bafyreic45nr256p5qgyqfdtcosup7z6s2fjnqru57vegp3esmn7wvffzpa"
+            "/": "bafyreihxkh7vycgpb7v6b6ifgb27pidivzyw5ungcoqwbhcktejcefrxhq"
         }
     ],
     "format": "collection",
     "name": "FibLemma.v"
 }
 
-$ ipfs dag get bafy…auyi/elements/0/claim/production/sequent/conclusion/content
+$ ipfs dag get bafy…w6uq/elements/0/claim/production/sequent/conclusion/content
 "forall n, 2 * n + 27 <= fib (n + 12)"
 ```
 
 1. `python -m json.tool` is being used to pretty-print the JSON
 
-[explore-coq]: https://explore.ipld.io/#/explore/bafyreifn4wjlhwwhijyrtv7y4gaii7qjmlm4a5xuol5aesxwseqefzauyi
+[explore-coq]: https://explore.ipld.io/#/explore/bafyreihgl373y4waiggrw63mrkkunmnq2wi7loxpt5flmm653hsp7nw6uq
 
 ## Computations with λProlog
 
@@ -423,18 +423,17 @@ We use the following language and tool descriptions for λProlog and Teyjus (ver
     Tool profile teyjus-2.1.1 created successfully!
     ```
 
-To build the DAMF assertions, it is useful to use the following `harness`
-module.  Note that the agent, language, and tool names that we chose with
+To build the DAMF assertions, we can use the following _harness_ module:
+[<tt>harness.sig</tt>](/example-files/harness.sig) and
+[<tt>harness.mod</tt>](/example-files/harness.mod).  The purpose of the harness
+module is to turn a sequence of goals for a module `FILE`, written in a file
+`FILE.goals`, into a JSON file `FILE.json` that can be given to `dispatch
+publish`. Note that the agent, language, and tool names that we chose with
 `dispath create-agent`, `dispatch create-language`, and `dispatch create-tool`
-respectively, are directly written in the `harness` module.
+respectively, are directly written in the harness module.
 
-[Download <tt>harness.sig</tt>](/example-files/harness.sig){ .md-button }
-[Download <tt>harness.mod</tt>](/example-files/harness.mod){ .md-button }
-
-The purpose of the `harness` module is to turn a sequence of goals written in
-the file `fib.goals` into a JSON file `fib.json` that can be given to `dispatch
-publish`. To use `harness`, we define a module `main` that accumulates and
-compiles the `fib` and `harness` modules.
+To use the harness, we define a module `main` that accumulates and compiles the
+`fib` and `harness` modules.
 
 === "Signature"
 
@@ -459,9 +458,10 @@ $\kop{fib}(n)$ and $n^2$ for $n$ between 1 and 13.
 Finally, here's how we can run `harness`, and subsequently Dispatch:
 
 ```{.console .conbox}
-$ tjcc fib && tjcc harness && tjcc main && tjlink fib && tjlink harness && tjlink main
+$ tjcc fib && tjcc harness && tjcc main && tjlink main
 
-$ tjsim -b -s 'json "fib".' -m 1 main
+$ tjsim -b -s 'damf_export.' -m 1 main
+Wrote fib.json.
 
 $ dispatch publish fib.json local # (1)!
 published collection object of cid: bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
@@ -469,7 +469,7 @@ published collection object of cid: bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4
 
 1. Can take a few dozen seconds to finish.
 
-This CID can be [explored on IPLD explorer][explore-lp].
+This CID can be [explored on IPLD explorer][explore-lp] or locally with `ipfs dag get`.
 
 [explore-lp]: https://explore.ipld.io/#/explore/bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
 
@@ -483,9 +483,8 @@ Abella is simply typed and its type system does not have any reasoning
 principles that yield theorems. Reasoning in Abella is done with its _reasoning
 logic_ known as $\mathcal{G}$, which is an extension of first-order
 intuitionistic logic over $\lambda$-terms that supports inductive and
-co-inductive definitions, generic quantification (using $\nabla$), and _nominal
-abstraction_, which is a generalization of $\alpha\beta\eta$ equality on
-$\lambda$-terms.
+co-inductive definitions, generic quantification (using $\nabla$), and nominal
+abstraction (a generalization of $\alpha\beta\eta$ equality on $\lambda$-terms).
 
 We will write the overall theorem in the Abella file `FibTheorem.thm`. It begins
 by defining the type `nat` of natural numbers, its constructors `z` and `s`, and
