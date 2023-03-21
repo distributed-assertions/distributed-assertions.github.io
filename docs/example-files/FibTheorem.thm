@@ -28,12 +28,11 @@ Define fib: nat -> nat -> prop by
 ; fib (s (s X)) K :=
     exists M N, fib X M /\ fib (s X) N /\ plus M N K.
 
-% Import "damf:bafyreid5eco3yl6uewtahf4zhyzl5rgai7qzbyfmpy6gk6hknbclgradye" as
+Import "damf:bafyreihxkh7vycgpb7v6b6ifgb27pidivzyw5ungcoqwbhcktejcefrxhq" as
 Theorem fib_square_above: forall x, nat x ->
   leq (s^13 z) x ->
   forall y, times x x y ->
   forall u, fib x u -> lt y u.
-skip.
 
 Theorem plus_deterministic: forall x y u v, plus x y u -> plus x y v -> u = v.
 induction on 1. intros. case H1.

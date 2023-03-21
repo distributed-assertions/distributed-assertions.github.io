@@ -486,16 +486,131 @@ intuitionistic logic over $\lambda$-terms that supports inductive and
 co-inductive definitions, generic quantification (using $\nabla$), and nominal
 abstraction (a generalization of $\alpha\beta\eta$ equality on $\lambda$-terms).
 
-We will write the overall theorem in the Abella file `FibTheorem.thm`. It begins
-by defining the type `nat` of natural numbers, its constructors `z` and `s`, and
-then some comparison relations and computations. Note that all definitions in
-Abella are relational: unlike Coq, we don't define `+` as a binary function on
-natural numbers but as a ternary relation `plus` that relates its first two
-arguments to its third.
+### 8. Setting the stage
+
+We will write the overall theorem in the Abella file
+[<tt>FibTheorem.thm</tt>](/example-files/FibTheorem.thm). It begins by defining
+the type `nat` of natural numbers, its constructors `z` and `s`, and then some
+comparison relations and computations. Note that all definitions in Abella are
+relational: unlike Coq, we don't define `+` as a binary function on natural
+numbers but as a ternary relation `plus` that relates its first two arguments to
+its third.
 
 ```{.abella .downloadable title="FibTheorem.thm" linenums="1"}
 --8<-- "docs/example-files/FibTheorem.thm::29"
 ```
+
+Because all inductive definitions are relational in Abella, we sometimes have to
+prove additional lemmas to prove functionality of relations. In our theorem we
+will need the following lemmas of this kind.
+
+```{.abella .continued title="FibTheorem.thm" linenums="30"}
+--8<-- "docs/example-files/FibTheorem.thm:36:69"
+```
+
+### 9. Importing DAMF assertions
+
+Abella can import any DAMF assertion using the following statement:
+
+```abella
+Import "damf:<cid>".
+```
+
+Here, `<cid>` can be the CID of an individual DAMF assertion object or a DAMF
+collection object containing assertions. If these assertion objects are in
+Abella's own language, they can be used as is. For reference, Abella's DAMF
+language object has the following CID:
+
+```
+bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy
+```
+
+What about the case of DAMF assertions in a different language? In this case,
+Abella will need to use an _adapter sequent_ as explained in the [DAMF technical
+design paper](/assets/papers/draft23damf.pdf). In the future, such adapter
+sequents will be built using language translation tools. For now, we will write
+the adapter sequents ourselves and sign the resulting assertions using a `mode`
+field of `null`, which stands for an assertion for which the signing agent is
+wholly responsible.
+
+To create such adapter sequents, Abella has a modified form of the `Import
+... as` statement that allows the user to restate the theorem in Abella's own
+language.  For example, the theorem `fib_square_above` from Coq that was
+exported in step 5 can be imported in Abella as follows:
+
+```{.abella .continued title="FibTheorem.thm" linenums="63"}
+--8<-- "docs/example-files/FibTheorem.thm:31:35"
+```
+
+The statement of this theorem needs to be comprehensible in the local context of
+the Abella development, using the type `nat`, constants `s` and `z`, and the
+relations `times`, `fib`, `lt`, etc. defined in lines 1--29 of
+<tt>FibTheorem.thm</tt>.
+
+!!! info "Iterated application notation"
+
+    The term `s^13 z` stands for the term
+    `(s (s (s (s (s (s (s (s (s (s (s (s (s z)))))))))))))`,
+    which is 13 in the unary representation of `nat`. For any unary term
+    constant `k` and literal number `n` ($\ge 0$), the notation `(k^n t)`
+    stands for the `n`-times iterated application of `k` to `t`.
+
+After type-checking the statement of the theorem, Abella uses this `Import
+... as` statement first to build the adapter sequent that has the following DAMF
+structure:
+
+```{.json}
+{ "format": "assertion",
+  "claim": {
+    "format": "annotated-production",
+    "annotation": {
+      "name": "fib_square_above!adapter"
+      "generator": "damf:bafy…xixq" // (1)!
+    },
+    "production": {
+      "mode": null,
+      "sequent": {
+        "conclusion": "fib_square_above",
+        "dependencies": [
+          "damf:bafy…rxhq/claim/production/sequent/conclusion" // (2)!
+        ] } }
+  "formulas": {
+    "fib_square_above": {
+      "language": "damf:bafy…ymoy", // (3)!
+      "content": "forall x, nat x -> … -> lt y u",
+      "context": "fib_square_above!context"
+    } },
+  "contexts": {
+    "fib_square_above!context": {
+      "language": "damf:bafy…ymoy",
+      "content": [
+        "Kind nat type", "Type z nat", "Type s nat -> nat",
+        "Define nat : …", "Define leq : …", "Define lt : …",
+        "Define times : …", "Define fib : …"
+      ] } } }
+```
+
+1. This field links to the DAMF tool object for this version of Abella. Because
+   it is part of an annotation, DAMF prescribes no particular meaning to the
+   `"generator"` key or its value. Its purpose in this walkthrough is purely
+   documentary in nature.
+2. This uses IPLD paths to refer to the CID of the `conclusion` of the assertion
+   object that was imported.
+3. This is the Abella language's identifier
+
+This adapter sequent, which has a dependency on an external formula in a
+different language (Coq) to the conclusion (Abella), will be published using
+Dispatch. For the rest of the file, Abella then continues as if
+`fib_square_lemma` was indeed stated and proved in Abella.
+
+The assertions produced using λProlog in step 7 are similarly imported using a
+sequence of `Import ... as` statements.
+
+```{.abella .continued title="FibTheorem.thm" linenums="68"}
+--8<-- "docs/example-files/FibTheorem.thm:31:35"
+```
+
+### 10. Finishing the theorem
 
 TODO
 
