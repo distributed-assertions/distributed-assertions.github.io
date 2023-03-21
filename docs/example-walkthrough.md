@@ -607,19 +607,19 @@ The assertions produced using λProlog in step 7 are similarly imported using a
 sequence of `Import ... as` statements.
 
 ```{.abella .continued .max30 title="FibTheorem.thm" linenums="68"}
---8<-- "docs/example-files/FibTheorem.thm:70:148"
+--8<-- "docs/example-files/FibTheorem.thm:70:145"
 ```
 
 ### 10. Finishing the theorem
 
 Assembling the final theorem in Abella is now straightforward. In the _only if_
 direction (forward), we repeatedly make use of the computation assertions from
-λProlog for $n \in 0..12$, and then the `fib_squares_lemma` assertion for $n \ge
+λProlog for $n \in 0..12$, and then the `fib_square_above` assertion for $n \ge
 13$. In the _if_ direction, we just verify that the computations (again, pulled
 from λProlog) have the right values.
 
-```{.abella .continued title="FibTheorem.thm" linenums="145"}
---8<-- "docs/example-files/FibTheorem.thm:148:"
+```{.abella .continued title="FibTheorem.thm" linenums="142"}
+--8<-- "docs/example-files/FibTheorem.thm:146:"
 ```
 
 Verifying this in Abella requires the `--damf-imports` command line
@@ -628,12 +628,12 @@ flag, where `<location>` is either `local` or `cloud`.
 
 ```{.console .conbox}
 $ abella --damf-imports --damf-publish local FibTheorem.thm
-Published as damf:bafyreiagq3rp6gqljofgvzefdm32t7pvtjzn2cwg76hskt3qlmybijpuve
+Published as damf:bafyreigenxigzkf62xgwqqxhhofwtoj4xyvzf34ucembh2zembbla2oxvi
 ```
 
 As usual, this can be [browsed in IPLD explorer][explore-abella].
 
-[explore-abella]: https://explore.ipld.io/#/explore/bafyreiagq3rp6gqljofgvzefdm32t7pvtjzn2cwg76hskt3qlmybijpuve
+[explore-abella]: https://explore.ipld.io/#/explore/bafyreigenxigzkf62xgwqqxhhofwtoj4xyvzf34ucembh2zembbla2oxvi
 
 <script>
   (async function () {

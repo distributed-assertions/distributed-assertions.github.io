@@ -107,9 +107,6 @@ Theorem sq12: times (s^12 z) (s^12 z) (s^144 z).
 Import "damf:bafyreiczlelavo767bfowoiuwcfunyacws3kawpf2otah4l6oktxsc46vm" as
 Theorem sq13: times (s^13 z) (s^13 z) (s^169 z).
 
-Import "damf:bafyreifhjpywuikl5lrhc5okgikjhfplqjzx7q3q2fhbxyxzkzi5cxfzii" as
-Theorem fib1: fib (s^1 z) (s^1 z).
-
 Import "damf:bafyreif6qwt4t4u363rd6ulao2ndnodathmlxhdnci7ihe2l2brn74gbji" as
 Theorem fib2: fib (s^2 z) (s^1 z).
 
@@ -217,4 +214,4 @@ intros Hcs.
 Hcs: case Hcs.
   case Hsquare. search.
   apply times_deterministic to sq1 Hsquare. search.
-  apply times_deterministic to sq12 Hsquare. search 144.
+  apply times_deterministic to sq12 Hsquare. backchain fib12.
