@@ -1,0 +1,144 @@
+fib.json:
+  - bafyreifrwlisruljlssu3bymfna7canldt32z4f2imnkzfylvufgyhknyq
+  - elements:
+    - bafyreibzzuhrgezgvug5gz7cflcdom2guliv64trckr62phrfipkz76mfq
+    - bafyreiefeka2f2ain6tgtmrykwod3t5but2fqr5kbkhfgmxstokn4l2miy
+    - bafyreieh7ibwsxo2qrqbrvcirwmo3zjit2jsknnufgsxzh6gkkml2di3ai
+    - bafyreidtxwiplpz4m5em7p2a2sykafhvnurouomfzvggok5ywlfwyhnhsq
+    - bafyreid335iyieieijrzjtkirxhxh3tkbznoqg4h3dq7epo5nyaomxre3y
+    - bafyreie2xxxeu3zi5knvpsdtdg4umjc3a5ftxbwh3deogv7tutzmfbx23m
+    - bafyreievaqyzj7msk5riqer2hxzqnejumuhgjkg2axfzhpmrk6csdwko2a
+    - bafyreibqtds3naf5tguv3efqafq3u6ah5oubimpq7xfie22vuduzuvqifi
+    - bafyreiaavgweydoks4a2emnzzsgry4ydibjxdkskpvex7etzfjm5wcxgo4
+    - bafyreib3zccmkk3avej6xrir3k5b4iqyst2l74kxsyy2msg5loxc7s2dja
+    - bafyreifeplrwfsi53wc54zit4kcp7w5bzlikqgmm4oeh6h4aftwp7amfvi
+    - bafyreiad3c3xmj67en7kjreyy4utvd5xngy5myqlm4qpbxwas25furewuq
+    - bafyreiczlelavo767bfowoiuwcfunyacws3kawpf2otah4l6oktxsc46vm
+    - bafyreifhjpywuikl5lrhc5okgikjhfplqjzx7q3q2fhbxyxzkzi5cxfzii
+    - bafyreif6qwt4t4u363rd6ulao2ndnodathmlxhdnci7ihe2l2brn74gbji
+    - bafyreicvry4lxxetbsfirrbqdk6yxpm6chxl5ggfaoh5m43qk2wkbcuft4
+    - bafyreiecavn2f654sbt6jbpeyxos4mkj3li7rc6anbdnuspur4p5dgjzku
+    - bafyreid7jqnxcnreuurqkmkntzq3ehqwyojwmwxewof2tw74w7enwkr3cy
+    - bafyreif3kwe2aob5kzopjan4sqjkqcrzb53sy7ap2uzij2lz4pegse4bby
+    - bafyreiapatsma646qr6akdodevb4buqvyi3lmglvxx2em257ewqinbmzcu
+    - bafyreiavpm3kbbbnkbc4wjdnddzatkhd2bbinnuakfwabhjjvndi5agvky
+    - bafyreihoggwuzdglzsmqqs22ol36quxapwmlc44n6klgyemoxhwp2yiuze
+    - bafyreibrd7gzgwvf2kpq7vo4wq4ra4syz2j5jcuiljtkstvyo5eoz7lcem
+    - bafyreiha77e5cuhrp3nnwyawqiidhbuisdrty2enxgkhwjosrgdylxfvvm
+    - bafyreibiw3niyqh5ecmqociablot4nuqvmhp4skbft7e63et22qruehj44
+    - bafyreifgvdfqd7frf6zh2n5luatlqhftmvwmnculnvtxjihy732vwjfh6u
+
+FibLemma.v.assertions.json:
+  - bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom
+  - elements:
+    - bafyreifckjigmrdv6n5kjnpxuvgaky37wn5azuicxb67enxwbbu5tddlga
+    - bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai
+
+FibTheorem.thm.json:
+  - bafyreiagq3rp6gqljofgvzefdm32t7pvtjzn2cwg76hskt3qlmybijpuve
+
+----------------------------------------------------------------------------------------------------
+
+Import "damf:bafyreibzzuhrgezgvug5gz7cflcdom2guliv64trckr62phrfipkz76mfq" as
+  % bafyreig6vwjbay6bhu6hhti6vtclenszl7hja32eiqlc2i3a5cedyr6gxy
+Theorem sq1: times (s^1 z) (s^1 z) (s^1 z).
+
+Import "damf:bafyreiefeka2f2ain6tgtmrykwod3t5but2fqr5kbkhfgmxstokn4l2miy" as
+  % bafyreignnwk3pojgk2rslteultdrrxgiah3h32je7bxeb3gpkxqmc3kj5m
+Theorem sq2: times (s^2 z) (s^2 z) (s^4 z).
+
+Import "damf:bafyreieh7ibwsxo2qrqbrvcirwmo3zjit2jsknnufgsxzh6gkkml2di3ai" as
+  % bafyreifmt25r52hfhxxvfacsjr4gptebu7hewf7hd6dmb2tlzuszolkesu
+Theorem sq3: times (s^3 z) (s^3 z) (s^9 z).
+
+Import "damf:bafyreidtxwiplpz4m5em7p2a2sykafhvnurouomfzvggok5ywlfwyhnhsq" as
+  % bafyreihthjvgjqflbchx6sdbyvxg3wpg2kxajluiaj6d5kg6b67sfmt7q4
+Theorem sq4: times (s^4 z) (s^4 z) (s^16 z).
+
+Import "damf:bafyreid335iyieieijrzjtkirxhxh3tkbznoqg4h3dq7epo5nyaomxre3y" as
+  % bafyreih4th4f6cl3ricg7xsm6m2wxtfxlhhykd4s4opu4ewoc7rzc3axle
+Theorem sq5: times (s^5 z) (s^5 z) (s^25 z).
+
+Import "damf:bafyreie2xxxeu3zi5knvpsdtdg4umjc3a5ftxbwh3deogv7tutzmfbx23m" as
+  % bafyreiev4etrwpeopxhcpmzogvezyq7bfkns55zv2jkmhtvthtyoudubni
+Theorem sq6: times (s^6 z) (s^6 z) (s^36 z).
+
+Import "damf:bafyreievaqyzj7msk5riqer2hxzqnejumuhgjkg2axfzhpmrk6csdwko2a" as
+  % bafyreibua2i3honedtpsvd6pfjmlafsdgu3eeyyfy6y6dhwepwkfabvqvu
+Theorem sq7: times (s^7 z) (s^7 z) (s^49 z).
+
+Import "damf:bafyreibqtds3naf5tguv3efqafq3u6ah5oubimpq7xfie22vuduzuvqifi" as
+  % bafyreigmo3nimml6qto5cx7cbcx7yw7i3vuszhwzm3sfiywuspn3qpgfma
+Theorem sq8: times (s^8 z) (s^8 z) (s^64 z).
+
+Import "damf:bafyreiaavgweydoks4a2emnzzsgry4ydibjxdkskpvex7etzfjm5wcxgo4" as
+  % bafyreiefd5haxrhxpo5g3qm4ks3vxn25g7opgjmcc3473ajk4m4ytw5324
+Theorem sq9: times (s^9 z) (s^9 z) (s^81 z).
+
+Import "damf:bafyreib3zccmkk3avej6xrir3k5b4iqyst2l74kxsyy2msg5loxc7s2dja" as
+  % bafyreie4hda24zhc346ocy4nwmi3akfof67vwiz247afggsznfhw5cquxm
+Theorem sq10: times (s^10 z) (s^10 z) (s^100 z).
+
+Import "damf:bafyreifeplrwfsi53wc54zit4kcp7w5bzlikqgmm4oeh6h4aftwp7amfvi" as
+  % bafyreibotpzv6zswvn7yaduz7i5holiav7v7rl4petayw5tpvvklmq26iu
+Theorem sq11: times (s^11 z) (s^11 z) (s^121 z).
+
+Import "damf:bafyreiad3c3xmj67en7kjreyy4utvd5xngy5myqlm4qpbxwas25furewuq" as
+  % bafyreicxq7oqpn64ravwf32rke7p6tkdigehv3mrcdnsvufkjajskgkc5m
+Theorem sq12: times (s^12 z) (s^12 z) (s^144 z).
+
+Import "damf:bafyreiczlelavo767bfowoiuwcfunyacws3kawpf2otah4l6oktxsc46vm" as
+  % bafyreihzzgqhoztabrvdcwj7zoxipwaaywq57fnib5zmsw6z3xydzrsbly
+Theorem sq13: times (s^13 z) (s^13 z) (s^169 z).
+
+Import "damf:bafyreifhjpywuikl5lrhc5okgikjhfplqjzx7q3q2fhbxyxzkzi5cxfzii" as
+  % bafyreia6uyxtx37s3ua5ni6ccxgrp7ze7msdh5l3qhzwhsghrqinwpoghq
+Theorem fib1: fib (s^1 z) (s^1 z).
+
+Import "damf:bafyreif6qwt4t4u363rd6ulao2ndnodathmlxhdnci7ihe2l2brn74gbji" as
+  % bafyreien2ppvu67a2zjhgnq2rljhy2bk5isv46gjm2jwrnufzik7xq7yf4
+Theorem fib2: fib (s^2 z) (s^1 z).
+
+Import "damf:bafyreicvry4lxxetbsfirrbqdk6yxpm6chxl5ggfaoh5m43qk2wkbcuft4" as
+  % bafyreihrerisd4ptyvkw6mc4or3dba4tpcooksafcuc3bdgrl3iwdpwowq
+Theorem fib3: fib (s^3 z) (s^2 z).
+
+Import "damf:bafyreiecavn2f654sbt6jbpeyxos4mkj3li7rc6anbdnuspur4p5dgjzku" as
+  % bafyreicd6p4ek7sfqst5d5bkbj4jl4yuxelrptu7jotgub4j663ty37uuu
+Theorem fib4: fib (s^4 z) (s^3 z).
+
+Import "damf:bafyreid7jqnxcnreuurqkmkntzq3ehqwyojwmwxewof2tw74w7enwkr3cy" as
+  % bafyreid4zglmo4edcxmpeoa2vb3io2ss27jluvkqia2i2wqesbyxdpdmhm
+Theorem fib5: fib (s^5 z) (s^5 z).
+
+Import "damf:bafyreif3kwe2aob5kzopjan4sqjkqcrzb53sy7ap2uzij2lz4pegse4bby" as
+  % bafyreiew7hkbxwkfjlcds7epfdcjtxmeoek4moecvigeo6lau3s4arxtoy
+Theorem fib6: fib (s^6 z) (s^8 z).
+
+Import "damf:bafyreiapatsma646qr6akdodevb4buqvyi3lmglvxx2em257ewqinbmzcu" as
+  % bafyreia3xdtja7lyqaa5i5fm2h2fogz7uu666ds4menqghtnutnplrrokm
+Theorem fib7: fib (s^7 z) (s^13 z).
+
+Import "damf:bafyreiavpm3kbbbnkbc4wjdnddzatkhd2bbinnuakfwabhjjvndi5agvky" as
+  % bafyreihfihvn4kkia3ltl5omqcqoxbr7rvpn6pugqyu7hywfaedev65zti
+Theorem fib8: fib (s^8 z) (s^21 z).
+
+Import "damf:bafyreihoggwuzdglzsmqqs22ol36quxapwmlc44n6klgyemoxhwp2yiuze" as
+  % bafyreifirhiihepgxeirgo5g6i5hntawp6ivvsekwwgznunclpceecwvwe
+Theorem fib9: fib (s^9 z) (s^34 z).
+
+Import "damf:bafyreibrd7gzgwvf2kpq7vo4wq4ra4syz2j5jcuiljtkstvyo5eoz7lcem" as
+  % bafyreievcylorpmg7a2nswl7k3cczgg2ixe3yh5w3ssun3upqxperd4wku
+Theorem fib10: fib (s^10 z) (s^55 z).
+
+Import "damf:bafyreiha77e5cuhrp3nnwyawqiidhbuisdrty2enxgkhwjosrgdylxfvvm" as
+  % bafyreiekqscly3fn6xrz4oanpbqsrv75ppoy7y6scrhon36hozgaojqgey
+Theorem fib11: fib (s^11 z) (s^89 z).
+
+Import "damf:bafyreibiw3niyqh5ecmqociablot4nuqvmhp4skbft7e63et22qruehj44" as
+  % bafyreidfagum7wkzj6lzjo5sempeqcmgfm5v7mfilil7n3hh4hbtwz5ami
+Theorem fib12: fib (s^12 z) (s^144 z).
+
+Import "damf:bafyreifgvdfqd7frf6zh2n5luatlqhftmvwmnculnvtxjihy732vwjfh6u" as
+  % bafyreiddewxveijmsnr4otr5xuwbogeom3lwxcalfoc55pfcpsbrikm4lq
+Theorem fib13: fib (s^13 z) (s^233 z).

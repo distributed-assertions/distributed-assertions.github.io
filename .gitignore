@@ -1,3 +1,4 @@
 site/
 docs/*/*.lp*
 docs/example-files/fib.json
+docs/example-files/FibTheorem.thm.json

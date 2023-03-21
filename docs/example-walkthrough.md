@@ -169,12 +169,12 @@ to explore the contents of the linked objects in IPLD starting from that CID.
 
 ```{.console .conbox}
 $ cat $HOME/.config/dispatch/languages.json
-{"coq-8.16.1":{"name":"coq-8.16.1","language":"bafy…rxxy"}}
+{"coq-8.16.1":{"name":"coq-8.16.1","language":"bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy"}}
 
-$ ipfs dag get bafy…rxxy # (1)!
-{"content":{"/":"bafy…mj5u"},"format":"language"}
+$ ipfs dag get bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy # (1)!
+{"content":{"/":"bafyreidmf3nxeigvi7mfklzu2wr7oapa7fodqdeajbxtngy5ax7cccmj5u"},"format":"language"}
 
-$ ipfs dag get bafy…rxxy/content # (2)!
+$ ipfs dag get bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy/content # (2)!
 {"name":"Coq","url":"https://coq.inria.fr","version":"8.16.1"}
 ```
 
@@ -297,7 +297,7 @@ We can now use Dispatch to publish the entire collection at once.
 
 ```{.console .conbox}
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
-published collection object of cid: bafyreihgl373y4waiggrw63mrkkunmnq2wi7loxpt5flmm653hsp7nw6uq
+published collection object of cid: bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
@@ -306,27 +306,27 @@ This CID can be [explored in IPLD explorer][explore-coq]. It can also be locally
 explored with `ipfs dag get`:
 
 ```{.console .conbox}
-$ ipfs dag get bafy…w6uq | python -m json.tool # (1)!
+$ ipfs dag get bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom | python -m json.tool # (1)!
 {
     "elements": [
         {
-            "/": "bafyreicck5ty7v3xvbow6nnm5sne45muj5xmouznusldtjqupg44y65qou"
+            "/": "bafyreifckjigmrdv6n5kjnpxuvgaky37wn5azuicxb67enxwbbu5tddlga"
         },
         {
-            "/": "bafyreihxkh7vycgpb7v6b6ifgb27pidivzyw5ungcoqwbhcktejcefrxhq"
+            "/": "bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai"
         }
     ],
     "format": "collection",
     "name": "FibLemma.v"
 }
 
-$ ipfs dag get bafy…w6uq/elements/0/claim/production/sequent/conclusion/content
+$ ipfs dag get bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom/elements/0/claim/production/sequent/conclusion/content
 "forall n, 2 * n + 27 <= fib (n + 12)"
 ```
 
 1. `python -m json.tool` is being used to pretty-print the JSON
 
-[explore-coq]: https://explore.ipld.io/#/explore/bafyreihgl373y4waiggrw63mrkkunmnq2wi7loxpt5flmm653hsp7nw6uq
+[explore-coq]: https://explore.ipld.io/#/explore/bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom
 
 ## Computations with λProlog
 
@@ -464,14 +464,14 @@ $ tjsim -b -s 'damf_export.' -m 1 main
 Wrote fib.json.
 
 $ dispatch publish fib.json local # (1)!
-published collection object of cid: bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
+published collection object of cid: bafyreifrwlisruljlssu3bymfna7canldt32z4f2imnkzfylvufgyhknyq
 ```
 
 1. Can take a few dozen seconds to finish.
 
 This CID can be [explored on IPLD explorer][explore-lp] or locally with `ipfs dag get`.
 
-[explore-lp]: https://explore.ipld.io/#/explore/bafyreigvtsl4b3bwsvrqivq4pdpsqy6wyqgpftqfvk4rpsr5nqhp46ih3m
+[explore-lp]: https://explore.ipld.io/#/explore/bafyreifrwlisruljlssu3bymfna7canldt32z4f2imnkzfylvufgyhknyq
 
 ## Theorem in Abella DAMF
 
@@ -497,7 +497,7 @@ numbers but as a ternary relation `plus` that relates its first two arguments to
 its third.
 
 ```{.abella .downloadable title="FibTheorem.thm" linenums="1"}
---8<-- "docs/example-files/FibTheorem.thm::29"
+--8<-- "docs/example-files/FibTheorem.thm::30"
 ```
 
 Because all inductive definitions are relational in Abella, we sometimes have to
@@ -505,7 +505,7 @@ prove additional lemmas to prove functionality of relations. In our theorem we
 will need the following lemmas of this kind.
 
 ```{.abella .continued title="FibTheorem.thm" linenums="30"}
---8<-- "docs/example-files/FibTheorem.thm:36:69"
+--8<-- "docs/example-files/FibTheorem.thm:30:63"
 ```
 
 ### 9. Importing DAMF assertions
@@ -539,7 +539,7 @@ language.  For example, the theorem `fib_square_above` from Coq that was
 exported in step 5 can be imported in Abella as follows:
 
 ```{.abella .continued title="FibTheorem.thm" linenums="63"}
---8<-- "docs/example-files/FibTheorem.thm:31:35"
+--8<-- "docs/example-files/FibTheorem.thm:65:69"
 ```
 
 The statement of this theorem needs to be comprehensible in the local context of
@@ -565,24 +565,24 @@ structure:
     "format": "annotated-production",
     "annotation": {
       "name": "fib_square_above!adapter"
-      "generator": "damf:bafy…xixq" // (1)!
+      "generator": "damf:bafyreiegwjyj5f2lpw3ck35pqeqt45bwl57c7n7xfpbtxm6ym3sfsixixq" // (1)!
     },
     "production": {
       "mode": null,
       "sequent": {
         "conclusion": "fib_square_above",
         "dependencies": [
-          "damf:bafy…rxhq/claim/production/sequent/conclusion" // (2)!
+          "damf:bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai/claim/production/sequent/conclusion" // (2)!
         ] } }
   "formulas": {
     "fib_square_above": {
-      "language": "damf:bafy…ymoy", // (3)!
+      "language": "damf:bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy", // (3)!
       "content": "forall x, nat x -> … -> lt y u",
       "context": "fib_square_above!context"
     } },
   "contexts": {
     "fib_square_above!context": {
-      "language": "damf:bafy…ymoy",
+      "language": "damf:bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy",
       "content": [
         "Kind nat type", "Type z nat", "Type s nat -> nat",
         "Define nat : …", "Define leq : …", "Define lt : …",
@@ -606,13 +606,34 @@ Dispatch. For the rest of the file, Abella then continues as if
 The assertions produced using λProlog in step 7 are similarly imported using a
 sequence of `Import ... as` statements.
 
-```{.abella .continued title="FibTheorem.thm" linenums="68"}
---8<-- "docs/example-files/FibTheorem.thm:31:35"
+```{.abella .continued .max30 title="FibTheorem.thm" linenums="68"}
+--8<-- "docs/example-files/FibTheorem.thm:70:148"
 ```
 
 ### 10. Finishing the theorem
 
-TODO
+Assembling the final theorem in Abella is now straightforward. In the _only if_
+direction (forward), we repeatedly make use of the computation assertions from
+λProlog for $n \in 0..12$, and then the `fib_squares_lemma` assertion for $n \ge
+13$. In the _if_ direction, we just verify that the computations (again, pulled
+from λProlog) have the right values.
+
+```{.abella .continued title="FibTheorem.thm" linenums="145"}
+--8<-- "docs/example-files/FibTheorem.thm:148:"
+```
+
+Verifying this in Abella requires the `--damf-imports` command line
+flag. Publishing the assertions also requires the `--damf-publish <location>`
+flag, where `<location>` is either `local` or `cloud`.
+
+```{.console .conbox}
+$ abella --damf-imports --damf-publish local FibTheorem.thm
+Published as damf:bafyreiagq3rp6gqljofgvzefdm32t7pvtjzn2cwg76hskt3qlmybijpuve
+```
+
+As usual, this can be [browsed in IPLD explorer][explore-abella].
+
+[explore-abella]: https://explore.ipld.io/#/explore/bafyreiagq3rp6gqljofgvzefdm32t7pvtjzn2cwg76hskt3qlmybijpuve
 
 <script>
   (async function () {
