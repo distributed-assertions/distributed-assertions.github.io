@@ -231,7 +231,7 @@ following input for Dispatch:
 1. This is the local name we picked using `dispatch create-language` in step 4.
 2. Lines 3--11 of `FibLemma.v`.
 
-In order to buil the assertion that corresponds to `fib_square_lemma`, Dispatch
+In order to build the assertion that corresponds to `fib_square_lemma`, Dispatch
 expects the formulas and contexts to be laid out using local names. Here, we can
 use the name `fib_square_lemma` as the local name of the formula, and
 `fib_square_lemma!context` as the local name of its context. Then, in the
@@ -360,7 +360,7 @@ Here are the signature (`fib.sig`) and module (`fib.mod`) files.
     ```
 
 We will use the [Teyjus](https://github.com/teyjus/teyjus) implementation of
-λProlog compiles a module (a `.sig`/`.mod` pair) to bytecode, which can then be
+λProlog, which compiles a module (a `.sig`/`.mod` pair) to bytecode that can be
 executed using a bytecode interpreter. To compile the above module `fib`, we run:
 
 ```{.console .conbox}
