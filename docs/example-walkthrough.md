@@ -261,7 +261,7 @@ The complete assertion is as follows, again as a Dispatch input.
       "content": "forall n, 2 * n + 27 <= fib (n + 12)"
     }
   },
-  "context": {
+  "contexts": {
     "fib_square_lemma!context": {
       "language": "coq-8.16.1",
       "content": [
@@ -331,7 +331,7 @@ $ ipfs dag get bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom/eleme
 ## Computations with λProlog
 
 Another way of building assertions is by means of a computational engine. Here
-will give the example of using λProlog to perform computations on natural
+we will give the example of using λProlog to perform computations on natural
 numbers.  Coq is of course more than capable of doing these computations by
 itself, so the purpose of this section is mainly to illustrate how we can
 incorporate assertions from different sources.
@@ -500,9 +500,9 @@ its third.
 --8<-- "docs/example-files/FibTheorem.thm::30"
 ```
 
-Because all inductive definitions are relational in Abella, we sometimes have to
-prove additional lemmas to prove functionality of relations. In our theorem we
-will need the following lemmas of this kind.
+Because all inductive definitions are relational in Abella, we often need
+additional lemmas to establish that the relations behave like functions. In our
+theorem we will need the following lemmas of this kind.
 
 ```{.abella .continued title="FibTheorem.thm" linenums="30"}
 --8<-- "docs/example-files/FibTheorem.thm:30:63"
