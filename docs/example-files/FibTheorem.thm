@@ -62,85 +62,85 @@ induction on 3. intros. case H3.
   search.
   case H1. apply IH to *H6 H2 *H4. apply plus_result_nat to *H7 *H2 *H5. search.
 
-Import "damf:bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai" as
+Import "damf:bafyreigscd65tb2rabcpjxbep7h4lklbyfenmj32ioond7ouhh7qpvkh7a" as
 Theorem fib_square_above: forall x, nat x ->
   leq (s^13 z) x ->
   forall y, times x x y ->
   forall u, fib x u -> lt y u.
 
-Import "damf:bafyreibzzuhrgezgvug5gz7cflcdom2guliv64trckr62phrfipkz76mfq" as
+Import "damf:bafyreibdhpzggdkox2tq2i5jj47lbigdjen6szhtdl5hpqdiokmxzpupby" as
 Theorem sq1: times (s^1 z) (s^1 z) (s^1 z).
 
-Import "damf:bafyreiefeka2f2ain6tgtmrykwod3t5but2fqr5kbkhfgmxstokn4l2miy" as
+Import "damf:bafyreib2cj3s46kalezk352bhxagw57rmb35klldgxdwvpfovikuafbkwa" as
 Theorem sq2: times (s^2 z) (s^2 z) (s^4 z).
 
-Import "damf:bafyreieh7ibwsxo2qrqbrvcirwmo3zjit2jsknnufgsxzh6gkkml2di3ai" as
+Import "damf:bafyreieo4vvpuk75qzvuesotzebtsq6skvenvkpyfxoibkgrtpfhlktcza" as
 Theorem sq3: times (s^3 z) (s^3 z) (s^9 z).
 
-Import "damf:bafyreidtxwiplpz4m5em7p2a2sykafhvnurouomfzvggok5ywlfwyhnhsq" as
+Import "damf:bafyreic3tflezeagl3plwwffuu3j4ggop7cogkafxiktmkcwhkzzqrbv7i" as
 Theorem sq4: times (s^4 z) (s^4 z) (s^16 z).
 
-Import "damf:bafyreid335iyieieijrzjtkirxhxh3tkbznoqg4h3dq7epo5nyaomxre3y" as
+Import "damf:bafyreih6g3sddcnb57mlhr735pzw7wnqmuix5657ppnirwdeamhiq6sfpq" as
 Theorem sq5: times (s^5 z) (s^5 z) (s^25 z).
 
-Import "damf:bafyreie2xxxeu3zi5knvpsdtdg4umjc3a5ftxbwh3deogv7tutzmfbx23m" as
+Import "damf:bafyreiehmglxz2qegqvkeom32ew53rii64ibiypeyrr6opwiu22vt6v6aq" as
 Theorem sq6: times (s^6 z) (s^6 z) (s^36 z).
 
-Import "damf:bafyreievaqyzj7msk5riqer2hxzqnejumuhgjkg2axfzhpmrk6csdwko2a" as
+Import "damf:bafyreiappmrptuwvdju5zwltx4v57zpy244kc2v72g7bu63vwoisqbnf3m" as
 Theorem sq7: times (s^7 z) (s^7 z) (s^49 z).
 
-Import "damf:bafyreibqtds3naf5tguv3efqafq3u6ah5oubimpq7xfie22vuduzuvqifi" as
+Import "damf:bafyreibestkx33qyvk6frpcv5sahdoz6igkkpeqjfkkzdxaktn6tyxm7xe" as
 Theorem sq8: times (s^8 z) (s^8 z) (s^64 z).
 
-Import "damf:bafyreiaavgweydoks4a2emnzzsgry4ydibjxdkskpvex7etzfjm5wcxgo4" as
+Import "damf:bafyreia7o42fqa7f65su4mbdkiliayzom3acmsc3cwmwqs6o4csklo7jau" as
 Theorem sq9: times (s^9 z) (s^9 z) (s^81 z).
 
-Import "damf:bafyreib3zccmkk3avej6xrir3k5b4iqyst2l74kxsyy2msg5loxc7s2dja" as
+Import "damf:bafyreibbgfbqp3xgvlznp2lpdlaptpt2cfg47ymkol6bjpbutgi3plr24m" as
 Theorem sq10: times (s^10 z) (s^10 z) (s^100 z).
 
-Import "damf:bafyreifeplrwfsi53wc54zit4kcp7w5bzlikqgmm4oeh6h4aftwp7amfvi" as
+Import "damf:bafyreighquu5d7vgndlnewbhhslqbfq6koaqjo2k4lzp2fpthq45kmrtvq" as
 Theorem sq11: times (s^11 z) (s^11 z) (s^121 z).
 
-Import "damf:bafyreiad3c3xmj67en7kjreyy4utvd5xngy5myqlm4qpbxwas25furewuq" as
+Import "damf:bafyreicolq7bcvn47aqhtddofca2crbkvjchpgfa24jz2t2ikfn3i4bzde" as
 Theorem sq12: times (s^12 z) (s^12 z) (s^144 z).
 
-Import "damf:bafyreiczlelavo767bfowoiuwcfunyacws3kawpf2otah4l6oktxsc46vm" as
+Import "damf:bafyreigetyik2x3dzsjk2e2fdthg54fnqwdbhpmnm7ohcoddm6lsvyrgfe" as
 Theorem sq13: times (s^13 z) (s^13 z) (s^169 z).
 
-Import "damf:bafyreif6qwt4t4u363rd6ulao2ndnodathmlxhdnci7ihe2l2brn74gbji" as
+Import "damf:bafyreiadisiqi67dohxfrwsrau2r4a2n3p5546zydr7zg246yby2gwkl2i" as
 Theorem fib2: fib (s^2 z) (s^1 z).
 
-Import "damf:bafyreicvry4lxxetbsfirrbqdk6yxpm6chxl5ggfaoh5m43qk2wkbcuft4" as
+Import "damf:bafyreihmjaelmx56ir63myuym7rrcct3prm2hgkk2thkvumlg3q62peywa" as
 Theorem fib3: fib (s^3 z) (s^2 z).
 
-Import "damf:bafyreiecavn2f654sbt6jbpeyxos4mkj3li7rc6anbdnuspur4p5dgjzku" as
+Import "damf:bafyreihcxdyl5wqvravu7nh42p6jczegay5l3bq6m7i76ytwugaythui7u" as
 Theorem fib4: fib (s^4 z) (s^3 z).
 
-Import "damf:bafyreid7jqnxcnreuurqkmkntzq3ehqwyojwmwxewof2tw74w7enwkr3cy" as
+Import "damf:bafyreihk2eyjeer63e7axrookccyl6k45pn2ah4zmgqtqjmgdv5lniw3li" as
 Theorem fib5: fib (s^5 z) (s^5 z).
 
-Import "damf:bafyreif3kwe2aob5kzopjan4sqjkqcrzb53sy7ap2uzij2lz4pegse4bby" as
+Import "damf:bafyreibehq6b5d2npqrwkd3nzzyekteq7ttzoa75gmjtrxsvumcab22wie" as
 Theorem fib6: fib (s^6 z) (s^8 z).
 
-Import "damf:bafyreiapatsma646qr6akdodevb4buqvyi3lmglvxx2em257ewqinbmzcu" as
+Import "damf:bafyreibtg4hqlzvxx4vh7buj2wn7fjhuolbwlchvnc3qzzgr7ev32vlcre" as
 Theorem fib7: fib (s^7 z) (s^13 z).
 
-Import "damf:bafyreiavpm3kbbbnkbc4wjdnddzatkhd2bbinnuakfwabhjjvndi5agvky" as
+Import "damf:bafyreifijsv4n2kvlyvk4b3hwg47sla2s4cizfdcndya5qdnkxdsc3acyi" as
 Theorem fib8: fib (s^8 z) (s^21 z).
 
-Import "damf:bafyreihoggwuzdglzsmqqs22ol36quxapwmlc44n6klgyemoxhwp2yiuze" as
+Import "damf:bafyreid3yqc2q5eefuo6snea5s2l5tog4kzikfyi67s7rbzkdvunqzujty" as
 Theorem fib9: fib (s^9 z) (s^34 z).
 
-Import "damf:bafyreibrd7gzgwvf2kpq7vo4wq4ra4syz2j5jcuiljtkstvyo5eoz7lcem" as
+Import "damf:bafyreieskqtqvyavgywf6ooytykfwyqeilodcfhxmzc5glmagaqrjngmhi" as
 Theorem fib10: fib (s^10 z) (s^55 z).
 
-Import "damf:bafyreiha77e5cuhrp3nnwyawqiidhbuisdrty2enxgkhwjosrgdylxfvvm" as
+Import "damf:bafyreiekhrslzuhdt3pvjcnmfmvnlomsntvqnqt6vqrq6egygxrncy3vmy" as
 Theorem fib11: fib (s^11 z) (s^89 z).
 
-Import "damf:bafyreibiw3niyqh5ecmqociablot4nuqvmhp4skbft7e63et22qruehj44" as
+Import "damf:bafyreifp67qkkvc7r3ng4hu7uoxnekooucaiv4kanqzocij2kiu2ragowi" as
 Theorem fib12: fib (s^12 z) (s^144 z).
 
-Import "damf:bafyreifgvdfqd7frf6zh2n5luatlqhftmvwmnculnvtxjihy732vwjfh6u" as
+Import "damf:bafyreiggvc5wz7tcmouywkchh7tvdqrtvvwj35oc7jylka3nxic4gjtq6q" as
 Theorem fib13: fib (s^13 z) (s^233 z).
 
 Theorem fib_squares: forall x x2, nat x -> times x x x2 ->

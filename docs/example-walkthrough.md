@@ -297,7 +297,7 @@ We can now use Dispatch to publish the entire collection at once.
 
 ```{.console .conbox}
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
-published collection object of cid: bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom
+Published DAMF collection object to local with cid: bafyreigdthmeok6gwsdulovqrgvzz4tbad2ifjxpa74dlpbfbt7ehnkyha
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
@@ -306,27 +306,27 @@ This CID can be [explored in IPLD explorer][explore-coq]. It can also be locally
 explored with `ipfs dag get`:
 
 ```{.console .conbox}
-$ ipfs dag get bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom | python -m json.tool # (1)!
+$ ipfs dag get bafyreigdthmeok6gwsdulovqrgvzz4tbad2ifjxpa74dlpbfbt7ehnkyha | python -m json.tool # (1)!
 {
     "elements": [
         {
-            "/": "bafyreifckjigmrdv6n5kjnpxuvgaky37wn5azuicxb67enxwbbu5tddlga"
+            "/": "bafyreicpwpxl3xe4nefsqc3f2rdxiedxjbmekh25m5cgqkriwp3qsivope"
         },
         {
-            "/": "bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai"
+            "/": "bafyreigscd65tb2rabcpjxbep7h4lklbyfenmj32ioond7ouhh7qpvkh7a"
         }
     ],
     "format": "collection",
     "name": "FibLemma.v"
 }
 
-$ ipfs dag get bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom/elements/0/claim/production/sequent/conclusion/content
+$ ipfs dag get bafyreic53degjxdfn7e2l3spleevftr5pxemr7ydspkvwimr4smhjqjzuy/elements/0/claim/production/sequent/conclusion/content
 "forall n, 2 * n + 27 <= fib (n + 12)"
 ```
 
 1. `python -m json.tool` is being used to pretty-print the JSON
 
-[explore-coq]: https://explore.ipld.io/#/explore/bafyreibx2ceeywijzs4hxyqk5fxyh3iwmrsxudizuwbscyx3bhtcxfvpom
+[explore-coq]: https://explore.ipld.io/#/explore/bafyreic53degjxdfn7e2l3spleevftr5pxemr7ydspkvwimr4smhjqjzuy
 
 ## Computations with λProlog
 
@@ -464,14 +464,14 @@ $ tjsim -b -s 'damf_export.' -m 1 main
 Wrote fib.json.
 
 $ dispatch publish fib.json local # (1)!
-published collection object of cid: bafyreifrwlisruljlssu3bymfna7canldt32z4f2imnkzfylvufgyhknyq
+Published DAMF collection object to local with cid: bafyreickai4hsl3aht53hz3veen5xlzvx7njy7sudsfpns3ikxtnuzpjha
 ```
 
 1. Can take a few dozen seconds to finish.
 
 This CID can be [explored on IPLD explorer][explore-lp] or locally with `ipfs dag get`.
 
-[explore-lp]: https://explore.ipld.io/#/explore/bafyreifrwlisruljlssu3bymfna7canldt32z4f2imnkzfylvufgyhknyq
+[explore-lp]: https://explore.ipld.io/#/explore/bafyreickai4hsl3aht53hz3veen5xlzvx7njy7sudsfpns3ikxtnuzpjha
 
 ## Theorem in Abella DAMF
 
@@ -572,7 +572,7 @@ structure:
       "sequent": {
         "conclusion": "fib_square_above",
         "dependencies": [
-          "damf:bafyreidw63tmv7hxruutqzgkajimbcd73m7tw2uf4xodhva4iy7e7beyai/claim/production/sequent/conclusion" // (2)!
+          "damf:bafyreigscd65tb2rabcpjxbep7h4lklbyfenmj32ioond7ouhh7qpvkh7a/claim/production/sequent/conclusion" // (2)!
         ] } }
   "formulas": {
     "fib_square_above": {
@@ -595,7 +595,8 @@ structure:
    `"generator"` key or its value. Its purpose in this walkthrough is purely
    documentary in nature.
 2. This uses IPLD paths to refer to the CID of the `conclusion` of the assertion
-   object that was imported.
+   object that was imported. It corresponds to the theorem named `fib_square_above`
+   that we proved in Coq.
 3. This is the Abella language's identifier
 
 This adapter sequent, which has a dependency on an external formula in a
@@ -628,12 +629,12 @@ flag, where `<location>` is either `local` or `cloud`.
 
 ```{.console .conbox}
 $ abella --damf-imports --damf-publish local FibTheorem.thm
-Published as damf:bafyreigenxigzkf62xgwqqxhhofwtoj4xyvzf34ucembh2zembbla2oxvi
+Published as damf:bafyreifg3cosrvpidfmepwsjjt6kwvrlb2iobe5wo27sqsbu5uzbrdlvhm
 ```
 
 As usual, this can be [browsed in IPLD explorer][explore-abella].
 
-[explore-abella]: https://explore.ipld.io/#/explore/bafyreigenxigzkf62xgwqqxhhofwtoj4xyvzf34ucembh2zembbla2oxvi
+[explore-abella]: https://explore.ipld.io/#/explore/bafyreifg3cosrvpidfmepwsjjt6kwvrlb2iobe5wo27sqsbu5uzbrdlvhm
 
 <script>
   (async function () {
