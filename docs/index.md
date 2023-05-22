@@ -25,9 +25,9 @@ The philosophy of DAMF is explained in this technical report:
 The technical construction of DAMF is explained in this draft paper:
 
 > Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller (2023). _[Formal
-> Reasoning using Distributed Assertions][cade23draft]_. Submitted: 2023-03-08.
+> Reasoning using Distributed Assertions][cade23draft]_. Submitted: 2023-05-22.
 
-[cade23draft]: /assets/papers/draft23damf.pdf
+[cade23draft]: /assets/papers/draft23damf2.pdf
 
 DAMF is based on content-addressable storage using the _[InterPlanetary File
 System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
