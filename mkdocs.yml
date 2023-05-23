@@ -12,13 +12,15 @@ nav:
 theme:
   name: material
   palette:
-    - primary: custom
-    - accent: custom
     - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/lightning-bolt-outline
         name: :Switch to dark mode
     - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/lightning-bolt
         name: Switch to light mode

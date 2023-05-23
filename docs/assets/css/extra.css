@@ -5,7 +5,7 @@
 
     --md-accent-fg-color:                rgba(76, 136, 65, 0.799);
     --md-accent-fg-color--transparent:   rgba(176, 236, 65, 0.799);
-    --md-accent-bg-color:                rgba(176, 236, 65, 0.799);
+    /* --md-accent-bg-color:                rgba(176, 236, 65, 0.799); */
     --md-accent-bg-color:                #90030c; /* [FIX] */
     --md-accent-bg-color--light:         hsla(0, 0%, 100%, 0.7);
   }
