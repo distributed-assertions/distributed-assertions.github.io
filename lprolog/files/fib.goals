@@ -1,0 +1,11 @@
+name "fib2"   (fib (s (s z)) Y).
+name "fib3"   (fib (s (s (s z))) Y).
+name "fib4"   (fib (s (s (s (s z)))) Y).
+name "fib5"   (fib (s (s (s (s (s z))))) Y).
+name "fib6"   (fib (s (s (s (s (s (s z)))))) Y).
+name "fib7"   (fib (s (s (s (s (s (s (s z))))))) Y).
+name "fib8"   (fib (s (s (s (s (s (s (s (s z)))))))) Y).
+name "fib9"   (fib (s (s (s (s (s (s (s (s (s z))))))))) Y).
+name "fib10"  (fib (s (s (s (s (s (s (s (s (s (s z)))))))))) Y).
+name "fib11"  (fib (s (s (s (s (s (s (s (s (s (s (s z))))))))))) Y).
+name "fib12"  (fib (s (s (s (s (s (s (s (s (s (s (s (s z)))))))))))) Y).
