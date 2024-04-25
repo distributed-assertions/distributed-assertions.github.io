@@ -68,3 +68,6 @@ markdown_extensions:
 copyright: Copyright &copy; 2023 . <a href="https://innofarah.com" target="_blank">Farah Al Wardani</a>, 
            <a href="https://chaudhuri.info" target="_blank">Kaustuv Chaudhuri</a>, 
            and <a href="https://www.lix.polytechnique.fr/~dale/" target="_blank">Dale Miller</a>
+plugins:
+  - offline:
+      enabled: true
