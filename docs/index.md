@@ -39,16 +39,16 @@ System][ipfs]_ (IPFS) network, and uses the _[InterPlanetary Linked Data][ipld]_
 [ipfs]: https://ipfs.tech
 [ipld]: https://ipld.io
 
-:mag_right:  Explore the proposed **[DAMF Formats](/damf-formats/)**.
+:mag_right:  Explore the proposed **[DAMF Formats](./damf-formats.md)**.
 
-:aerial_tramway: Read about **[Processes](/damf-processes/)** in DAMF.
+:aerial_tramway: Read about **[Processes](./damf-processes.md)** in DAMF.
 
-:rocket: Install **[Dispatch](/dispatch/)**, an intermediary tool that helps in integrating systems.
+:rocket: Install **[Dispatch](./dispatch.md)**, an intermediary tool that helps in integrating systems.
 
 :wrench: Experiment with some edge systems. In particular:
 
-- **[Abella DAMF](/abella/)**, a version of [Abella](https://abella-prover.org) with DAMF support.
-- [λProlog](/lprolog/) integrated with DAMF.
+- **[Abella DAMF](./abella.md)**, a version of [Abella](https://abella-prover.org) with DAMF support.
+- [λProlog](./lprolog.md) integrated with DAMF.
 
-:walking: Read an **[example walkthrough](/example-walkthrough/)** of using a heterogeneous
+:walking: Read an **[example walkthrough](./example-walkthrough.md)** of using a heterogeneous
   combination of systems to prove an assertion.
