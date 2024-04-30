@@ -15,7 +15,7 @@ manner. An _assertion_ is a unit of mathematical knowledge---think lemmas,
 theorems, corollaries, etc.---that is cryptographically signed by its
 originator.
 
-The philosophy and beginnings of DAMF is explained in this technical report:
+The philosophy and beginnings of DAMF are explained in this technical report:
 
 > Farah Al Wardani, Kaustuv Chaudhuri, and Dale Miller (2023). _[Distributing
 > and trusting proof checking: a preliminary report][alwardani22hal]_.
