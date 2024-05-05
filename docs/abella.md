@@ -1,7 +1,7 @@
 # Abella DAMF
 
 **Abella DAMF** is a branch of the [Abella theorem
-prover](https://abella-prover.org) that is designed to use and publish [DAMF](/)
+prover](https://abella-prover.org) that is designed to use and publish [DAMF](./index.md)
 assertions.
 
 ### Obtaining and Building
@@ -48,7 +48,7 @@ instructions below are for a recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2).
        other words, you cannot use the `Specification` command. This limitation
        will be relaxed soon. All other features of the reasoning language of
        Abella are supported.
-2. Prerequisite: you must setup [Dispatch](/dispatch/). In particular:
+2. Prerequisite: you must setup [Dispatch](./dispatch.md). In particular:
      * You will need to know the path to the Dispatch executable.
      * You will need to create, at minimum, an agent profile using `dispatch create-agent`.
 3. Place the following in `$XDG_CONFIG_HOME/abella/config.json` (creating the
@@ -70,6 +70,6 @@ instructions below are for a recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2).
          - `local` (for your local IPFS store, managed by whichever IPFS daemon you
            use, e.g., Kupo)
          - `cloud` (for publishing through [web3.storage][w3s]; see the
-           [Dispatch](/dispatch/) documentation for details)
+           [Dispatch](./dispatch.md) documentation for details)
 
 [w3s]: https://web3.storage/

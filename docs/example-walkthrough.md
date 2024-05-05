@@ -30,16 +30,16 @@ In particular, one needs the following lemma:
 This walkthrough will perform this verification task using the following
 heterogeneous collection of systems:
 
-* [Abella DAMF](/abella/) for the overall theorem
+* [Abella DAMF](./abella.md) for the overall theorem
 * [Coq](https://coq.inria.fr) to prove the lemma
-* [λProlog](/lprolog/) to illustrate how to incorporate logic programming
+* [λProlog](./lprolog.md) to illustrate how to incorporate logic programming
 
 ## Setup
 
 ### 1. Local IPFS client
 
-[DAMF](/) is built on top of IPFS and IPLD, so you will need an IPFS client. For
-this walkthrough we will use the [Dispatch](/dispatch/) intermediary, which
+[DAMF](./index.md) is built on top of IPFS and IPLD, so you will need an IPFS client. For
+this walkthrough we will use the [Dispatch](./dispatch.md) intermediary, which
 requires the [Kubo](https://github.com/ipfs/kubo) desktop program accessed via
 the command `ipfs`.
 
@@ -74,14 +74,14 @@ In DAMF, all assertions are _signed_ by exactly one _agent_. Concretely, an
 agent is a public-private key pair; the _name_ of the agent is just its
 public key.
 
-The [Dispatch](/dispatch/) intermediate tool can be used to create an _agent
+The [Dispatch](./dispatch.md) intermediate tool can be used to create an _agent
 profile_, which is just a human-readable string that stands for an agent.  Agent
 profile names are _not_ globally shared using IPFS. Indeed, DAMF is completely
 unaware of agent profiles.
 
 In this walkthrough, we will create an agent profile called
 `exampleAgent`. Install Dispatch by [following the
-instructions](/dispatch/#obtaining-and-building). In the rest of this tutorial,
+instructions](./dispatch.md/#obtaining-and-building). In the rest of this tutorial,
 we will use the command `dispatch` to stand for whichever Dispatch executable is
 relevant to your system. Next, run `dispatch create-agent`.
 
@@ -112,7 +112,7 @@ fixed point function `fib`.
 
 ```{.coq .downloadable title="FibLemma.v" linenums="1"}
 Require Import Arith.
---8<-- "docs/example-files/FibLemma.v:2:11"
+--8<-- "./docs/example-files/FibLemma.v:2:11"
 ```
 
 We will prove our lemma of interest using the `lia` tactic of Coq, which is
@@ -121,14 +121,14 @@ linear arithmetic identities, so we define a Ltac named `liarw` for convenience.
 
 ```{.coq .continued title="FibLemma.v" linenums="12"}
 Require Import Lia.
---8<-- "docs/example-files/FibLemma.v:12:15"
+--8<-- "./docs/example-files/FibLemma.v:12:15"
 ```
 
 Finally, here is our full proof of the lemma, which is named `fib_square_above`
 here. This lemma itself makes use of a different lemma called `fib_square_lemma`.
 
 ```{.coq .continued title="FibLemma.v" linenums="17"}
---8<-- "docs/example-files/FibLemma.v:17:"
+--8<-- "./docs/example-files/FibLemma.v:17:"
 ```
 
 <!-- [Download <tt>FibLemma.v</tt>](/FibLemma.v){ class="md-button" } -->
@@ -152,7 +152,7 @@ represent this language as the following JSON object that just links to the Coq
 website.
 
 ```{.json .downloadable title="Coq.language.content.json" linenums="1"}
---8<-- "docs/example-files/Coq.language.content.json"
+--8<-- "./docs/example-files/Coq.language.content.json"
 ```
 
 We can then use `dispatch create-language` to make the DAMF language object and
@@ -191,7 +191,7 @@ implementation. Therefore, like with languages above, we will create the content
 of such a tool object ourselves for the purposes of this walkthrough.
 
 ```{.json .downloadable title="coq-8.16.1.tool.content.json" linenums="1"}
---8<-- "docs/example-files/coq-8.16.1.tool.content.json"
+--8<-- "./docs/example-files/coq-8.16.1.tool.content.json"
 ```
 
 To create the DAMF tool object, we use `dispatch create-tool`.
@@ -290,7 +290,7 @@ have two assertions in this file, it is more convenient for Dispatch to publish
 both assertions together as a DAMF collection. Here is what it looks like:
 
 ```{.json .max30 .downloadable title="FibLemma.v.assertions.json" linenums="1"}
---8<-- "docs/example-files/FibLemma.v.assertions.json"
+--8<-- "./docs/example-files/FibLemma.v.assertions.json"
 ```
 
 We can now use Dispatch to publish the entire collection at once.
@@ -350,13 +350,13 @@ Here are the signature (`fib.sig`) and module (`fib.mod`) files.
 === "Signature"
 
     ```{.lprolog .downloadable title="fib.sig" linenums="1"}
-    --8<-- "docs/example-files/fib.sig"
+    --8<-- "./docs/example-files/fib.sig"
     ```
 
 === "Module"
 
     ```{.lprolog .downloadable title="fib.mod" linenums="1"}
-    --8<-- "docs/example-files/fib.mod"
+    --8<-- "./docs/example-files/fib.mod"
     ```
 
 We will use the [Teyjus](https://github.com/teyjus/teyjus) implementation of
@@ -404,13 +404,13 @@ We use the following language and tool descriptions for λProlog and Teyjus (ver
 === "Language"
 
     ```{.json .downloadable title="lprolog.language.content.json" linenums="1"}
-    --8<-- "docs/example-files/lprolog.language.content.json"
+    --8<-- "./docs/example-files/lprolog.language.content.json"
     ```
 
 === "Tool"
 
     ```{.json .downloadable title="teyjus-2.1.1.tool.content.json" linenums="1"}
-    --8<-- "docs/example-files/teyjus-2.1.1.tool.content.json"
+    --8<-- "./docs/example-files/teyjus-2.1.1.tool.content.json"
     ```
 
 === "Dispatch commands"
@@ -424,8 +424,8 @@ We use the following language and tool descriptions for λProlog and Teyjus (ver
     ```
 
 To build the DAMF assertions, we can use the following _harness_ module:
-[<tt>harness.sig</tt>](/example-files/harness.sig) and
-[<tt>harness.mod</tt>](/example-files/harness.mod).  The purpose of the harness
+[<tt>harness.sig</tt>](./example-files/harness.sig) and
+[<tt>harness.mod</tt>](./example-files/harness.mod).  The purpose of the harness
 module is to turn a sequence of goals for a module `FILE`, written in a file
 `FILE.goals`, into a JSON file `FILE.json` that can be given to `dispatch
 publish`. Note that the agent, language, and tool names that we chose with
@@ -438,13 +438,13 @@ To use the harness, we define a module `main` that accumulates and compiles the
 === "Signature"
 
     ```{.lprolog .downloadable title="main.sig" linenums="1"}
-    --8<-- "docs/example-files/main.sig"
+    --8<-- "./docs/example-files/main.sig"
     ```
 
 === "Module"
 
     ```{.lprolog .downloadable title="main.mod" linenums="1"}
-    --8<-- "docs/example-files/main.mod"
+    --8<-- "./docs/example-files/main.mod"
     ```
 
 The file `fib.goals` is a list of goals, with each goal wrapped in a name using
@@ -452,7 +452,7 @@ the `name` predicate. For our purposes, we can just list goals that compute
 $\kop{fib}(n)$ and $n^2$ for $n$ between 1 and 13.
 
 ```{.lprolog .downloadable title="fib.goals" linenums="1"}
---8<-- "docs/example-files/fib.goals"
+--8<-- "./docs/example-files/fib.goals"
 ```
 
 Finally, here's how we can run `harness`, and subsequently Dispatch:
@@ -476,7 +476,7 @@ This CID can be [explored on IPLD explorer][explore-lp] or locally with `ipfs da
 ## Theorem in Abella DAMF
 
 The assertions generated by Coq and λProlog will be used to prove the main
-theorem in [Abella DAMF](/abella/), which is a variant of the [Abella theorem
+theorem in [Abella DAMF](./abella.md), which is a variant of the [Abella theorem
 prover](https://abella-prover.org/) that can accept and publish DAMF assertions.
 
 Abella is simply typed and its type system does not have any reasoning
@@ -489,7 +489,7 @@ abstraction (a generalization of $\alpha\beta\eta$ equality on $\lambda$-terms).
 ### 8. Setting the stage
 
 We will write the overall theorem in the Abella file
-[<tt>FibTheorem.thm</tt>](/example-files/FibTheorem.thm). It begins by defining
+[<tt>FibTheorem.thm</tt>](./example-files/FibTheorem.thm). It begins by defining
 the type `nat` of natural numbers, its constructors `z` and `s`, and then some
 comparison relations and computations. Note that all definitions in Abella are
 relational: unlike Coq, we don't define `+` as a binary function on natural
@@ -497,7 +497,7 @@ numbers but as a ternary relation `plus` that relates its first two arguments to
 its third.
 
 ```{.abella .downloadable title="FibTheorem.thm" linenums="1"}
---8<-- "docs/example-files/FibTheorem.thm::30"
+--8<-- "./docs/example-files/FibTheorem.thm::30"
 ```
 
 Because all inductive definitions are relational in Abella, we often need
@@ -505,7 +505,7 @@ additional lemmas to establish that the relations behave like functions. In our
 theorem we will need the following lemmas of this kind.
 
 ```{.abella .continued title="FibTheorem.thm" linenums="30"}
---8<-- "docs/example-files/FibTheorem.thm:30:63"
+--8<-- "./docs/example-files/FibTheorem.thm:30:63"
 ```
 
 ### 9. Importing DAMF assertions
@@ -527,7 +527,7 @@ bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy
 
 What about the case of DAMF assertions in a different language? In this case,
 Abella will need to use an _adapter sequent_ as explained in the [DAMF technical
-design paper](/assets/papers/draft23damf.pdf). In the future, such adapter
+design paper](https://doi.org/10.1007/978-3-031-43369-6_10). In the future, such adapter
 sequents will be built using language translation tools. For now, we will write
 the adapter sequents ourselves and sign the resulting assertions using a `mode`
 field of `null`, which stands for an assertion for which the signing agent is
@@ -539,7 +539,7 @@ language.  For example, the theorem `fib_square_above` from Coq that was
 exported in step 5 can be imported in Abella as follows:
 
 ```{.abella .continued title="FibTheorem.thm" linenums="63"}
---8<-- "docs/example-files/FibTheorem.thm:65:69"
+--8<-- "./docs/example-files/FibTheorem.thm:65:69"
 ```
 
 The statement of this theorem needs to be comprehensible in the local context of
@@ -608,7 +608,7 @@ The assertions produced using λProlog in step 7 are similarly imported using a
 sequence of `Import ... as` statements.
 
 ```{.abella .continued .max30 title="FibTheorem.thm" linenums="68"}
---8<-- "docs/example-files/FibTheorem.thm:70:145"
+--8<-- "./docs/example-files/FibTheorem.thm:70:145"
 ```
 
 ### 10. Finishing the theorem
@@ -620,7 +620,7 @@ direction (forward), we repeatedly make use of the computation assertions from
 from λProlog) have the right values.
 
 ```{.abella .continued title="FibTheorem.thm" linenums="142"}
---8<-- "docs/example-files/FibTheorem.thm:146:"
+--8<-- "./docs/example-files/FibTheorem.thm:146:"
 ```
 
 Verifying this in Abella requires the `--damf-imports` command line
@@ -642,7 +642,7 @@ As usual, this can be [browsed in IPLD explorer][explore-abella].
       const th = el.getElementsByTagName("th")[0];
       const span = th.getElementsByTagName("span")[0];
       const fileName = span.innerHTML;
-      span.innerHTML = `${ fileName } (<a target="_blank" href="/example-files/${ fileName }">download</a>)`;
+      span.innerHTML = `${ fileName } (<a target="_blank" href="./example-files/${ fileName }">download</a>)`;
     }
     for (const el of document.getElementsByClassName("continued")) {
       const th = el.getElementsByTagName("th")[0];

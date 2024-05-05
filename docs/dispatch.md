@@ -2,7 +2,7 @@
 
 **Dispatch** is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).
 
-It is based on the [DAMF Formats](/damf-formats/) specification and implements the main [DAMF processes](/damf-processes/). It is intended to be usable by both human users and tools.
+It is based on the [DAMF Formats](./damf-formats.md) specification and implements the main [DAMF processes](./damf-processes.md). It is intended to be usable by both human users and tools.
 
 ## Obtaining and Building
 
@@ -140,7 +140,7 @@ Run `dispatch list-config` to display the configuration parameters.
 
 #### Input formats
 
-As illustrated in [DAMF Formats](/damf-formats/), the *global shared objects* shall follow the specified DAMF formats: *assertion*, *production*, *sequent*, *formula*, etc.
+As illustrated in [DAMF Formats](./damf-formats.md), the *global shared objects* shall follow the specified DAMF formats: *assertion*, *production*, *sequent*, *formula*, etc.
 
 **Dispatch** provides an *interface* for users (human users or tools) to the DAMF store through a collection of standard input formats. These standard inputs are produced by users, then processed and published by *Dispatch* as DAMF objects. In this way, a user does not have to interact with IPFS in any form.
 

@@ -7,7 +7,7 @@ authors:
 ---
 # Distributed Assertion Management Framework
 
-![DAMF Logo](/assets/logo/damf.png){ width="60" }
+![DAMF Logo](./assets/logo/damf.png){ width="60" }
 The _Distributed Assertion Management Framework_ (DAMF) is a proposed collection
 of formats and techniques to enable heterogeneous formal reasoning systems and
 users to communicate _assertions_ in a decentralized, reliable, and egalitarian
@@ -29,8 +29,8 @@ The technical construction of DAMF is explained in this paper:
 > Appeared in the proceedings of the [14th International Symposium on Frontiers of Combining
 > Systems (FroCoS)][frocos23], September 20--23, 2023.
 
-[draft23damf]: /assets/papers/draft23damf2.pdf
-[frocos23damf]: https://link.springer.com/chapter/10.1007/978-3-031-43369-6_10
+[draft23damf]: ./assets/papers/draft23damf2.pdf
+[frocos23damf]: https://doi.org/10.1007/978-3-031-43369-6_10
 [frocos23]: https://frocos2023.github.io/
 [hal-frocos]: https://inria.hal.science/hal-04167922
 
