@@ -90,23 +90,24 @@ The `<input-type>` argument takes one of three possible values:
 
 In (1) and (2), this command will [publish](#publish) the described language as a *language object* and use the corresponding cid.
 
-#### set-web3token
+#### set-w3-email & set-w3-space
 
 *Description*
 
-    setup a personal web3.storage API token.
+    - set-w3-email: setup a web3.storage account email.
+    - set-w3-space: setup a web3.storage account space key.
 
 *Usage*
 
-**Dispatch** initially publishes objects through the local IPFS daemon, and pins them *locally* on the local IPFS node. This means that initial requests to get a `cid` will have to retrieve it from the publisher's local IPFS node, which could be a bit slow at the beginning. In order to make the retrieval process faster, **Dispatch** uses the [web3.storage](https://web3.storage) service as a *pinning service* that serves in making published objects more easily discoverable through the IPFS network.
+**Dispatch** initially publishes objects through the local IPFS daemon, and pins them *locally* on the local IPFS node. This means that initial requests to get a `cid` will have to retrieve it from the publisher's local IPFS node, which could be a bit slow at the beginning. In order to make the retrieval process faster, **Dispatch** allows the use of the [web3.storage](https://web3.storage) service as a *pinning service* that serves in making published objects more easily discoverable through the IPFS network.
 
-In order to use this service:
+In the current dispatch implementation, the way of using of this service is expected as follows:
 
-1. Create a [web3.storage account](https://web3.storage/login/) and [generate an API token](https://web3.storage/docs/how-tos/generate-api-token/).
+1. Create a [web3.storage account](https://web3.storage/login/) and a [space](https://web3.storage/docs/how-to/create-space/) to upload data within. More details on this can be found at the [web3.storage website](https://web3.storage/). In the current implementation of dispatch, the usage of this service is still experimental and provides the very basic functionality. More can be done and said in future steps.
 
-    :warning: **Caution**. This API token shall be known only to the account's user(s).
+2. Run `dispatch set-w3-email <email>` to set your account's email as a *login* email to be used in later steps by `dispatch`. Note that you will need to verify your email address after the login attempt by `dispatch`, when you try to [publish](#publish) data using this service. More details can be found in the [official documentation](https://web3.storage/docs/w3up-client/).
 
-2. Run `dispatch set-web3token <token>` with the generated API token as an argument.
+3. Run `dispatch set-w3-space <space>` with the generated space key as an argument to be used in later steps by `dispatch`: as the space to upload your data within.
 
 Using this service is optional and decided by the user when invoking the [publish](#publish) command.
 
@@ -156,7 +157,7 @@ Examples of these formats can be found at the [dispatch github repository](https
 
 Run `dispatch publish <input-path> <target>` to publish a DAMF object starting from a dispatch standard input (a `json` file with path `<input-path>`). The `<target>` argument can take one of two values: `local` for local IPFS node pinning, or `cloud` for pinning through [web3.storage][w3s] service.
 
-:warning: When `cloud` is used, make sure to have set your API token first, as described in the [set-web3token](#set-web3token) command section.
+:warning: When `cloud` is used, make sure to have set your web3.storage account's email and space first, as described in the [set-w3-email & set-w3-space](#set-w3-email-set-w3-space) commands section.
 
 :warning: For publishing *assertion* objects, make sure to have the *agent* specified in the input `json` initially created, as described in the [create-agent](#create-agent) command section. Same applies in case a *profile name* is used for the *language* (using [create-language](#create-language)) and *tool* (using [create-tool](#create-tool)) fields instead of a direct `damf:cid`.
 
