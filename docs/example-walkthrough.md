@@ -470,7 +470,7 @@ Published DAMF collection object to local with cid: bafyreihrmkxxhjx3bppen3ar7pj
 
 This CID can be [explored on IPLD explorer][explore-lp] or locally with `ipfs dag get`.
 
-[explore-lp]: https://explore.ipld.io/#/explore/bafyreickai4hsl3aht53hz3veen5xlzvx7njy7sudsfpns3ikxtnuzpjha
+[explore-lp]: https://explore.ipld.io/#/explore/bafyreihrmkxxhjx3bppen3ar7pjdakakw2xm55daq6xlnaxsluv4thnfcm
 
 ## Theorem in Abella DAMF
 
