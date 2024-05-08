@@ -40,10 +40,9 @@ heterogeneous collection of systems:
 
 [DAMF](./index.md) is built on top of IPFS and IPLD, so you will need an IPFS client. For
 this walkthrough we will use the [Dispatch](./dispatch.md) intermediary, which
-requires the [Kubo](https://github.com/ipfs/kubo) desktop program accessed via
-the command `ipfs`.
+requires the [IPFS Kubo](https://github.com/ipfs/kubo) command line program, a Go-based implementation of the InterPlanetary File System (IPFS) protocol, accessed via the command `ipfs`. The version used in this walkthrough is `ipfs version 0.28.0`.
 
-* [Installation instructions for Kubo desktop](https://docs.ipfs.tech/install/ipfs-desktop)
+* [Installation instructions for Kubo](https://docs.ipfs.tech/install/command-line/)
 
 You will also need to create your local IPFS repository, usually stored under
 `$HOME/.ipfs` or a similar folder. This is done by issuing the following
@@ -70,7 +69,7 @@ to get started, enter:
 
 ### 2. Dispatch, agent profile
 
-In DAMF, all assertions are _signed_ by exactly one _agent_. Concretely, an
+In DAMF, each assertion is _signed_ by exactly one _agent_. Concretely, an
 agent is a public-private key pair; the _name_ of the agent is just its
 public key.
 
@@ -169,12 +168,12 @@ to explore the contents of the linked objects in IPLD starting from that CID.
 
 ```{.console .conbox}
 $ cat $HOME/.config/dispatch/languages.json
-{"coq-8.16.1":{"name":"coq-8.16.1","language":"bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy"}}
+{"coq-8.16.1":{"name":"coq-8.16.1","language":"bafyreigohn2y34l6ks2yqozhstedfxhkitcjjgmhaipeo674ct64vrko2y"}}
 
-$ ipfs dag get bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy # (1)!
-{"content":{"/":"bafyreidmf3nxeigvi7mfklzu2wr7oapa7fodqdeajbxtngy5ax7cccmj5u"},"format":"language"}
+$ ipfs dag get bafyreigohn2y34l6ks2yqozhstedfxhkitcjjgmhaipeo674ct64vrko2y # (1)!
+{"content":{"name":"Coq","url":"https://coq.inria.fr","version":"8.16.1"},"format":"language"}
 
-$ ipfs dag get bafyreiayvr5klyi25dq2wrjqg2dwlgmxwsoxg2tcv7tdy675h5u7wtrxxy/content # (2)!
+$ ipfs dag get bafyreigohn2y34l6ks2yqozhstedfxhkitcjjgmhaipeo674ct64vrko2y/content # (2)!
 {"name":"Coq","url":"https://coq.inria.fr","version":"8.16.1"}
 ```
 
@@ -297,7 +296,7 @@ We can now use Dispatch to publish the entire collection at once.
 
 ```{.console .conbox}
 $ dispatch publish FibLemma.v.assertions.json local # (1)!
-Published DAMF collection object to local with cid: bafyreigdthmeok6gwsdulovqrgvzz4tbad2ifjxpa74dlpbfbt7ehnkyha
+Published DAMF collection object to local with cid: bafyreidfn2ub5h5bqkozi5yxsocsoc4s55biabaecfp7jsrmervmpxckei
 ```
 
 1. `local` means that it is being published to the local IPFS repository we set up in step 1.
@@ -306,27 +305,27 @@ This CID can be [explored in IPLD explorer][explore-coq]. It can also be locally
 explored with `ipfs dag get`:
 
 ```{.console .conbox}
-$ ipfs dag get bafyreigdthmeok6gwsdulovqrgvzz4tbad2ifjxpa74dlpbfbt7ehnkyha | python -m json.tool # (1)!
+$ ipfs dag get bafyreidfn2ub5h5bqkozi5yxsocsoc4s55biabaecfp7jsrmervmpxckei | python -m json.tool # (1)!
 {
     "elements": [
         {
-            "/": "bafyreicpwpxl3xe4nefsqc3f2rdxiedxjbmekh25m5cgqkriwp3qsivope"
+            "/": "bafyreihkafr7ko4rsvqiafdahsaauv4t7in3qpjdxxvu4puupl2odjxfwi"
         },
         {
-            "/": "bafyreigscd65tb2rabcpjxbep7h4lklbyfenmj32ioond7ouhh7qpvkh7a"
+            "/": "bafyreibrzv44jglcptuuiiol3spglqr5i2ttadwg2tvueyjedbpf5v3p5a"
         }
     ],
     "format": "collection",
     "name": "FibLemma.v"
 }
 
-$ ipfs dag get bafyreic53degjxdfn7e2l3spleevftr5pxemr7ydspkvwimr4smhjqjzuy/elements/0/claim/production/sequent/conclusion/content
+$ ipfs dag get bafyreidfn2ub5h5bqkozi5yxsocsoc4s55biabaecfp7jsrmervmpxckei/elements/0/claim/production/sequent/conclusion/content
 "forall n, 2 * n + 27 <= fib (n + 12)"
 ```
 
 1. `python -m json.tool` is being used to pretty-print the JSON
 
-[explore-coq]: https://explore.ipld.io/#/explore/bafyreic53degjxdfn7e2l3spleevftr5pxemr7ydspkvwimr4smhjqjzuy
+[explore-coq]: https://explore.ipld.io/#/explore/bafyreidfn2ub5h5bqkozi5yxsocsoc4s55biabaecfp7jsrmervmpxckei
 
 ## Computations with λProlog
 
@@ -464,7 +463,7 @@ $ tjsim -b -s 'damf_export.' -m 1 main
 Wrote fib.json.
 
 $ dispatch publish fib.json local # (1)!
-Published DAMF collection object to local with cid: bafyreickai4hsl3aht53hz3veen5xlzvx7njy7sudsfpns3ikxtnuzpjha
+Published DAMF collection object to local with cid: bafyreihrmkxxhjx3bppen3ar7pjdakakw2xm55daq6xlnaxsluv4thnfcm
 ```
 
 1. Can take a few dozen seconds to finish.
@@ -522,7 +521,7 @@ Abella's own language, they can be used as is. For reference, Abella's DAMF
 language object has the following CID:
 
 ```
-bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy
+bafyreiga2dpaxobxqvvy2akl2frrap2xzw5xrq2olpfnv5q5e362vaua5q
 ```
 
 What about the case of DAMF assertions in a different language? In this case,
@@ -565,24 +564,24 @@ structure:
     "format": "annotated-production",
     "annotation": {
       "name": "fib_square_above!adapter"
-      "generator": "damf:bafyreiegwjyj5f2lpw3ck35pqeqt45bwl57c7n7xfpbtxm6ym3sfsixixq" // (1)!
+      "generator": "damf:bafyreiehnznomgmy3u724hk4jhhkvsnwgoavyva5kbxoeqfhl5epn6ev6a" // (1)!
     },
     "production": {
       "mode": null,
       "sequent": {
         "conclusion": "fib_square_above",
         "dependencies": [
-          "damf:bafyreigscd65tb2rabcpjxbep7h4lklbyfenmj32ioond7ouhh7qpvkh7a/claim/production/sequent/conclusion" // (2)!
+          "damf:bafyreibrzv44jglcptuuiiol3spglqr5i2ttadwg2tvueyjedbpf5v3p5a/claim/production/sequent/conclusion" // (2)!
         ] } }
   "formulas": {
     "fib_square_above": {
-      "language": "damf:bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy", // (3)!
+      "language": "damf:bafyreiga2dpaxobxqvvy2akl2frrap2xzw5xrq2olpfnv5q5e362vaua5q", // (3)!
       "content": "forall x, nat x -> … -> lt y u",
       "context": "fib_square_above!context"
     } },
   "contexts": {
     "fib_square_above!context": {
-      "language": "damf:bafyreic7eqwwwbjtrbcz4fj33wdoyt6qext6ji46vggwjjliznyzvaymoy",
+      "language": "damf:bafyreiga2dpaxobxqvvy2akl2frrap2xzw5xrq2olpfnv5q5e362vaua5q",
       "content": [
         "Kind nat type", "Type z nat", "Type s nat -> nat",
         "Define nat : …", "Define leq : …", "Define lt : …",
@@ -629,12 +628,16 @@ flag, where `<location>` is either `local` or `cloud`.
 
 ```{.console .conbox}
 $ abella --damf-imports --damf-publish local FibTheorem.thm
-Published as damf:bafyreifg3cosrvpidfmepwsjjt6kwvrlb2iobe5wo27sqsbu5uzbrdlvhm
+Published as damf:bafyreihg6a3wo4fzmqmtzjp2awp3xuorlte3fma2n3a72fqlejzok6dpne
 ```
 
-As usual, this can be [browsed in IPLD explorer][explore-abella].
+As usual, this can be [browsed in IPLD explorer][explore-abella]. This link refers to the whole collection of theorems generated by the above `abella` command.
 
-[explore-abella]: https://explore.ipld.io/#/explore/bafyreifg3cosrvpidfmepwsjjt6kwvrlb2iobe5wo27sqsbu5uzbrdlvhm
+The assertion corresponding to the final `fib_squares` theorem is the last one of the assertions in the above collection. It can also be accessed directly through this [link](https://explore.ipld.io/#/explore/bafyreiaxik2wajikz2amyo3fkhyokylftuhwos3q7iloxhjwntklje6f3i).
+
+[explore-abella]: https://explore.ipld.io/#/explore/bafyreihg6a3wo4fzmqmtzjp2awp3xuorlte3fma2n3a72fqlejzok6dpne
+
+Note that, as you try this walkthrough, you will get different *assertion* `cids` (and thus a different collection cid) than those included here. This is natural as you would be using a different `agent` for signatures. However, the `cids` for the damf objects including formulas, sequents, etc. shall be the same.
 
 <script>
   (async function () {

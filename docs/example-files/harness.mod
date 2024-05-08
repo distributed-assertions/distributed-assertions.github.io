@@ -46,7 +46,6 @@ print_assertions_loop :-
   rreadterm (name String _),
   pprint "   {\n",
   pprint "     \"format\": \"assertion\",\n",
-  pprint "     \"element\": {\n",
   pprint "       \"agent\": \"", pprint Agent, pprint "\",\n",
   pprint "       \"claim\": {\n",
   pprint "         \"format\": \"annotated-production\",\n",
@@ -59,7 +58,6 @@ print_assertions_loop :-
   pprint "           }\n",
   pprint "         }\n",
   pprint "       }\n",
-  pprint "     }\n",
   pprint "   }", eeof, pprint "\n", !.
 print_assertions_loop :- pprint ",\n", print_assertions_loop.
 
