@@ -48,8 +48,8 @@ based on a common name, here written as `FILE`.  There are three input files
 
 Currently, the specific instructions to use this code are the following:
 
-- Add `accumlate FILE.` to `harness.mod`
-- Add `accum_sig FILE.` to `harness.sig`
+- Add `accumlate FILE.` to [`harness.mod`](./example-files/harness.mod)
+- Add `accum_sig FILE.` to [`harness.sig`](./example-files/harness.sig)
 - Run both `tjcc` and `tjsim` on `FILE`, eg: `> tjcc arith ; tjlink arith`
 - Make sure that `FILE.goals` has no blank lines.
 - Compile and run:
@@ -66,3 +66,5 @@ compiled and loaded:
 > tjsim harness
 ?- json "FILE".
 ```
+
+This usage of &lambda;Prolog is illustrated in the [walkthrough](./example-walkthrough.md#computations-with-prolog).

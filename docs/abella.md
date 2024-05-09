@@ -21,10 +21,11 @@ instructions below are for a recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2).
    ~~~~
 2. From the `abella` directory, run these commands:
    ~~~~bash
-   % git checkout ipfs
+   % git checkout f931011d4da6d654f846aa9dc71fe00788196961
    % opam pin -y .
    ~~~~
-   This pin will override (reversibly) the existing Abella package in OPAM if any,
+   The SHA used in the `git checkout` command corresponds to the currently used commit within the `ipfs` branch.
+   The `opam pin` command will override (reversibly) the existing Abella package in OPAM if any,
    then build and install Abella to your OPAM environment. You can then launch Abella
    through the command `$(opam var bin)/abella` -- or just `abella` if you have set
    up your OPAM environment correctly.
@@ -32,6 +33,9 @@ instructions below are for a recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2).
    % $(opam var bin)/abella -v
    2.0.9-ipfs
    ~~~~
+
+    Note that you can instead directly download [this Zip](../docs/assets/zips/abella-f931011d4da6d654f846aa9dc71fe00788196961.zip) and proceed from the `opam pin -y .` command.
+
 3. To uninstall this version of Abella and restore the standard Abella packages
    in OPAM, run in the same `abella` directory as step 2 above:
    ~~~~bash

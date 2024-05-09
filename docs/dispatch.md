@@ -11,13 +11,13 @@ It is based on the [DAMF Formats](./damf-formats.md) specification and implement
 - [Zip][dispatch-zip]
 - [Github][dispatch-repo]
 
-[dispatch-zip]: https://github.com/distributed-assertions/dispatch/archive/refs/heads/main.zip
-[dispatch-repo]: https://github.com/distributed-assertions/dispatch
+[dispatch-zip]: ../docs/assets/zips/dispatch-b778c71dc35c6c1ae05d2cd4853d648659562cfe.zip
+[dispatch-repo]: https://github.com/distributed-assertions/dispatch/tree/b778c71dc35c6c1ae05d2cd4853d648659562cfe
 
 ### Requirements
 
-- [`Kubo`][kubo] - previously known as `ipfs-go`
-- [`nodejs`][nodejs]
+- [`Kubo`][kubo] - previously known as `ipfs-go`. The tested version is `ipfs version 0.28.0`.
+- [`nodejs`][nodejs]. The tested version is `v18.12.1`.
 
 [kubo]: https://github.com/ipfs/kubo
 [nodejs]: https://nodejs.org/en/
@@ -145,7 +145,7 @@ As illustrated in [DAMF Formats](./damf-formats.md), the *global shared objects*
 
 **Dispatch** provides an *interface* for users (human users or tools) to the DAMF store through a collection of standard input formats. These standard inputs are produced by users, then processed and published by *Dispatch* as DAMF objects. In this way, a user does not have to interact with IPFS in any form.
 
-Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/main/data/input-to-publish), and the JSON schemas for the specified input formats are descibed below: [TODO]
+Examples of these formats can be found in the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/b778c71dc35c6c1ae05d2cd4853d648659562cfe/data/input-to-publish/formats). (Similarly found in the `/data/input-to-publish/formats/` directory within the associated [dispatch Zip](#source)).
 
 #### publish
 
@@ -169,7 +169,8 @@ Run `dispatch publish <input-path> <target>` to publish a DAMF object starting f
 
 For the same reasons **Dispatch** reads standard inputs from producers, it constructs standard outputs for consumers. The output formats have the same structure as the input formats, where *local names* used in input formats as references to other objects in the file are replaced by the *global names* of these objects.
 
-Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/main/data/output-from-get), and the JSON schemas are ...
+Examples of these formats can be found at the [dispatch github repository](https://github.com/distributed-assertions/dispatch/tree/b778c71dc35c6c1ae05d2cd4853d648659562cfe/data/output-from-get/formats).
+(Similarly found in the `/data/output-from-get/formats/` directory within the associated [dispatch Zip](#source)).
 
 #### get
 
