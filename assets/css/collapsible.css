@@ -1,0 +1,39 @@
+.collapsible {
+    border: 1px solid #333;
+    margin-left: 2em;
+    margin-right: 10%;
+}
+
+.collapsible-header {
+    background-color: #ddd;
+    color: #444;
+    cursor: pointer;
+    padding: 0 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    /* font-size: 1vh; */
+}
+
+.collapsible-header:hover {
+    background-color: #ccc;
+}
+
+.collapsible-content {
+    padding: 0 0;
+    overflow: hidden;
+    background-color: inherit;
+    max-height: 0;
+    transition: max-height 100ms ease;
+}
+
+.collapsible ul {
+    margin-left: 0;
+    padding-left: 0;
+    font-family: monospace;
+}
+
+.faded {
+    color: var(--md-code-hl-comment-color);
+}

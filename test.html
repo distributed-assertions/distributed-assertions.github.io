@@ -1,0 +1,814 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/logo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>Test - Distributed Assertion Management Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"M PLUS Rounded 1c";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/css/extra.css">
+    
+      <link rel="stylesheet" href="assets/css/collapsible.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Distributed Assertion Management Framework" class="md-header__button md-logo" aria-label="Distributed Assertion Management Framework" data-md-component="logo">
+      
+  <img src="assets/logo/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Distributed Assertion Management Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Test
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label=":Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title=":Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9.47V11h3.76L13 14.53V13H9.24L11 9.47M13 1 6 15h5v8l7-14h-5V1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14v-8Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="damf-formats.html" class="md-tabs__link">
+          
+  
+  Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="dispatch.html" class="md-tabs__link">
+        
+  
+    
+  
+  Dispatch
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="abella.html" class="md-tabs__link">
+          
+  
+  Edge Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="example-walkthrough.html" class="md-tabs__link">
+        
+  
+    
+  
+  Example
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Distributed Assertion Management Framework" class="md-nav__button md-logo" aria-label="Distributed Assertion Management Framework" data-md-component="logo">
+      
+  <img src="assets/logo/logo.png" alt="logo">
+
+    </a>
+    Distributed Assertion Management Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="damf-formats.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAMF Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="damf-processes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dispatch.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dispatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Edge Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edge Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="abella.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Abella DAMF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lprolog.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    λProlog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="example-walkthrough.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Test</h1>
+
+<div class="highlight"><span class="filename">fib.sig</span><pre><span></span><code><span class="k">sig</span> <span class="no">fib</span><span class="p">.</span>
+<span class="k">kind</span> <span class="no">nat</span> <span class="k">type</span><span class="p">.</span>
+<span class="k">type</span> <span class="no">z</span> <span class="no">nat</span><span class="p">.</span>
+<span class="k">type</span> <span class="no">s</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span><span class="p">.</span>
+<span class="k">type</span> <span class="no">plus</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="kt">o</span><span class="p">.</span>
+<span class="k">type</span> <span class="no">times</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="kt">o</span><span class="p">.</span>
+<span class="k">type</span> <span class="no">fib</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="no">nat</span> <span class="kt">-&gt;</span> <span class="kt">o</span><span class="p">.</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">fib.mod</span><pre><span></span><code><span class="k">module</span> <span class="no">fib</span><span class="p">.</span>
+<span class="no">plus</span> <span class="no">z</span> <span class="nv">X</span> <span class="nv">X</span><span class="p">.</span>
+<span class="no">plus</span> <span class="p">(</span><span class="no">s</span> <span class="nv">X</span><span class="p">)</span> <span class="nv">Y</span> <span class="p">(</span><span class="no">s</span> <span class="nv">Z</span><span class="p">)</span> <span class="o">:-</span> <span class="no">plus</span> <span class="nv">X</span> <span class="nv">Y</span> <span class="nv">Z</span><span class="p">.</span>
+<span class="no">times</span> <span class="no">z</span> <span class="nv">X</span> <span class="no">z</span><span class="p">.</span>
+<span class="no">times</span> <span class="p">(</span><span class="no">s</span> <span class="nv">X</span><span class="p">)</span> <span class="nv">Y</span> <span class="nv">Z</span> <span class="o">:-</span> <span class="no">times</span> <span class="nv">X</span> <span class="nv">Y</span> <span class="nv">U</span><span class="o">,</span> <span class="no">plus</span> <span class="nv">Y</span> <span class="nv">U</span> <span class="nv">Z</span><span class="p">.</span>
+<span class="no">fib</span> <span class="no">z</span> <span class="no">z</span><span class="p">.</span>
+<span class="no">fib</span> <span class="p">(</span><span class="no">s</span> <span class="no">z</span><span class="p">)</span> <span class="p">(</span><span class="no">s</span> <span class="no">z</span><span class="p">).</span>
+<span class="no">fib</span> <span class="p">(</span><span class="no">s</span> <span class="p">(</span><span class="no">s</span> <span class="nv">X</span><span class="p">))</span> <span class="nv">Y</span> <span class="o">:-</span> <span class="no">fib</span> <span class="p">(</span><span class="no">s</span> <span class="nv">X</span><span class="p">)</span> <span class="nv">U</span><span class="o">,</span> <span class="no">fib</span> <span class="nv">X</span> <span class="nv">V</span><span class="o">,</span> <span class="no">plus</span> <span class="nv">U</span> <span class="nv">V</span> <span class="nv">Y</span><span class="p">.</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">FibExample.thm</span><pre><span></span><code><span class="kd">Kind</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="k">type</span><span class="p">.</span>
+<span class="kd">Type</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="no">nat</span><span class="p">.</span>
+<span class="kd">Type</span><span class="w"> </span><span class="no">s</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">nat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">z</span>
+<span class="o">;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="nv">X</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">lt</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">lt</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span>
+<span class="o">;</span><span class="w"> </span><span class="no">lt</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">Y</span><span class="p">)</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="no">lt</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">Y</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">leq</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">leq</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="nv">X</span>
+<span class="o">;</span><span class="w"> </span><span class="no">leq</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">Y</span><span class="p">)</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="no">leq</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">Y</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">plus</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">X</span>
+<span class="o">;</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="nv">Y</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">Z</span><span class="p">)</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">Y</span><span class="w"> </span><span class="nv">Z</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">times</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="no">z</span>
+<span class="o">;</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="nv">Y</span><span class="w"> </span><span class="nv">Z</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="nv">U</span><span class="o">,</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">Y</span><span class="w"> </span><span class="nv">U</span><span class="w"> </span><span class="o">/\</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="nv">U</span><span class="w"> </span><span class="nv">Y</span><span class="w"> </span><span class="nv">Z</span><span class="p">.</span>
+
+<span class="kd">Define</span><span class="w"> </span><span class="no">fib</span><span class="s s-Atom">:</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kt">prop</span><span class="w"> </span><span class="kd">by</span>
+<span class="o">;</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="no">z</span>
+<span class="o">;</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">)</span>
+<span class="o">;</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">))</span><span class="w"> </span><span class="nv">K</span><span class="w"> </span><span class="p">:=</span>
+<span class="w">    </span><span class="k">exists</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="nv">N</span><span class="o">,</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="o">/\</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="o">/\</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="nv">N</span><span class="w"> </span><span class="nv">K</span><span class="p">.</span>
+
+<span class="k">Import</span><span class="w"> </span><span class="s">&quot;damf:bafyreid5eco3yl6uewtahf4zhyzl5rgai7qzbyfmpy6gk6hknbclgradye&quot;</span><span class="w"> </span><span class="k">as</span>
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">fib_square_above</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="o">,</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span>
+<span class="w">  </span><span class="no">leq</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">13</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span>
+<span class="w">  </span><span class="k">forall</span><span class="w"> </span><span class="no">y</span><span class="o">,</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="kt">-&gt;</span>
+<span class="w">  </span><span class="k">forall</span><span class="w"> </span><span class="no">u</span><span class="o">,</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">lt</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="p">.</span>
+<span class="c1">%% skip.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">plus_deterministic</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="no">v</span><span class="o">,</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">v</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">v</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H3</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">times_deterministic</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="no">v</span><span class="o">,</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">v</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">v</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H3</span><span class="w"> </span><span class="o">*</span><span class="nv">H5</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="no">plus_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="w"> </span><span class="o">*</span><span class="nv">H6</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">u</span><span class="o">,</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">u</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">u</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span>
+<span class="w">    </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H3</span><span class="w"> </span><span class="o">*</span><span class="nv">H6</span><span class="p">.</span>
+<span class="w">    </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="w"> </span><span class="o">*</span><span class="nv">H7</span><span class="p">.</span>
+<span class="w">    </span><span class="nf">apply</span><span class="w"> </span><span class="no">plus_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H5</span><span class="w"> </span><span class="o">*</span><span class="nv">H8</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">lt_irreflexive</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="o">,</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">lt</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="kc">false</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H2</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H3</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">plus_result_nat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">k</span><span class="o">,</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">plus</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">k</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">k</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H3</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H5</span><span class="w"> </span><span class="o">*</span><span class="nv">H2</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">times_result_nat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">k</span><span class="o">,</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">y</span><span class="w"> </span><span class="no">k</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">k</span><span class="p">.</span>
+<span class="nf">induction</span><span class="w"> </span><span class="nf">on</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="nf">intros</span><span class="p">.</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">H3</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">H1</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="nv">IH</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H6</span><span class="w"> </span><span class="nv">H2</span><span class="w"> </span><span class="o">*</span><span class="nv">H4</span><span class="p">.</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="no">plus_result_nat</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="o">*</span><span class="nv">H7</span><span class="w"> </span><span class="o">*</span><span class="nv">H2</span><span class="w"> </span><span class="o">*</span><span class="nv">H5</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+
+<span class="kd">Theorem</span><span class="w"> </span><span class="no">fib_squares</span><span class="s s-Atom">:</span><span class="w"> </span><span class="k">forall</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x2</span><span class="o">,</span><span class="w"> </span><span class="no">nat</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x2</span><span class="w"> </span><span class="kt">-&gt;</span>
+<span class="w">  </span><span class="p">(</span><span class="no">fib</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x2</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">12</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="o">/\</span>
+<span class="w">  </span><span class="p">(</span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">12</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="kt">-&gt;</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="no">x2</span><span class="p">).</span>
+<span class="nf">intros</span><span class="w"> </span><span class="nv">Hnat</span><span class="w"> </span><span class="nv">Hsquare</span><span class="p">.</span><span class="w"> </span><span class="nf">split</span><span class="p">.</span>
+<span class="c1">%% -&gt;</span>
+<span class="nf">intros</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="nv">Hcs</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">0</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">1</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">3</span><span class="w"> </span><span class="no">z</span>
+<span class="w">         </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">4</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">5</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">6</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">7</span><span class="w"> </span><span class="no">z</span>
+<span class="w">         </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">8</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">9</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">10</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">11</span><span class="w"> </span><span class="no">z</span>
+<span class="w">         </span><span class="o">\/</span><span class="w"> </span><span class="no">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">s</span><span class="o">^</span><span class="mi">12</span><span class="w"> </span><span class="no">z</span><span class="w"> </span><span class="o">\/</span><span class="w"> </span><span class="no">leq</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">13</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="no">x</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hnat</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">right</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="w"> </span><span class="mi">14</span><span class="p">.</span>
+<span class="nv">Hcs</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hcs</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">search</span><span class="p">.</span><span class="w"> </span><span class="c1">% case of x = z</span>
+<span class="w">  </span><span class="nf">search</span><span class="p">.</span><span class="w"> </span><span class="c1">% case of x = s z</span>
+<span class="w">  </span><span class="c1">% case of x = 2</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">4</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 3</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">3</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">3</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">3</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">9</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 4</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">4</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">3</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">4</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">4</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">16</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 5</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">5</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">5</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">5</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">5</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">25</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 6</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">6</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">8</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">36</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">6</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">6</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">36</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 7</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">7</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">13</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">49</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">7</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">7</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">49</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 8</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">8</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">21</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">8</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">8</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">64</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 9</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">9</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">34</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">81</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">9</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">9</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">81</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 10</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">10</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">55</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">10</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">10</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">100</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 11</span>
+<span class="w">  </span><span class="nv">Ha</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="no">fib</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">11</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">89</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Ha</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">121</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">11</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">11</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">121</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x = 12</span>
+<span class="w">  </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="c1">% case of x &gt;= 13</span>
+<span class="w">  </span><span class="nv">H</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="no">fib_square_above</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hnat</span><span class="w"> </span><span class="nv">Hcs</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">H</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="o">*</span><span class="nv">H</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">H</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="o">*</span><span class="nv">H</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hfib</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hnat2</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_result_nat</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hnat</span><span class="w"> </span><span class="nv">Hnat</span><span class="w"> </span><span class="nv">Hsquare</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">lt_irreflexive</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hnat2</span><span class="w"> </span><span class="nv">H</span><span class="p">.</span>
+
+<span class="c1">%% &lt;-</span>
+<span class="nf">intros</span><span class="w"> </span><span class="nv">Hcs</span><span class="p">.</span>
+<span class="nv">Hcs</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hcs</span><span class="p">.</span>
+<span class="w">  </span><span class="nf">case</span><span class="w"> </span><span class="nv">Hsquare</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="p">.</span>
+<span class="w">  </span><span class="nv">Hsquare_ground</span><span class="s s-Atom">:</span><span class="w"> </span><span class="nf">assert</span><span class="w"> </span><span class="mi">144</span><span class="w"> </span><span class="no">times</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">12</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">12</span><span class="w"> </span><span class="no">z</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="no">s</span><span class="o">^</span><span class="mi">144</span><span class="w"> </span><span class="no">z</span><span class="p">).</span>
+<span class="w">  </span><span class="nf">apply</span><span class="w"> </span><span class="no">times_deterministic</span><span class="w"> </span><span class="nf">to</span><span class="w"> </span><span class="nv">Hsquare</span><span class="w"> </span><span class="nv">Hsquare_ground</span><span class="p">.</span><span class="w"> </span><span class="nf">search</span><span class="w"> </span><span class="mi">144</span><span class="p">.</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 . <a href="https://innofarah.com" target="_blank">Farah Al Wardani</a>, <a href="https://chaudhuri.info" target="_blank">Kaustuv Chaudhuri</a>, and <a href="https://www.lix.polytechnique.fr/~dale/" target="_blank">Dale Miller</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/distributed-assertions" target="_blank" rel="noopener" title="DAMF on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "navigation.expand", "navigation.footer", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1332 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="damf-processes.html">
+      
+      
+        <link rel="next" href="abella.html">
+      
+      
+      <link rel="icon" href="assets/logo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>Dispatch - Distributed Assertion Management Framework</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"M PLUS Rounded 1c";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/css/extra.css">
+    
+      <link rel="stylesheet" href="assets/css/collapsible.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dispatch-join-the-damf-with-ease" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Distributed Assertion Management Framework" class="md-header__button md-logo" aria-label="Distributed Assertion Management Framework" data-md-component="logo">
+      
+  <img src="assets/logo/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Distributed Assertion Management Framework
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dispatch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label=":Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title=":Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9.47V11h3.76L13 14.53V13H9.24L11 9.47M13 1 6 15h5v8l7-14h-5V1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14v-8Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="damf-formats.html" class="md-tabs__link">
+          
+  
+  Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="dispatch.html" class="md-tabs__link">
+        
+  
+    
+  
+  Dispatch
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="abella.html" class="md-tabs__link">
+          
+  
+  Edge Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="example-walkthrough.html" class="md-tabs__link">
+        
+  
+    
+  
+  Example
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Distributed Assertion Management Framework" class="md-nav__button md-logo" aria-label="Distributed Assertion Management Framework" data-md-component="logo">
+      
+  <img src="assets/logo/logo.png" alt="logo">
+
+    </a>
+    Distributed Assertion Management Framework
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="damf-formats.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DAMF Formats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="damf-processes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dispatch
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="dispatch.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dispatch
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-and-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining and Building
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining and Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-w3-email-set-w3-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      set-w3-email &amp; set-w3-space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      set-gateway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      list-config
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      publish
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieval
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      get
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trust Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trust Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      lookup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongoing-developments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongoing developments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Edge Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Edge Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="abella.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Abella DAMF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lprolog.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    λProlog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="example-walkthrough.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-and-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining and Building
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtaining and Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      create-language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-w3-email-set-w3-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      set-w3-email &amp; set-w3-space
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      set-gateway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      list-config
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      publish
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieval
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Retrieval">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      get
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trust Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trust Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      lookup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongoing-developments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ongoing developments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="dispatch-join-the-damf-with-ease">Dispatch: Join the DAMF with ease</h1>
+<p><strong>Dispatch</strong> is an Intermediary tool for publishing, retrieval, and trust analysis in the Distributed Assertion Management Framework (DAMF).</p>
+<p>It is based on the <a href="damf-formats.html">DAMF Formats</a> specification and implements the main <a href="damf-processes.html">DAMF processes</a>. It is intended to be usable by both human users and tools.</p>
+<h2 id="obtaining-and-building">Obtaining and Building</h2>
+<h3 id="source">Source</h3>
+<ul>
+<li><a href="assets/zips/dispatch-99cc33b8d59c6ffb15cd3e1137dabf6fd6b3bd33.zip">Zip</a></li>
+<li><a href="https://github.com/distributed-assertions/dispatch/tree/99cc33b8d59c6ffb15cd3e1137dabf6fd6b3bd33">Github</a></li>
+</ul>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li><a href="https://github.com/ipfs/kubo"><code>Kubo</code></a> - previously known as <code>ipfs-go</code>. The tested version is <code>ipfs version 0.28.0</code>.</li>
+<li><a href="https://nodejs.org/en/"><code>nodejs</code></a>. The tested version is <code>v18.12.1</code>.</li>
+</ul>
+<h3 id="building">Building</h3>
+<ol>
+<li>
+<p>In the root directory of <strong>Dispatch</strong>, run:</p>
+<p><code>% npm install</code></p>
+</li>
+<li>
+<p>Then run:</p>
+<p><code>% npm run build</code></p>
+</li>
+</ol>
+<p>Generated executables for <code>linux</code>, <code>macOS</code>, and <code>Microsoft Windows</code> shall be found at the <code>executables/</code> directory.</p>
+<hr />
+<h2 id="commands">Commands</h2>
+<p><strong>Dispatch</strong> consists of a collection of CLI commands. Running the <code>dispatch</code> executable will list the available commands. Using <code>dispatch &lt;command&gt; -h</code> lists more information about each command and its arguments.</p>
+<h3 id="configuration">Configuration</h3>
+<h4 id="create-agent">create-agent</h4>
+<p><em>Description</em></p>
+<pre><code>create an agent profile with a public-private key pair.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch create-agent &lt;agent-profile-name&gt;</code> to create an <em>agent profile</em> in the local <code>.config/dispatch/agentprofiles.json</code> file. An agent profile object contains a generated public-private key pair (the parameters for this generation are currently fixed), and it&rsquo;s referred by its name in the <a href="#publish">publish</a> command.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> <strong>Caution</strong>. Remember to keep your private key <em>private</em>.</p>
+<h4 id="create-tool">create-tool</h4>
+<p><em>Description</em></p>
+<pre><code>create a tool profile from a new description or from an existing tool cid.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch create-tool &lt;tool-profile-name&gt; &lt;input-type&gt; &lt;input&gt;</code> to create a <em>tool profile</em> in the local <code>.config/dispatch/toolprofiles.json</code> file. A tool profile object contains the cid for the <em>tool object</em>, and it&rsquo;s referred by its name in the <a href="#publish">publish</a> command.</p>
+<p>The <code>&lt;input-type&gt;</code> argument takes one of three possible values:</p>
+<ol>
+<li><code>file</code>: in case the <code>&lt;input&gt;</code> for the tool description is a file.</li>
+<li><code>json</code>: in case the <code>&lt;input&gt;</code> for the tool description is a <code>json</code> file.</li>
+<li><code>cid</code>: in case the profile is created for an existing <em>tool object</em>. In such case, the <code>&lt;input&gt;</code> would be the tool object&rsquo;s cid.</li>
+</ol>
+<p>In (1) and (2), this command will <a href="#publish">publish</a> the described tool as a <em>tool object</em> and use the corresponding cid.</p>
+<h4 id="create-language">create-language</h4>
+<p><em>Description</em></p>
+<pre><code>create a language profile from a new description or from an existing language cid.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch create-language &lt;language-profile-name&gt; &lt;input-type&gt; &lt;input&gt;</code> to create a <em>language profile</em> in the local <code>.config/dispatch/languages.json</code> file. A language profile object contains the cid for the <em>language object</em>, and it&rsquo;s referred by its name in the <a href="#publish">publish</a> command.</p>
+<p>The <code>&lt;input-type&gt;</code> argument takes one of three possible values:</p>
+<ol>
+<li><code>file</code>: in case the <code>&lt;input&gt;</code> for the language description is a file.</li>
+<li><code>json</code>: in case the <code>&lt;input&gt;</code> for the language description is a <code>json</code> file.</li>
+<li><code>cid</code>: in case the profile is created for an existing <em>language object</em>. In such case, the <code>&lt;input&gt;</code> would be the language object&rsquo;s cid.</li>
+</ol>
+<p>In (1) and (2), this command will <a href="#publish">publish</a> the described language as a <em>language object</em> and use the corresponding cid.</p>
+<h4 id="set-w3-email-set-w3-space">set-w3-email &amp; set-w3-space</h4>
+<p><em>Description</em></p>
+<pre><code>- set-w3-email: setup a web3.storage account email.
+- set-w3-space: setup a web3.storage account space key.
+</code></pre>
+<p><em>Usage</em></p>
+<p><strong>Dispatch</strong> initially publishes objects through the local IPFS daemon, and pins them <em>locally</em> on the local IPFS node. This means that initial requests to get a <code>cid</code> will have to retrieve it from the publisher&rsquo;s local IPFS node, which could be a bit slow at the beginning. In order to make the retrieval process faster, <strong>Dispatch</strong> allows the use of the <a href="https://web3.storage">web3.storage</a> service as a <em>pinning service</em> that serves in making published objects more easily discoverable through the IPFS network.</p>
+<p>In the current dispatch implementation, the way of using of this service is expected as follows:</p>
+<ol>
+<li>
+<p>Create a <a href="https://web3.storage/login/">web3.storage account</a> and a <a href="https://web3.storage/docs/how-to/create-space/">space</a> to upload data within. More details on this can be found at the <a href="https://web3.storage/">web3.storage website</a>. In the current implementation of dispatch, the usage of this service is still experimental and provides the very basic functionality. More can be done and said in future steps.</p>
+</li>
+<li>
+<p>Run <code>dispatch set-w3-email &lt;email&gt;</code> to set your account&rsquo;s email as a <em>login</em> email to be used in later steps by <code>dispatch</code>. Note that you will need to verify your email address after the login attempt by <code>dispatch</code>, when you try to <a href="#publish">publish</a> data using this service. More details can be found in the <a href="https://web3.storage/docs/w3up-client/">official documentation</a>.</p>
+</li>
+<li>
+<p>Run <code>dispatch set-w3-space &lt;space&gt;</code> with the generated space key as an argument to be used in later steps by <code>dispatch</code>: as the space to upload your data within.</p>
+</li>
+</ol>
+<p>Using this service is optional and decided by the user when invoking the <a href="#publish">publish</a> command.</p>
+<h4 id="set-gateway">set-gateway</h4>
+<p><em>Description</em></p>
+<pre><code>setup a gateway for retrieval.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Starting from a <code>cid</code>, <strong>Dispatch</strong> initially tries to retrieve the corresponding DAG through the local IPFS daemon. If the retrieval was unsuccessful, <strong>Dispatch</strong> tries to use a <em>gateway</em> to aid in this process.</p>
+<p>Think of a <em>gateway</em> as a <em>well-connected</em> IPFS node that can discover stuff faster. More about gateways and their usage can be found at the <a href="https://docs.ipfs.tech/concepts/ipfs-gateway">IPFS official docs</a>.</p>
+<p>The default gateway is set to <code>https://dweb.link</code>.</p>
+<p>To set a different gateway, run <code>dispatch set-gateway &lt;gateway&gt;</code>. Note that the specified gateway should support the IPFS DAG API.</p>
+<h4 id="list-config">list-config</h4>
+<p><em>Description</em></p>
+<pre><code>list configuration parameters.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch list-config</code> to display the configuration parameters.</p>
+<h3 id="publishing">Publishing</h3>
+<h4 id="input-formats">Input formats</h4>
+<p>As illustrated in <a href="damf-formats.html">DAMF Formats</a>, the <em>global shared objects</em> shall follow the specified DAMF formats: <em>assertion</em>, <em>production</em>, <em>sequent</em>, <em>formula</em>, etc.</p>
+<p><strong>Dispatch</strong> provides an <em>interface</em> for users (human users or tools) to the DAMF store through a collection of standard input formats. These standard inputs are produced by users, then processed and published by <em>Dispatch</em> as DAMF objects. In this way, a user does not have to interact with IPFS in any form.</p>
+<p>Examples of these formats can be found in the <a href="https://github.com/distributed-assertions/dispatch/tree/99cc33b8d59c6ffb15cd3e1137dabf6fd6b3bd33/data/input-to-publish/formats">dispatch github repository</a>. (Similarly found in the <code>/data/input-to-publish/formats/</code> directory within the associated <a href="#source">dispatch Zip</a>).</p>
+<h4 id="publish">publish</h4>
+<p><em>Description</em></p>
+<pre><code>publish a DAMF object starting from a dispatch standard input.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch publish &lt;input-path&gt; &lt;target&gt;</code> to publish a DAMF object starting from a dispatch standard input (a <code>json</code> file with path <code>&lt;input-path&gt;</code>). The <code>&lt;target&gt;</code> argument can take one of two values: <code>local</code> for local IPFS node pinning, or <code>cloud</code> for pinning through <a href="https://web3.storage">web3.storage</a> service.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> When <code>cloud</code> is used, make sure to have set your web3.storage account&rsquo;s email and space first, as described in the <a href="#set-w3-email-set-w3-space">set-w3-email &amp; set-w3-space</a> commands section.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> For publishing <em>assertion</em> objects, make sure to have the <em>agent</em> specified in the input <code>json</code> initially created, as described in the <a href="#create-agent">create-agent</a> command section. Same applies in case a <em>profile name</em> is used for the <em>language</em> (using <a href="#create-language">create-language</a>) and <em>tool</em> (using <a href="#create-tool">create-tool</a>) fields instead of a direct <code>damf:cid</code>.</p>
+<h3 id="retrieval">Retrieval</h3>
+<h4 id="output-formats">Output formats</h4>
+<p>For the same reasons <strong>Dispatch</strong> reads standard inputs from producers, it constructs standard outputs for consumers. The output formats have the same structure as the input formats, where <em>local names</em> used in input formats as references to other objects in the file are replaced by the <em>global names</em> of these objects.</p>
+<p>Examples of these formats can be found at the <a href="https://github.com/distributed-assertions/dispatch/tree/99cc33b8d59c6ffb15cd3e1137dabf6fd6b3bd33/data/output-from-get/formats">dispatch github repository</a>.
+(Similarly found in the <code>/data/output-from-get/formats/</code> directory within the associated <a href="#source">dispatch Zip</a>).</p>
+<h4 id="get">get</h4>
+<p><em>Description</em></p>
+<pre><code>retrieve a DAMF object by its cid.
+</code></pre>
+<p><em>Usage</em></p>
+<p>Run <code>dispatch get &lt;cid&gt; &lt;directory-path&gt;</code> to retrieve a DAMF object starting from its <code>cid</code> and construct the corresponding standard output which contains the full DAG. <code>&lt;directory-path&gt;</code> refers to the container directory for the resulting output file.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/26a0.svg" title=":warning:" /> Make sure that the gateway is set as described in the <a href="#set-gateway">set-gateway</a> command section.</p>
+<p><img alt="ℹ" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2139.svg" title=":information_source:" /> Note that if the <code>ipfs daemon</code> is deactivated, the retrieval process will be successful in case the full DAG is present locally (if it was previously retrieved for example). If there were missing links, the gateway will be used. If the <code>ipfs daemon</code> is activated, the gateway will be used if the local daemon fails to retrieve the full DAG within [TODO] a specified time range.</p>
+<h3 id="trust-analysis">Trust Analysis</h3>
+<h4 id="lookup">lookup</h4>
+<p><em>Description</em></p>
+<pre><code>construct all trust paths for a formula cid in a list of assertions
+</code></pre>
+<p><em>Usage</em></p>
+<p>This command is the starting point for DAMF trust analysis in <strong>Dispatch</strong>. Run <code>dispatch lookup &lt;formula-cid&gt; &lt;assertion-list&gt; &lt;directory-path&gt;</code> to get all the possible trust paths that lead to this formula.</p>
+<p><code>&lt;formula-cid&gt;</code> is the <code>cid</code> of the target <em>formula object</em>.</p>
+<p><code>&lt;assertion-list&gt;</code> is the path of the file containing the list of <em>assertion object</em> <code>cids</code> to search through.
+For example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;bafyreigqz7mw5bol3xi5qrwioseujh4fkufl5j6i4pxtl2fsynisi4zix4&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;bafyreiea2oi25iw4des2c7yp56kcouleoy7uri5gnolunedfygzb77xkdi&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+<p><code>&lt;directory-path&gt;</code> refers to the container directory for the resulting output file.</p>
+<p>A trust path is of the form:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">cid</span><span class="o">-</span><span class="nx">formula</span><span class="p">],</span>
+<span class="w">  </span><span class="s2">&quot;via&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">agent</span><span class="p">,</span><span class="w"> </span><span class="nx">mode</span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>An example would be:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">cidA</span><span class="p">,</span><span class="w"> </span><span class="nx">cidB</span><span class="p">],</span>
+<span class="w">  </span><span class="s2">&quot;via&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">K1</span><span class="p">,</span><span class="w"> </span><span class="nx">T1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">K4</span><span class="p">,</span><span class="w"> </span><span class="nx">T6</span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The above example trust path would be interpreted as: <em>The target formula can be reached </em><em>via trusting</em><em> <code>[{K1, T1}, {K4, T6}]</code>, with the formulas <code>[cidA, cidB]</code> as remaining dependencies</em>.</p>
+<h2 id="ongoing-developments">Ongoing developments</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="damf-processes.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Processes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Processes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="abella.html" class="md-footer__link md-footer__link--next" aria-label="Next: Abella DAMF">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Abella DAMF
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 . <a href="https://innofarah.com" target="_blank">Farah Al Wardani</a>, <a href="https://chaudhuri.info" target="_blank">Kaustuv Chaudhuri</a>, and <a href="https://www.lix.polytechnique.fr/~dale/" target="_blank">Dale Miller</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/distributed-assertions" target="_blank" rel="noopener" title="DAMF on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "toc.follow", "navigation.top", "navigation.expand", "navigation.footer", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="assets/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

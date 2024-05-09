@@ -1,0 +1,2 @@
+name "plus112" (plus X X (succ (succ zero))).
+name "plus213" (plus (succ (succ zero)) (succ zero) N).
