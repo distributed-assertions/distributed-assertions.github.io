@@ -34,7 +34,7 @@ instructions below are for a recent OCaml (&ge;4.14.0) and OPAM (&ge;2.1.2).
    2.0.9-ipfs
    ~~~~
 
-    Note that you can instead directly download [this Zip](../docs/assets/zips/abella-f931011d4da6d654f846aa9dc71fe00788196961.zip) and proceed from the `opam pin -y .` command.
+    Note that you can instead directly download [this Zip](assets/zips/abella-f931011d4da6d654f846aa9dc71fe00788196961.zip) and proceed from the `opam pin -y .` command.
 
 3. To uninstall this version of Abella and restore the standard Abella packages
    in OPAM, run in the same `abella` directory as step 2 above:

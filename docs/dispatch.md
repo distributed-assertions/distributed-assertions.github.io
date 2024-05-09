@@ -11,7 +11,7 @@ It is based on the [DAMF Formats](./damf-formats.md) specification and implement
 - [Zip][dispatch-zip]
 - [Github][dispatch-repo]
 
-[dispatch-zip]: ../docs/assets/zips/dispatch-b778c71dc35c6c1ae05d2cd4853d648659562cfe.zip
+[dispatch-zip]: assets/zips/dispatch-b778c71dc35c6c1ae05d2cd4853d648659562cfe.zip
 [dispatch-repo]: https://github.com/distributed-assertions/dispatch/tree/b778c71dc35c6c1ae05d2cd4853d648659562cfe
 
 ### Requirements
